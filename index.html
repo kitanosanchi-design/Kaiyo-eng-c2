@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>なっとく英語Ⅱ</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#1d2733;--sub:#5b6878;--line:#d9e1ea;--main:#1f5fa8;--main2:#e8f0fa;--ok:#1e8a4c;--ok2:#e6f5ec;--ng:#c0392b;--ng2:#fbecea;--s:#2a7de1;--v:#e0532f;--o:#2e9d5b;--gold:#e9a700}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;font-size:17px;line-height:1.7}
+header{position:sticky;top:0;z-index:5;background:var(--main);color:#fff;padding:10px 16px 8px}
+header h1{font-size:16px;margin:0;font-weight:700}
+header .bar{height:6px;background:rgba(255,255,255,.3);border-radius:3px;margin-top:6px;overflow:hidden}
+header .bar i{display:block;height:100%;background:#ffd34d;width:0;transition:width .4s}
+header .meta{font-size:12px;opacity:.9;display:flex;justify-content:space-between;margin-top:3px}
+main{max-width:640px;margin:0 auto;padding:14px 16px 120px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;margin-bottom:6px;color:#fff}
+.t-see{background:#7a5bd1}.t-do{background:#e07b16}.t-think{background:#1f8a8a}.t-solve{background:#1f5fa8}.t-boss{background:#b8322a}.t-why{background:#6b7a8c}.t-ear{background:#c2457a}
+.q{font-weight:700;margin:2px 0 8px}
+.en{font-family:"Helvetica Neue",Arial,sans-serif;font-size:19px}
+.goal{background:var(--main2);border-radius:12px;padding:12px 14px;margin-top:10px}
+button{font:inherit;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;color:var(--ink)}
+.opt.sel-ok{border-color:var(--ok);background:var(--ok2)}
+.opt.sel-ng{border-color:var(--ng);background:var(--ng2)}
+.opt:disabled{cursor:default}
+.btn{background:var(--main);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700}
+.btn.sub{background:#fff;color:var(--main);border:2px solid var(--main)}
+.btn:disabled{opacity:.45}
+.say{background:#fff;border:2px solid var(--main);color:var(--main);border-radius:99px;padding:3px 12px;font-size:15px;margin:2px 4px 2px 0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;min-height:46px;padding:6px;border-radius:10px}
+.pool{background:#f1f4f8}
+.line{border:2px dashed var(--line);margin-bottom:8px}
+.chip{border:0;border-radius:8px;padding:6px 12px;background:#fff;box-shadow:0 1px 0 #c8d2de,0 0 0 1px #c8d2de inset;font-family:"Helvetica Neue",Arial,sans-serif;font-size:18px;color:var(--ink)}
+.chip.c-s{box-shadow:0 0 0 2px var(--s) inset}.chip.c-v{box-shadow:0 0 0 2px var(--v) inset}.chip.c-o{box-shadow:0 0 0 2px var(--o) inset}
+.fb{margin-top:8px;padding:8px 12px;border-radius:10px;font-size:15px}
+.fb.ok{background:var(--ok2);color:#145c33}.fb.ng{background:var(--ng2);color:#8a2219}.fb.hint{background:#fff7dd;color:#6b5000}
+.naru{margin-top:8px;padding:10px 12px;border-left:4px solid var(--gold);background:#fffaf0;border-radius:0 10px 10px 0;font-size:15px}
+.naru b:first-child{color:#8a6300}
+.box{display:inline-block;border-radius:6px;padding:0 6px;margin:1px 0}
+.bs{background:#dceafc;color:#174f96}.bv{background:#fde3dc;color:#9c3216}.bo{background:#dcf3e5;color:#1b6a3c}.bw{background:#fff0c2;color:#7a5600;font-weight:700}
+.legend{font-size:13px;color:var(--sub)}
+.morph{font-family:"Helvetica Neue",Arial,sans-serif;font-size:20px;text-align:center;padding:16px 4px;background:#f7f9fc;border-radius:10px;margin:8px 0;min-height:70px}
+.morph .gone{display:inline-block;transition:all .6s;overflow:hidden;white-space:nowrap;vertical-align:bottom}
+.morph.on .gone{max-width:0!important;opacity:0}
+.morph .w{transition:all .6s}
+.passage p{margin:6px 0}
+.g{border-bottom:2px dotted #8aa6c8;cursor:pointer}
+.gloss{font-size:14px;color:var(--sub);min-height:22px}
+textarea,input[type=text]{width:100%;font:inherit;border:2px solid var(--line);border-radius:10px;padding:8px 10px}
+.vocab{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center}
+.vocab .en{font-size:18px}
+details summary{cursor:pointer;font-weight:700;color:var(--main)}
+.stars{font-size:28px;letter-spacing:4px;color:var(--gold)}
+.sec{font-size:13px;color:var(--sub);font-weight:700;margin:26px 0 -4px;letter-spacing:.05em}
+.small{font-size:13px;color:var(--sub)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1d2733;color:#fff;padding:8px 16px;border-radius:99px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header>
+  <h1>なっとく英語Ⅱ　第1回　what＝「〜もの」</h1>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="meta"><span id="cnt"></span><span id="streak"></span></div>
+</header>
+<main id="app"></main>
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== 設定 =====
+const APP = 'eigo2';
+const APP_VER = 'proto1';
+const GAS_URL = ''; // 記録先（試作では未接続）
+const KEY = 'nattokuEigo2.v1';
+
+// ===== 教材（第1回）=====
+// 色：S=だれが（青） V=する（赤） O=なにを（緑）
+const L1 = {
+  no: 1, title: 'what ＝「〜もの・〜こと」',
+  goal: '<b>今日のゴール</b><br>① 英語は「だれが → する → なにを」の順で並ぶ<br>② <span class="box bw">what</span> ひとつで「〜するもの・〜すること」を表せる<br>③ What I like is … で自分のことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', html:`
+    <div class="q">英語は「並べる順番」で意味が決まる</div>
+    日本語は「パンを ケンタが 作る」と順番を変えても通じます。英語は変えられません。
+    <div class="morph"><span class="box bs">Kenta</span> <span class="box bv">makes</span> <span class="box bo">bread</span>.</div>
+    <div class="legend"><span class="box bs">だれが</span> → <span class="box bv">する</span> → <span class="box bo">なにを</span>　この3つの色は、今日ずっと使います。</div>
+    <button class="say" data-say="Kenta makes bread.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は 音楽が 好きだ」を英語に。', words:['I','like','music'], colors:['s','v','o'], ja:'',
+    hint:'まず「だれが」。次に「する（好き）」。最後に「なにを」。',
+    naru:'英語は <span class="box bs">I</span> <span class="box bv">like</span> <span class="box bo">music</span>。「好き」が真ん中に来るのが日本語とのちがいです。'},
+  {type:'order', id:'o2', tag:'do', q:'「ケンタは 毎朝 パンを 焼く」を英語に。', words:['Kenta','bakes','bread','every','morning'], colors:['s','v','o','',''], ja:'',
+    hint:'「毎朝」は、だれが・する・なにを のあと、いちばん最後。',
+    naru:'<span class="box bs">Kenta</span> <span class="box bv">bakes</span> <span class="box bo">bread</span> every morning。「いつ」は最後に足すのが基本です。'},
+
+  {sec:'2. なぞ：この what は「なに？」じゃない（5分）'},
+  {type:'info', tag:'see', html:`
+    <div class="q">2つの文をくらべよう</div>
+    <p class="en">A: What do you want?　<button class="say" data-say="What do you want?">🔊</button></p>
+    <p class="en">B: I know what you want.　<button class="say" data-say="I know what you want.">🔊</button></p>
+    A は「何がほしいの？」と<b>聞いて</b>います。<br>
+    B は聞いていません。最後が「.」で、<b>you want</b> は「だれが → する」のふつうの順番です。<br>
+    B は「私は <b>あなたがほしいもの</b> を知っている」。
+    <div class="naru"><b>ポイント</b>　B の what は「〜するもの」。<span class="box bw">what you want</span> 全体で、ひとつの「もの」になっています。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「質問していない what」はどっち？',
+    opts:['What is this?','This is what I need.'], ans:1,
+    hint:'文の終わりが「?」か「.」か、を見よう。',
+    naru:'This is what I need.＝「これが<b>私に必要なもの</b>だ」。聞いていないので「?」がつきません。'},
+  {type:'info', tag:'see', html:`
+    <div class="q">what の中には「もの」が入っている</div>
+    ボタンを押すと、長い言い方が短くなります。
+    <div class="morph" id="m1"><span class="w">This is</span> <span class="gone" style="max-width:260px"><span class="box bo">the thing</span> <span class="box bw">which</span></span><span class="w"> <span class="box bw ifon">what</span></span> <span class="w">I wanted.</span></div>
+    <button class="btn sub" id="m1b">ちぢめる ▶</button>
+    <div class="naru"><b>ポイント</b>　<span class="box bo">the thing</span>（もの）＋ which（それを）＝ <span class="box bw">what</span>。<br>だから what の前に「もの」を表す名詞は置きません。</div>`},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br><span class="en">This is the thing what I wanted.</span>',
+    opts:['This is が変','the thing と what が「もの」を二重に言っている','I wanted が変'], ans:1,
+    hint:'さっきのボタンを思い出そう。what の中には何が入っていた？',
+    naru:'what はそれだけで「もの」。<br>正しくは <span class="en">This is what I wanted.</span> か <span class="en">This is the thing (which) I wanted.</span> のどちらか。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'choice', id:'c3', tag:'solve', q:'<span class="en">What I want is a new bike.</span><br>の意味は？', say:'What I want is a new bike.',
+    opts:['私は新しい自転車がほしいですか？','私がほしいものは、新しい自転車だ','新しい自転車は何ですか？'], ans:1,
+    hint:'What I want ＝「私がほしいもの」。それが文の「だれが（何が）」になっている。',
+    naru:'<span class="box bs">What I want</span> <span class="box bv">is</span> <span class="box bo">a new bike</span>。what のかたまりが、文の頭（何が）に来ています。'},
+  {type:'order', id:'o3', tag:'do', q:'「私に必要なのは 睡眠だ」を英語に。', words:['What','I','need','is','sleep'], colors:['s','s','s','v','o'], ja:'',
+    hint:'まず「私に必要なもの」＝ What I need のかたまり。次に is。',
+    naru:'<span class="box bs">What I need</span> <span class="box bv">is</span> <span class="box bo">sleep</span>. かたまり全体が「何が」です。'},
+  {type:'order', id:'o4', tag:'do', q:'「それが 私の言いたいことだ」を英語に。', words:['That','is','what','I','want','to','say'], colors:['s','v','o','o','o','o','o'], ja:'',
+    hint:'That is のあとに「私が言いたいこと」＝ what I want to say。',
+    naru:'<span class="box bs">That</span> <span class="box bv">is</span> <span class="box bo">what I want to say</span>. 会話でよく使います。'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br><span class="en">I can\'t believe (　) he said.</span>',
+    opts:['which','what','the thing what'], ans:1,
+    hint:'(　) の前に「もの」を表す名詞はある？ ないなら、「もの」を中に持っている語を選ぶ。',
+    naru:'「彼が言ったこと」＝ what he said。前に名詞がないので what。which は前に名詞が必要です。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', tag:'see', items:[
+    ['bakery','パン屋'],['station','駅'],['smell','におい'],['fresh','焼きたての・新しい'],['chat','おしゃべりする'],['listen','耳をかたむける']]},
+  {type:'read', tag:'see', title:'A Small Bakery', paras:[
+    'Kenta works at a small {bakery|パン屋} near the {station|駅}.',
+    'He gets up at four every morning.',
+    'What he likes most is the {smell|におい} of {fresh|焼きたての} bread.',
+    '"What I make here is not only bread," he says.',
+    '"I also make a place for people to talk."',
+    'Many old people come and {chat|おしゃべりする} with him.',
+    'What they need is not just food.',
+    'They need someone to {listen|話を聞く}.']},
+  {type:'choice', id:'r1', tag:'solve', q:'ケンタがいちばん好きなものは？',
+    opts:['朝4時に起きること','焼きたてのパンのにおい','駅の近くの店'], ans:1,
+    hint:'What he likes most is … の文をさがそう。',
+    naru:'What he likes most（彼がいちばん好きなもの）is the smell of fresh bread。'},
+  {type:'choice', id:'r2', tag:'think', q:'"What I make here is not only bread." でケンタが言いたいことは？',
+    opts:['パンは作っていない','パンだけでなく、人が話せる場所も作っている','パンを作るのは大変だ'], ans:1,
+    hint:'次の文 "I also make a place for people to talk." とセットで読もう。',
+    naru:'not only bread（パンだけではない）→ also a place（場所も）。what のかたまり「ここで作っているもの」が話の中心です。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['お年寄りは食べ物だけを求めて来る','お年寄りには話を聞いてくれる人が必要だ','ケンタは夜にパンを焼く'], ans:1,
+    hint:'最後の2文を読もう。',
+    naru:'What they need is not just food.（必要なのは食べ物だけではない）→ They need someone to listen.'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'What I like is music.',
+    opts:['私が好きなものは音楽だ','私は何の音楽が好き？','音楽は好きですか？'], ans:0,
+    hint:'「おそく」で聞きなおそう。最後は「?」の調子（上がる）だった？',
+    naru:'What I like is music. 文の最後は下がる調子。質問ではありません。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'I know what you mean.',
+    opts:['I know what you need.','I know what you mean.','I know you mean it.'], ans:1,
+    hint:'最後の語の始まりの音は「ン」か「ム」か。',
+    naru:'I know what you mean.＝「言いたいこと、わかるよ」。会話でとてもよく使います。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'<span class="en">What I like is ________.</span><br>自分の好きなものを英語で書こう（単語ひとつでOK）。',
+    example:'例：What I like is sleeping. / What I like is ramen. / What I like is my dog.',
+    check:s=>/^\s*what\s+i\s+like\s+is\s+\S+/i.test(s), need:'What I like is のあとに、好きなものを書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで what が「〜もの」になるの？ もとは「なに？」なのに。',
+    a:'「I know what you want.」を「私は <b>あなたが何をほしいか</b> 知っている」と読んでも、意味はほぼ同じです。「何を〜か」を知っている → 「〜するもの」を知っている、と、もとの「なに？」の意味から自然につながっています。<br>なので、この what が「何を〜か」か「〜するもの」か、はっきり分けられない文もあります。どちらで訳しても意味が通れば OK です。'},
+  {type:'why', q:'なんで「the thing what」はだめなの？',
+    a:'what の中にもう「the thing（もの）」が入っているからです。「もののもの」と二重に言うことになります。<br>名詞を置きたいときは <span class="en">the thing which / the thing that</span>、置かないときは <span class="en">what</span>。どちらか一方です。'}
+  ]
+};
+
+// ===== 状態 =====
+const S = load();
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return s}catch(e){}return {v:1,dev:rid(),nick:'',lessons:{}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function rid(){const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let r='';for(let i=0;i<6;i++)r+=c[Math.floor(Math.random()*c.length)];return r}
+function LS(){const k='L'+L1.no;if(!S.lessons[k])S.lessons[k]={u:{},w:{},t0:Date.now(),ms:0,sent:false};return S.lessons[k]}
+let streak=0;
+
+// ===== 読み上げ =====
+let voice=null;
+function pickVoice(){const vs=speechSynthesis.getVoices();voice=vs.find(v=>/en[-_]US/i.test(v.lang)&&/Samantha|Google|Aaron|Nicky/i.test(v.name))||vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null}
+if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+let sayOK=false;
+function say(t,rate){
+  if(!('speechSynthesis' in window)){toast('この画面では読み上げが使えません。Safari か Chrome で開いてください');return}
+  const ss=window.speechSynthesis;
+  // iPhone：直前の cancel() が次の読み上げを止めることがあるので、話している時だけ止める
+  if(ss.speaking||ss.pending)ss.cancel();
+  if(!voice)pickVoice();
+  const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=rate||0.9;u.volume=1;if(voice)u.voice=voice;
+  u.onstart=()=>{sayOK=true};
+  u.onerror=e=>{if(e.error!=='interrupted'&&e.error!=='canceled')toast('音が出せませんでした（'+e.error+'）')};
+  ss.resume();ss.speak(u);
+  setTimeout(()=>{if(!sayOK&&!ss.speaking)toast('音が出ないときは、消音スイッチを切る／Safari で開く')},2500);
+}
+function soundTest(){
+  const el=document.getElementById('sndst');
+  const has='speechSynthesis' in window;
+  const n=has?speechSynthesis.getVoices().length:0;
+  sayOK=false;say('Hello. Can you hear me?',0.9);
+  el.textContent=has?`読み上げ：あり／英語の声：${voice?voice.name:'未取得（初回は少し待って、もう一度）'}（声の数 ${n}）`:'読み上げ：なし（この画面では使えません）';
+  setTimeout(()=>{if(has)el.textContent+=sayOK?' → 再生できました':' → 再生が始まりませんでした'},2500);
+}
+
+// ===== 表示 =====
+const app=document.getElementById('app');
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const TAG={see:['見る','t-see'],do:['手を動かす','t-do'],think:['考える','t-think'],solve:['解く','t-solve'],boss:['ボス','t-boss'],why:['なんで？','t-why'],ear:['聞く','t-ear']};
+function tag(t){const a=TAG[t];return a?`<span class="tag ${a[1]}">${a[0]}</span>`:''}
+function units(){return L1.steps.filter(s=>['order','choice'].includes(s.type))}
+
+function render(){
+  const ls=LS();
+  let h=`<div class="card"><div class="tag t-solve">第1回</div><div class="q" style="font-size:20px">${L1.title}</div><div class="goal">${L1.goal}</div>
+    <div style="margin-top:10px"><button class="btn sub" id="sndtest">🔊 音のテスト</button><div class="small" id="sndst"></div></div>
+    <p class="small">🔊 は英語を読み上げます。音が出ないときは、①iPhone 左の消音スイッチを切る ②音量を上げる ③Safari で開く。<br>1回まちがえるとヒント、2回で「答えを見る」が出ます。</p></div>`;
+  L1.steps.forEach((s,i)=>{h+=stepHTML(s,i,ls)});
+  h+=endHTML();
+  app.innerHTML=h;
+  bind();
+  progress();
+}
+
+function stepHTML(s,i,ls){
+  if(s.sec)return `<div class="sec">${s.sec}</div>`;
+  if(s.type==='info')return `<div class="card">${tag(s.tag)}${s.html}</div>`;
+  if(s.type==='words'){
+    return `<div class="card">${tag(s.tag)}<div class="q">先に、出てくる単語</div><div class="vocab">${s.items.map(w=>`<button class="say" data-say="${w[0]}">🔊</button><div><span class="en">${w[0]}</span>　<span class="small">${w[1]}</span></div>`).join('')}</div></div>`}
+  if(s.type==='read'){
+    const ps=s.paras.map(p=>{const plain=p.replace(/\{([^|]+)\|[^}]+\}/g,'$1');const html=esc(p).replace(/\{([^|]+)\|([^}]+)\}/g,'<span class="g" data-g="$2">$1</span>');return `<p class="en">${html} <button class="say" data-say="${esc(plain)}">🔊</button></p>`}).join('');
+    const all=s.paras.map(p=>p.replace(/\{([^|]+)\|[^}]+\}/g,'$1')).join(' ');
+    return `<div class="card">${tag(s.tag)}<div class="q">${s.title}</div>
+      <button class="say" data-say="${esc(all)}">🔊 ぜんぶ聞く</button><button class="say" data-say="${esc(all)}" data-rate="0.65">🐢 おそく</button>
+      <div class="passage">${ps}</div><div class="gloss" id="gloss">点線の語をタップすると意味が出ます。</div>
+      <div class="small">what のかたまりは3つあります。見つけられるかな？</div></div>`}
+  if(s.type==='write'){
+    const v=ls.w[s.id]||'';
+    return `<div class="card" id="card-${s.id}">${tag(s.tag)}<div class="q">${s.q}</div><div class="small">${s.example}</div>
+      <input type="text" id="in-${s.id}" value="${esc(v)}" autocomplete="off" autocapitalize="sentences" placeholder="What I like is ...">
+      <div style="margin-top:8px"><button class="btn" data-write="${s.id}">できた</button> <button class="say" data-sayin="${s.id}">🔊 自分の文を聞く</button></div>
+      <div id="fb-${s.id}">${v&&s.check(v)?'<div class="fb ok">いいね！ 自分のことを英語で言えました。🔊 で自分の文を聞いて、まねして言ってみよう。</div>':''}</div></div>`}
+  if(s.type==='why'){
+    return `<div class="card">${tag('why')}<details><summary>${s.q}</summary><div class="small" style="margin:6px 0">30秒考えてから、開こう。</div><div>${s.a}</div></details></div>`}
+  // 判定ユニット
+  const u=ls.u[s.id]||{};
+  const done=u.ok||u.shown;
+  let h=`<div class="card" id="card-${s.id}">${tag(s.tag)}<div class="q">${s.q}</div>`;
+  if(s.listen)h+=`<button class="say" data-say="${esc(s.listen)}">🔊 聞く</button><button class="say" data-say="${esc(s.listen)}" data-rate="0.6">🐢 おそく</button>`;
+  if(s.say)h+=`<button class="say" data-say="${esc(s.say)}">🔊</button>`;
+  if(s.type==='choice'){
+    h+=s.opts.map((o,k)=>{let c='';if(done&&k===s.ans)c='sel-ok';return `<button class="opt ${c}" data-opt="${s.id}" data-k="${k}" ${done?'disabled':''}>${/^[A-Za-z"]/.test(o)?`<span class="en">${esc(o)}</span>`:esc(o)}</button>`}).join('');
+  } else if(s.type==='order'){
+    h+=`<div class="small">色の枠：<span class="box bs">だれが</span><span class="box bv">する</span><span class="box bo">なにを</span></div><div class="chips line" id="line-${s.id}"></div><div class="chips pool" id="pool-${s.id}"></div>
+      <div style="margin-top:8px"><button class="btn" data-check="${s.id}" ${done?'disabled':''}>答え合わせ</button> <button class="btn sub" data-reset="${s.id}" ${done?'disabled':''}>やりなおす</button></div>`;
+  }
+  h+=`<div id="fb-${s.id}">${fbDone(s,u)}</div></div>`;
+  return h;
+}
+function fbDone(s,u){
+  if(u.ok)return `<div class="fb ok">${u.first?'1回で正解！':'正解！'}</div><div class="naru"><b>なるほど</b>　${s.naru}</div>`;
+  if(u.shown)return `<div class="fb hint">答え：${ansText(s)}</div><div class="naru"><b>なるほど</b>　${s.naru}</div>`;
+  return '';
+}
+function ansText(s){return s.type==='order'?`<span class="en">${s.words.join(' ')}</span>`:esc(s.opts[s.ans])}
+
+function endHTML(){
+  return `<div class="sec">おわりに</div><div class="card" id="endcard">
+    <div class="q">今日のふりかえり</div><div class="stars" id="stars"></div><div id="endtxt" class="small"></div>
+    <div style="margin-top:10px">今日わかったことを一言（日本語でOK）</div>
+    <textarea id="refl" rows="2" placeholder="例：what は the thing which のこと"></textarea>
+    <div style="margin-top:10px">ニックネーム</div><input type="text" id="nick" value="${esc(S.nick)}" placeholder="本名は書かないでね">
+    <div style="margin-top:10px"><button class="btn" id="send">記録を送る</button></div>
+    <div id="sendmsg" class="small" style="margin-top:6px"></div></div>`;
+}
+
+// ===== 並べかえ =====
+const ORD={};
+function seededShuffle(a,seed){const r=a.map((x,i)=>i);let x=seed;for(let i=r.length-1;i>0;i--){x=(x*9301+49297)%233280;const j=Math.floor(x/233280*(i+1));[r[i],r[j]]=[r[j],r[i]]}
+  if(r.every((v,i)=>v===i)&&r.length>1)[r[0],r[1]]=[r[1],r[0]];return r}
+function drawOrder(s){
+  const u=LS().u[s.id]||{};
+  if(!ORD[s.id])ORD[s.id]={pool:seededShuffle(s.words,s.id.charCodeAt(1)*7+s.words.length),line:[]};
+  if(u.ok||u.shown){ORD[s.id]={pool:[],line:s.words.map((w,i)=>i)}}
+  const o=ORD[s.id],dis=(u.ok||u.shown)?'disabled':'';
+  const chip=(i,where)=>`<button class="chip ${s.colors[i]?'c-'+s.colors[i]:''}" data-chip="${s.id}" data-i="${i}" data-w="${where}" ${dis}>${esc(s.words[i])}</button>`;
+  document.getElementById('line-'+s.id).innerHTML=o.line.map(i=>chip(i,'line')).join('');
+  document.getElementById('pool-'+s.id).innerHTML=o.pool.map(i=>chip(i,'pool')).join('');
+}
+
+// ===== 判定 =====
+function judge(s,ok){
+  const ls=LS();const u=ls.u[s.id]||(ls.u[s.id]={tries:0});
+  u.tries++;
+  const fb=document.getElementById('fb-'+s.id);
+  if(ok){u.ok=true;u.first=(u.tries===1);streak++;save();
+    fb.innerHTML=fbDone(s,u)+(streak>=3?`<div class="small">🔥 ${streak}問連続正解</div>`:'');
+    lock(s);progress();return}
+  streak=0;save();
+  let h=`<div class="fb ng">もう一度。</div><div class="fb hint">ヒント：${s.hint}</div>`;
+  if(u.tries>=2)h+=`<button class="btn sub" style="margin-top:8px" data-show="${s.id}">答えを見る</button>`;
+  fb.innerHTML=h;progress();
+}
+function lock(s){
+  if(s.type==='choice')document.querySelectorAll(`[data-opt="${s.id}"]`).forEach(b=>{b.disabled=true;if(+b.dataset.k===s.ans)b.classList.add('sel-ok')});
+  if(s.type==='order'){drawOrder(s);document.querySelectorAll(`[data-check="${s.id}"],[data-reset="${s.id}"]`).forEach(b=>b.disabled=true)}
+}
+const byId=id=>L1.steps.find(s=>s.id===id);
+
+function bind(){
+  L1.steps.filter(s=>s.type==='order').forEach(drawOrder);
+  const m=document.getElementById('m1b');
+  if(m)m.onclick=()=>{const el=document.getElementById('m1');el.classList.toggle('on');m.textContent=el.classList.contains('on')?'◀ もどす':'ちぢめる ▶';syncMorph()};
+  syncMorph();
+  document.getElementById('refl').value=LS().refl||'';
+}
+function syncMorph(){const el=document.getElementById('m1');if(!el)return;const on=el.classList.contains('on');el.querySelectorAll('.ifon').forEach(x=>{x.style.display=on?'inline-block':'none'})}
+
+app.addEventListener('click',e=>{
+  const t=e.target.closest('button,.g');if(!t)return;
+  if(t.dataset.say){say(t.dataset.say,+t.dataset.rate||0.9);return}
+  if(t.classList.contains('g')){document.getElementById('gloss').textContent=t.textContent+'：'+t.dataset.g;say(t.textContent,0.8);return}
+  if(t.dataset.opt){const s=byId(t.dataset.opt),k=+t.dataset.k;
+    if(k!==s.ans){t.classList.add('sel-ng');setTimeout(()=>t.classList.remove('sel-ng'),900)}
+    judge(s,k===s.ans);return}
+  if(t.dataset.chip){const s=byId(t.dataset.chip),o=ORD[s.id],i=+t.dataset.i;
+    if(t.dataset.w==='pool'){o.pool=o.pool.filter(x=>x!==i);o.line.push(i);say(s.words[i],0.9)}else{o.line=o.line.filter(x=>x!==i);o.pool.push(i)}
+    drawOrder(s);return}
+  if(t.dataset.reset){const s=byId(t.dataset.reset);const o=ORD[s.id];o.pool=o.pool.concat(o.line);o.line=[];drawOrder(s);return}
+  if(t.dataset.check){const s=byId(t.dataset.check),o=ORD[s.id];
+    if(o.pool.length){document.getElementById('fb-'+s.id).innerHTML='<div class="fb hint">ぜんぶの語を使おう。</div>';return}
+    const ok=o.line.map(i=>s.words[i]).join(' ')===s.words.join(' ');
+    judge(s,ok);if(ok)say(s.words.join(' ')+'.',0.9);return}
+  if(t.dataset.show){const s=byId(t.dataset.show);const u=LS().u[s.id];u.shown=true;streak=0;save();
+    document.getElementById('fb-'+s.id).innerHTML=fbDone(s,u);lock(s);progress();
+    if(s.type==='order')say(s.words.join(' ')+'.',0.9);return}
+  if(t.dataset.write){const s=byId(t.dataset.write),v=document.getElementById('in-'+s.id).value.trim();
+    LS().w[s.id]=v;save();
+    document.getElementById('fb-'+s.id).innerHTML=s.check(v)?'<div class="fb ok">いいね！ 自分のことを英語で言えました。🔊 で自分の文を聞いて、まねして言ってみよう。</div>':`<div class="fb hint">${s.need}</div>`;
+    progress();return}
+  if(t.dataset.sayin){const v=document.getElementById('in-'+t.dataset.sayin).value.trim();if(v)say(v,0.85);return}
+  if(t.id==='send'){send();return}
+  if(t.id==='sndtest'){soundTest();return}
+});
+app.addEventListener('input',e=>{if(e.target.id==='refl'){LS().refl=e.target.value;save()}if(e.target.id==='nick'){S.nick=e.target.value.trim();save()}});
+
+// ===== 進み具合・星 =====
+function stat(){const ls=LS(),us=units();let solved=0,first=0,shown=0,tries=0;
+  us.forEach(s=>{const u=ls.u[s.id];if(!u)return;tries+=u.tries||0;if(u.ok||u.shown)solved++;if(u.ok&&u.first)first++;if(u.shown)shown++});
+  return {all:us.length,solved,first,shown,tries}}
+function progress(){
+  const st=stat();
+  document.getElementById('bar').style.width=(st.solved/st.all*100)+'%';
+  document.getElementById('cnt').textContent=`${st.solved} / ${st.all} 問`;
+  document.getElementById('streak').textContent=streak>=2?`🔥 ${streak}連続`:'';
+  const ok=st.solved-st.shown;
+  const star=st.solved<st.all?0:(st.first/st.all>=0.8?3:ok/st.all>=0.6?2:1);
+  const se=document.getElementById('stars');
+  if(se){se.textContent=st.solved<st.all?'☆☆☆':'★'.repeat(star)+'☆'.repeat(3-star);
+    document.getElementById('endtxt').textContent=st.solved<st.all?`あと ${st.all-st.solved} 問で星がつきます。`:`クリア！ 1回で正解 ${st.first}問／答えを見た ${st.shown}問`;}
+  const ls=LS();if(st.solved===st.all&&!ls.clearToast){ls.clearToast=1;ls.ms=Date.now()-ls.t0;save();toast('クリア！ 下の「記録を送る」を押そう')}
+}
+
+// ===== 送信 =====
+function send(){
+  const st=stat(),ls=LS(),msg=document.getElementById('sendmsg');
+  if(!S.nick){msg.textContent='ニックネームを入れてね。';return}
+  const p={app:APP,ver:APP_VER,dev:S.dev,nick:S.nick,lesson:L1.no,solved:st.solved,all:st.all,first:st.first,shown:st.shown,tries:st.tries,
+    min:Math.round((ls.ms||Date.now()-ls.t0)/60000),refl:ls.refl||'',write:Object.values(ls.w).join(' / ')};
+  const q=Object.entries(p).map(([k,v])=>k+'='+encodeURIComponent(v)).join('&');
+  if(!GAS_URL){msg.innerHTML='試作版のため、記録先はまだつないでいません。<br>送る内容：'+esc(decodeURIComponent(q.replace(/&/g,' ／ ')));return}
+  fetch(GAS_URL+'?'+q,{mode:'no-cors'}).then(()=>{ls.sent=true;save();msg.textContent='送りました。おつかれさま！'}).catch(()=>{msg.textContent='送れませんでした。電波のよいところで、もう一度押してね。'});
+}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),2200)}
+
+render();
+</script>
+</body>
+</html>
