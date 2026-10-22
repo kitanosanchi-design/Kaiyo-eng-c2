@@ -1,0 +1,2277 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>なっとく英語Ⅱ</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#1d2733;--sub:#5b6878;--line:#d9e1ea;--main:#1f5fa8;--main2:#e8f0fa;--ok:#1e8a4c;--ok2:#e6f5ec;--ng:#c0392b;--ng2:#fbecea;--s:#2a7de1;--v:#e0532f;--o:#2e9d5b;--c:#8a4fc4;--gold:#e9a700}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,"Hiragino Sans","Noto Sans JP",sans-serif;font-size:17px;line-height:1.7}
+header{position:sticky;top:0;z-index:5;background:var(--main);color:#fff;padding:10px 16px 8px}
+header .top{display:flex;align-items:center;gap:10px}
+header h1{font-size:16px;margin:0;font-weight:700;flex:1}
+header .menu{background:rgba(255,255,255,.18);color:#fff;border:0;border-radius:8px;padding:3px 10px;font-size:14px;white-space:nowrap}
+header .bar{height:6px;background:rgba(255,255,255,.3);border-radius:3px;margin-top:6px;overflow:hidden}
+header .bar i{display:block;height:100%;background:#ffd34d;width:0;transition:width .4s}
+header .meta{font-size:12px;opacity:.9;display:flex;justify-content:space-between;margin-top:3px}
+main{max-width:640px;margin:0 auto;padding:14px 16px 120px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;margin-bottom:6px;color:#fff}
+.t-see{background:#7a5bd1}.t-do{background:#e07b16}.t-think{background:#1f8a8a}.t-solve{background:#1f5fa8}.t-boss{background:#b8322a}.t-why{background:#6b7a8c}.t-ear{background:#c2457a}
+.q{font-weight:700;margin:2px 0 8px}
+.en{font-family:"Helvetica Neue",Arial,sans-serif;font-size:19px}
+.goal{background:var(--main2);border-radius:12px;padding:12px 14px;margin-top:10px}
+button{font:inherit;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-radius:10px;padding:10px 12px;margin:7px 0;color:var(--ink)}
+.opt.sel-ok{border-color:var(--ok);background:var(--ok2)}
+.opt.sel-ng{border-color:var(--ng);background:var(--ng2)}
+.opt:disabled{cursor:default}
+.btn{background:var(--main);color:#fff;border:0;border-radius:10px;padding:10px 16px;font-weight:700}
+.btn.sub{background:#fff;color:var(--main);border:2px solid var(--main)}
+.btn:disabled{opacity:.45}
+.say{background:#fff;border:2px solid var(--main);color:var(--main);border-radius:99px;padding:3px 12px;font-size:15px;margin:2px 4px 2px 0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;min-height:46px;padding:6px;border-radius:10px}
+.pool{background:#f1f4f8}
+.line{border:2px dashed var(--line);margin-bottom:8px}
+.chip{border:0;border-radius:8px;padding:6px 12px;background:#fff;box-shadow:0 1px 0 #c8d2de,0 0 0 1px #c8d2de inset;font-family:"Helvetica Neue",Arial,sans-serif;font-size:18px;color:var(--ink)}
+.chip.c-s{box-shadow:0 0 0 2px var(--s) inset}.chip.c-v{box-shadow:0 0 0 2px var(--v) inset}.chip.c-o{box-shadow:0 0 0 2px var(--o) inset}.chip.c-c{box-shadow:0 0 0 2px var(--c) inset}
+.fb{margin-top:8px;padding:8px 12px;border-radius:10px;font-size:15px}
+.fb.ok{background:var(--ok2);color:#145c33}.fb.ng{background:var(--ng2);color:#8a2219}.fb.hint{background:#fff7dd;color:#6b5000}
+.naru{margin-top:8px;padding:10px 12px;border-left:4px solid var(--gold);background:#fffaf0;border-radius:0 10px 10px 0;font-size:15px}
+.naru b:first-child{color:#8a6300}
+.box{display:inline-block;border-radius:6px;padding:0 6px;margin:1px 0}
+.bs{background:#dceafc;color:#174f96}.bv{background:#fde3dc;color:#9c3216}.bo{background:#dcf3e5;color:#1b6a3c}.bc{background:#efe3fa;color:#5d2f8f}.bw{background:#fff0c2;color:#7a5600;font-weight:700}
+.legend{font-size:13px;color:var(--sub)}
+.morph{font-family:"Helvetica Neue",Arial,sans-serif;font-size:20px;text-align:center;padding:16px 4px;background:#f7f9fc;border-radius:10px;margin:8px 0;min-height:70px}
+.morph .out{display:inline-block;max-width:320px;transition:all .6s;overflow:hidden;white-space:nowrap;vertical-align:bottom}
+.morph.on .out{max-width:0;opacity:0}
+.morph .in{display:none}.morph.on .in{display:inline-block}
+.passage p{margin:6px 0}
+.g{border-bottom:2px dotted #8aa6c8;cursor:pointer}
+.gloss{font-size:14px;color:var(--sub);min-height:22px}
+textarea,input[type=text]{width:100%;font:inherit;border:2px solid var(--line);border-radius:10px;padding:8px 10px}
+.vocab{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center}
+.vocab .en{font-size:18px}
+details summary{cursor:pointer;font-weight:700;color:var(--main)}
+.stars{font-size:28px;letter-spacing:4px;color:var(--gold)}
+.sec{font-size:13px;color:var(--sub);font-weight:700;margin:26px 0 -4px;letter-spacing:.05em}
+.small{font-size:13px;color:var(--sub)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1d2733;color:#fff;padding:8px 16px;border-radius:99px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
+.two .row{margin:4px 0}.two .lab{font-size:13px;color:var(--sub);margin:-2px 0 6px}
+.lesson{display:flex;align-items:center;gap:10px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:7px 0;color:var(--ink)}
+.lesson .no{flex:0 0 52px;font-size:13px;font-weight:700;color:var(--main)}
+.lesson .tt{flex:1;font-weight:700;line-height:1.4}.lesson .tt small{display:block;font-weight:400;color:var(--sub);font-size:13px}
+.lesson .st{color:var(--gold);font-size:15px;letter-spacing:1px;white-space:nowrap}
+.half{font-size:13px;color:var(--sub);font-weight:700;margin:18px 0 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="top"><h1 id="htitle">なっとく英語Ⅱ</h1><button class="menu" id="tomenu" hidden>≡ もくじ</button></div>
+  <div class="bar" id="hbar"><i id="bar"></i></div>
+  <div class="meta"><span id="cnt"></span><span id="streak"></span></div>
+</header>
+<main id="app"></main>
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== 設定 =====
+const APP='eigo2', APP_VER='v1';
+const GAS_URL=''; // 記録先（未接続）
+const KEY='nattokuEigo2.v1';
+const LESSONS=[];
+</script>
+<script>
+LESSONS.push({
+  no: 1, title: '関係代名詞の what', sub: '〜もの・〜こと',
+  goal: '<b>今日のゴール</b><br>① 英語は「だれが → する → なにを」の順で並ぶ<br>② [w:what] ひとつで「〜するもの・〜すること」を表せる<br>③ What I like is … で自分のことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'英語は「並べる順番」で意味が決まる', html:`
+    日本語は「パンを ケンタが 作る」と順番を変えても通じます。英語は変えられません。
+    <div class="morph">[s:Kenta] [v:makes] [o:bread].</div>
+    <div class="legend">[s:だれが] → [v:する] → [o:なにを]　この3つの色は、ずっと使います。</div>
+    <button class="say" data-say="Kenta makes bread.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は 音楽が 好きだ」を英語に。', words:['I','like','music'], colors:['s','v','o'],
+    hint:'まず「だれが」。次に「する（好き）」。最後に「なにを」。',
+    naru:'英語は [s:I] [v:like] [o:music]。「好き」が真ん中に来るのが日本語とのちがいです。'},
+  {type:'order', id:'o2', tag:'do', q:'「ケンタは 毎朝 パンを 焼く」を英語に。', words:['Kenta','bakes','bread','every','morning'], colors:['s','v','o','',''],
+    hint:'「毎朝」は、だれが・する・なにを のあと、いちばん最後。',
+    naru:'[s:Kenta] [v:bakes] [o:bread] every morning。「いつ」は最後に足すのが基本です。'},
+
+  {sec:'2. なぞ：この what は「なに？」じゃない（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: What do you want?　<button class="say" data-say="What do you want?">🔊</button></p>
+    <p class="en">B: I know what you want.　<button class="say" data-say="I know what you want.">🔊</button></p>
+    A は「何がほしいの？」と<b>聞いて</b>います。<br>
+    B は聞いていません。最後が「.」で、<b>you want</b> は「だれが → する」のふつうの順番です。<br>
+    B は「私は <b>あなたがほしいもの</b> を知っている」。
+    <div class="naru"><b>ポイント</b>　B の what は「〜するもの」。[w:what you want] 全体で、ひとつの「もの」になっています。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「質問していない what」はどっち？',
+    opts:['What is this?','This is what I need.'], ans:1,
+    hint:'文の終わりが「?」か「.」か、を見よう。',
+    naru:'This is what I need.＝「これが<b>私に必要なもの</b>だ」。聞いていないので「?」がつきません。'},
+  {type:'morph', tag:'see', q:'what の中には「もの」が入っている', lead:'ボタンを押すと、長い言い方が短くなります。',
+    parts:[{t:'This is'},{t:'the thing',c:'o',out:1},{t:'which',c:'w',out:1},{t:'what',c:'w',in:1},{t:'I wanted.'}],
+    note:'[o:the thing]（もの）＋ which（それを）＝ [w:what]。<br>だから what の前に「もの」を表す名詞は置きません。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:This is the thing what I wanted.]',
+    opts:['This is が変','the thing と what が「もの」を二重に言っている','I wanted が変'], ans:1,
+    hint:'さっきのボタンを思い出そう。what の中には何が入っていた？',
+    naru:'what はそれだけで「もの」。<br>正しくは [e:This is what I wanted.] か [e:This is the thing (which) I wanted.] のどちらか。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'choice', id:'c3', tag:'solve', q:'[e:What I want is a new bike.]<br>の意味は？', say:'What I want is a new bike.',
+    opts:['私は新しい自転車がほしいですか？','私がほしいものは、新しい自転車だ','新しい自転車は何ですか？'], ans:1,
+    hint:'What I want ＝「私がほしいもの」。それが文の「だれが（何が）」になっている。',
+    naru:'[s:What I want] [v:is] [o:a new bike]。what のかたまりが、文の頭（何が）に来ています。'},
+  {type:'order', id:'o3', tag:'do', q:'「私に必要なのは 睡眠だ」を英語に。', words:['What','I','need','is','sleep'], colors:['s','s','s','v','o'],
+    hint:'まず「私に必要なもの」＝ What I need のかたまり。次に is。',
+    naru:'[s:What I need] [v:is] [o:sleep]. かたまり全体が「何が」です。'},
+  {type:'order', id:'o4', tag:'do', q:'「それが 私の言いたいことだ」を英語に。', words:['That','is','what','I','want','to','say'], colors:['s','v','o','o','o','o','o'],
+    hint:'That is のあとに「私が言いたいこと」＝ what I want to say。',
+    naru:'[s:That] [v:is] [o:what I want to say]. 会話でよく使います。'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br>[e:I can\'t believe (　) he said.]',
+    opts:['which','what','the thing what'], ans:1,
+    hint:'(　) の前に「もの」を表す名詞はある？ ないなら、「もの」を中に持っている語を選ぶ。',
+    naru:'「彼が言ったこと」＝ what he said。前に名詞がないので what。which は前に名詞が必要です。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['bakery','パン屋'],['station','駅'],['smell','におい'],['fresh','焼きたての・新しい'],['chat','おしゃべりする'],['listen','耳をかたむける']]},
+  {type:'read', title:'A Small Bakery', find:'what のかたまりは3つあります。見つけられるかな？', paras:[
+    'Kenta works at a small {bakery|パン屋} near the {station|駅}.',
+    'He gets up at four every morning.',
+    'What he likes most is the {smell|におい} of {fresh|焼きたての} bread.',
+    '"What I make here is not only bread," he says.',
+    '"I also make a place for people to talk."',
+    'Many old people come and {chat|おしゃべりする} with him.',
+    'What they need is not just food.',
+    'They need someone to {listen|話を聞く}.']},
+  {type:'choice', id:'r1', tag:'solve', q:'ケンタがいちばん好きなものは？',
+    opts:['朝4時に起きること','焼きたてのパンのにおい','駅の近くの店'], ans:1,
+    hint:'What he likes most is … の文をさがそう。',
+    naru:'What he likes most（彼がいちばん好きなもの）is the smell of fresh bread。'},
+  {type:'choice', id:'r2', tag:'think', q:'"What I make here is not only bread." でケンタが言いたいことは？',
+    opts:['パンは作っていない','パンだけでなく、人が話せる場所も作っている','パンを作るのは大変だ'], ans:1,
+    hint:'次の文 "I also make a place for people to talk." とセットで読もう。',
+    naru:'not only bread（パンだけではない）→ also a place（場所も）。what のかたまり「ここで作っているもの」が話の中心です。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['お年寄りは食べ物だけを求めて来る','お年寄りには話を聞いてくれる人が必要だ','ケンタは夜にパンを焼く'], ans:1,
+    hint:'最後の2文を読もう。',
+    naru:'What they need is not just food.（必要なのは食べ物だけではない）→ They need someone to listen.'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'What I like is music.',
+    opts:['私が好きなものは音楽だ','私は何の音楽が好き？','音楽は好きですか？'], ans:0,
+    hint:'「おそく」で聞きなおそう。最後は「?」の調子（上がる）だった？',
+    naru:'What I like is music. 文の最後は下がる調子。質問ではありません。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'I know what you mean.',
+    opts:['I know what you need.','I know what you mean.','I know you mean it.'], ans:1,
+    hint:'最後の語の始まりの音は「ン」か「ム」か。',
+    naru:'I know what you mean.＝「言いたいこと、わかるよ」。会話でとてもよく使います。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:What I like is ________.]<br>自分の好きなものを英語で書こう（単語ひとつでOK）。',
+    example:'例：What I like is sleeping. / What I like is ramen. / What I like is my dog.', placeholder:'What I like is ...', ok_example:'What I like is ramen.',
+    pattern:'^\\s*what\\s+i\\s+like\\s+is\\s+\\S+', need:'What I like is のあとに、好きなものを書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで what が「〜もの」になるの？ もとは「なに？」なのに。',
+    a:'「I know what you want.」を「私は <b>あなたが何をほしいか</b> 知っている」と読んでも、意味はほぼ同じです。「何を〜か」を知っている → 「〜するもの」を知っている、と、もとの「なに？」の意味から自然につながっています。<br>なので、この what が「何を〜か」か「〜するもの」か、はっきり分けられない文もあります。どちらで訳しても意味が通れば OK です。'},
+  {type:'why', q:'なんで「the thing what」はだめなの？',
+    a:'what の中にもう「the thing（もの）」が入っているからです。「もののもの」と二重に言うことになります。<br>名詞を置きたいときは [e:the thing which / the thing that]、置かないときは [e:what]。どちらか一方です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'what には2つの使い方がある', rows:[
+    {en:'What do you want?', label:'疑問詞の what（なに？）'},
+    {en:'I know what you want.', label:'関係代名詞の what（〜もの）', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 2, title: '比較（1）基本の形', sub: '〜と同じくらい・〜より・いちばん',
+  goal: '<b>今日のゴール</b><br>① 「AはBより〜だ」は [w:-er than] か [w:more 〜 than]<br>② 「同じくらい」は [w:as 〜 as]、「いちばん」は [w:the -est] か [w:the most 〜]<br>③ 自分とだれかをくらべて言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'「AはBだ」の形を思い出そう', html:`
+    「〜は どんなだ」と言うときは、[s:だれが] → [v:is / am / are] → [c:どんな] の順です。
+    <div class="morph">[s:My brother] [v:is] [c:tall].</div>
+    <div class="legend">[c:紫] は「どんな」を表す部分。今日は、この [c:tall] の形が変わります。</div>
+    <button class="say" data-say="My brother is tall.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私の兄は 背が高い」を英語に。', words:['My','brother','is','tall'], colors:['s','s','v','c'],
+    hint:'まず「だれが」＝ My brother。次に is。最後に「どんな」。',
+    naru:'[s:My brother] [v:is] [c:tall]. 「どんな」は is のうしろに置きます。'},
+  {type:'order', id:'o2', tag:'do', q:'「このかばんは 重い」を英語に。', words:['This','bag','is','heavy'], colors:['s','s','v','c'],
+    hint:'「このかばん」＝ This bag が「何が」。',
+    naru:'[s:This bag] [v:is] [c:heavy]. 形は o1 と同じです。'},
+
+  {sec:'2. なぞ：tall の形が変わる（5分）'},
+  {type:'info', tag:'see', q:'3つの文をくらべよう', html:`
+    <p class="en">A: Ken is as tall as Yuki.　<button class="say" data-say="Ken is as tall as Yuki.">🔊</button></p>
+    <p class="en">B: Ken is taller than Yuki.　<button class="say" data-say="Ken is taller than Yuki.">🔊</button></p>
+    <p class="en">C: Ken is the tallest in his class.　<button class="say" data-say="Ken is the tallest in his class.">🔊</button></p>
+    A は「ケンは ユキと<b>同じくらい</b>背が高い」。<br>
+    B は「ケンは ユキ<b>より</b>背が高い」。<br>
+    C は「ケンは クラスで<b>いちばん</b>背が高い」。
+    <div class="naru"><b>ポイント</b>　語順はぜんぶ「[s:Ken] [v:is] [c:〜]」のまま。変わるのは [c:tall] のまわりだけです。</div>`},
+  {type:'morph', tag:'see', q:'「より」は -er と than', lead:'ボタンを押すと、「くらべる文」に変わります。',
+    parts:[{t:'Ken',c:'s'},{t:'is',c:'v'},{t:'tall',c:'c',out:1},{t:'taller',c:'c',in:1},{t:'than Yuki',c:'w',in:1}],
+    btn:['くらべる ▶','◀ もどす'], say:'Ken is taller than Yuki.',
+    note:'tall に [w:-er] をつけて、うしろに [w:than]（〜より）＋くらべる相手。<br>difficult のような長い語は、-er ではなく前に [w:more] を置きます。'},
+  {type:'choice', id:'c1', tag:'think', q:'つまずきポイント：どこが変？<br>[e:Ken is more taller than Yuki.]',
+    opts:['Ken is が変','more と -er で「もっと」を二重に言っている','than Yuki が変'], ans:1,
+    hint:'taller の -er は、もう「より〜」の意味を持っています。',
+    naru:'-er と more は、どちらか一方だけ。<br>正しくは [e:Ken is taller than Yuki.]'},
+  {type:'choice', id:'c2', tag:'think', q:'(　) に入るのは？<br>[e:This question is (　) than that one.]',
+    opts:['more difficult','difficulter','more difficulter'], ans:0,
+    hint:'difficult は長い語。長い語は -er をつける？ more を置く？',
+    naru:'長い語は [w:more] ＋そのままの形。[e:more difficult than] ＝「〜より難しい」。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「私の部屋は 君の部屋と 同じくらい 広い」を英語に。', words:['My','room','is','as','big','as','yours'], colors:['s','s','v','c','c','c','c'],
+    hint:'「同じくらい広い」＝ as big as。big の形は変えない。',
+    naru:'[s:My room] [v:is] [c:as big as yours]. as と as で、形を変えない語をはさみます。yours ＝「君のもの（君の部屋）」。'},
+  {type:'order', id:'o4', tag:'do', q:'「ユキは クラスで いちばん 足が速い」を英語に。', words:['Yuki','is','the','fastest','in','our','class'], colors:['s','v','c','c','','',''],
+    hint:'「いちばん速い」＝ fast に -est。その前に何がつく？',
+    naru:'[s:Yuki] [v:is] [c:the fastest] in our class. 「いちばん」には [w:the] がつきます。'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:My sister is younger than (　).]',
+    opts:['me','my','I\'m'], ans:0,
+    hint:'than のあとには、くらべる相手の「人」が来ます。',
+    naru:'than のあとは [e:me]（私）。[e:than I am] と言うこともできます。my（私の）はうしろに名詞が必要です。I\'m（I am の短い形）は文の最後に置けません。'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br>[e:She is (　) fastest runner on our team.]',
+    opts:['the','a','（何も入れない）'], ans:0,
+    hint:'「いちばん速い人」は、チームに何人いる？',
+    naru:'「いちばん」はひとりに決まるので [w:the]。[e:the fastest runner] ＝「いちばん速い走者」。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['young','若い'],['little brother','弟'],['boss','ボス・いちばんえらい人'],['way','通り道'],['laugh','笑う']]},
+  {type:'read', title:'Two Dogs and a Cat', find:'くらべる言い方は3つあります。見つけられるかな？', paras:[
+    'Mika\'s family has two dogs and a cat.',
+    'Max is a {young|若い} dog, and he is very big.',
+    'He is bigger than Mika\'s {little brother|弟}!',
+    'Coco is an old dog, but she is as fast as Max.',
+    'The cat, Tama, is very small, but she is the {boss|ボス} of the house.',
+    'When Tama walks by, the dogs move out of her {way|通り道}.',
+    '"Tama is the strongest in our family," Mika {laughs|笑う}.']},
+  {type:'choice', id:'r1', tag:'solve', q:'マックスについて正しいのは？',
+    opts:['ミカの弟より大きい','ココより年上だ','家でいちばん小さい'], ans:0,
+    hint:'He is bigger than … の文をさがそう。',
+    naru:'He is bigger than Mika\'s little brother!（ミカの弟より大きい）'},
+  {type:'choice', id:'r2', tag:'think', q:'ココについて正しいのは？',
+    opts:['マックスと同じくらい速い','マックスより大きい','走るのがいちばんおそい'], ans:0,
+    hint:'as fast as Max の意味を考えよう。',
+    naru:'she is as fast as Max ＝「マックスと同じくらい速い」。年をとっていても速いのです。'},
+  {type:'choice', id:'r3', tag:'think', q:'ミカが「タマは家族でいちばん強い」と言うのはなぜ？',
+    opts:['タマが通ると、犬たちがよけるから','タマがいちばん大きいから','タマがいちばん年上だから'], ans:0,
+    hint:'最後から2番目の文を読もう。',
+    naru:'the dogs move out of her way（犬たちがタマの通り道からどく）。だから the strongest（いちばん強い）。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'My brother is taller than me.',
+    opts:['兄は私より背が高い','私は兄より背が高い','兄と私は同じくらいの背だ'], ans:0,
+    hint:'than のあとの語を聞こう。「〜より」の相手はだれ？',
+    naru:'My brother is taller than me. 背が高いのは兄。me は「くらべる相手」です。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'She is as old as my mother.',
+    opts:['彼女は私の母と同じ年だ','彼女は私の母より年上だ','彼女は家族でいちばん年上だ'], ans:0,
+    hint:'as … as か、-er than か、the -est か。どれが聞こえた？',
+    naru:'as old as ＝「同じくらいの年」。as と as にはさまれた old は形が変わりません。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'自分とだれか（家族・友だち・ペット）をくらべて、<br>[e:I am ____er than ____.] の形で書こう。',
+    example:'例：I am taller than my mother. / I am older than my cat. / My dog is bigger than me.', placeholder:'I am ...er than ...', ok_example:'I am taller than my mother.',
+    pattern:'(\\w+er|more\\s+\\w+)\\s+than\\s+\\S+', need:'-er than か more … than を使って、くらべる相手を書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで -er と more の2種類があるの？',
+    a:'言いやすさのためです。tall → taller のように、短い語は -er をつけてもすぐ言えます。<br>でも difficult に -er をつけると「ディフィカルター」と長くて言いにくい。だから長い語は前に more を置いて [e:more difficult] にします。<br>迷ったら、声に出して言いにくいほうをやめればだいたい OK です。'},
+  {type:'why', q:'than のあとは me？ I？ どっちが正しいの？',
+    a:'ふだんの会話では [e:taller than me] がふつうです。<br>[e:taller than I am] のように、うしろに am をつけるなら I。am なしの [e:than I] は、かたい言い方です。<br>まずは [e:than me] で覚えておけば大丈夫です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'「とても」と「より」はちがう', rows:[
+    {en:'Ken is very tall.', label:'くらべていない（とても背が高い）'},
+    {en:'Ken is taller than Yuki.', label:'くらべている（ユキより背が高い）', today:1}],
+    note:'「いちばん」なら [e:the tallest]。the を忘れずに。'}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 3, title: '比較（2）決まった言い方', sub: '〜すればするほど・できるだけ',
+  goal: '<b>今日のゴール</b><br>① [w:The 比較級, the 比較級] ＝「〜すればするほど、ますます…」<br>② [w:as 〜 as possible] ＝「できるだけ〜」<br>③ [w:比較級 than any other ＋ 1つの名詞] ＝「ほかのどれよりも〜（いちばん）」',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'前回の「〜より」を思い出そう', html:`
+    「AはBより〜だ」は、[s:だれが] → [v:is] → [c:〜er than B] の順でした。
+    <div class="morph">[s:My sister] [v:is] [c:older than me].</div>
+    <div class="legend">今日は、この -er や as … as を使った「決まった言い方」を3つ覚えます。</div>
+    <button class="say" data-say="My sister is older than me.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私の姉は 私より 年上だ」を英語に。', words:['My','sister','is','older','than','me'], colors:['s','s','v','c','c','c'],
+    hint:'まず「だれが」。次に is。そのあと「より年上」＝ older than。',
+    naru:'[s:My sister] [v:is] [c:older than me]. くらべる相手は than のうしろです。'},
+  {type:'order', id:'o2', tag:'do', q:'「今日は 昨日より 寒い」を英語に。', words:['Today','is','colder','than','yesterday'], colors:['s','v','c','c','c'],
+    hint:'「寒い」＝ cold。「より寒い」はどんな形？',
+    naru:'[s:Today] [v:is] [c:colder than yesterday]. cold に -er をつけて colder。'},
+
+  {sec:'2. なぞ：than がないのに比較級？（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: You will get better.　<button class="say" data-say="You will get better.">🔊</button></p>
+    <p class="en">B: The more you practice, the better you get.　<button class="say" data-say="The more you practice, the better you get.">🔊</button></p>
+    A は「あなたは もっと上手になるよ」。<br>
+    B は than がありません。そのかわり、比較級（more・better）の前に <b>the</b> があり、それが2回出てきます。<br>
+    B は「<b>練習すればするほど</b>、ますます上手になる」。
+    <div class="naru"><b>ポイント</b>　[w:The 〜er …, the 〜er …] で「〜すればするほど、ますます…」。前半がふえると、後半もふえる、という形です。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'[e:The more you eat, the bigger you get.]<br>の意味は？', say:'The more you eat, the bigger you get.',
+    opts:['食べれば食べるほど、大きくなる','もっと食べると、大きいね','たくさん食べる人は、もう大きい'], ans:0,
+    hint:'The 〜er, the 〜er の形。「〜すればするほど」と読もう。',
+    naru:'[w:The more] you eat（食べれば食べるほど）, [w:the bigger] you get（ますます大きくなる）。'},
+  {type:'morph', tag:'see', q:'「いちばん」は別の言い方もできる', lead:'ボタンを押すと、「いちばん」が「ほかのどの〜より」に変わります。',
+    parts:[{t:'Ken',c:'s'},{t:'is',c:'v'},{t:'the tallest',c:'c',out:1},{t:'taller than',c:'c',in:1},{t:'any other student',c:'w',in:1},{t:'in his class.'}],
+    btn:['言いかえる ▶','◀ もどす'], say:'Ken is taller than any other student in his class.',
+    note:'[w:any other student] ＝「ほかのどの生徒（ひとり）」。<br>「ほかのどの生徒よりも高い」＝「いちばん高い」。意味は同じです。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:Ken is taller than any other students in his class.]',
+    opts:['taller が変','any other のあとが複数形 students になっている','in his class が変'], ans:1,
+    hint:'any other のあとは「ほかのどの〜ひとり」。ひとり？ 何人も？',
+    naru:'any other のあとは 1つ（ひとり）の形。<br>正しくは [e:any other student]。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「できるだけ 早く 来てください」を英語に。', words:['Please','come','as','soon','as','possible'], colors:['','v','','','',''],
+    hint:'「できるだけ早く」＝ as soon as possible。soon の形は変えない。',
+    naru:'Please [v:come] [w:as soon as possible]. as と as で soon をはさみ、最後に possible（できる）。'},
+  {type:'order', id:'o4', tag:'do', q:'「彼女は ほかのどの生徒よりも 速く走る」を英語に。', words:['She','runs','faster','than','any','other','student'], colors:['s','v','','','','',''],
+    hint:'まず [s:She] [v:runs]。そのあと「より速く」＋「ほかのどの生徒」。',
+    naru:'[s:She] [v:runs] faster than [w:any other student]. student は 1人の形のまま。'},
+  {type:'choice', id:'c3', tag:'solve', q:'正しい文はどれ？',
+    opts:['The older he gets, the kinder he becomes.','Older he gets, kinder he becomes.','The older he gets, kinder he becomes.'], ans:0,
+    hint:'「〜すればするほど」の形では、the はいくつ必要？',
+    naru:'the は前半にも後半にも1つずつ。[w:The older] he gets, [w:the kinder] he becomes.（年をとるほど、やさしくなる）'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br>[e:Please answer as (　) as possible.]',
+    opts:['quickly','more quickly','most quickly'], ans:0,
+    hint:'as と as にはさまれた語は、形が変わる？ 変わらない？',
+    naru:'as と as の間は、もとの形。[e:as quickly as possible] ＝「できるだけ早く」。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['at first','最初は'],['finger','指'],['hurt','痛む'],['practice','練習する'],['school festival','文化祭']]},
+  {type:'read', title:'My Guitar', find:'今日の「決まった言い方」は3つあります。見つけられるかな？', paras:[
+    'Riku started playing the guitar last year.',
+    '{At first|最初は}, his {fingers|指} {hurt|痛んだ} every day.',
+    'But he {practiced|練習した} as often as possible, even for just ten minutes.',
+    '"The more I play, the better I get," he thought.',
+    'Now he can play five songs.',
+    'Last month, he played at the {school festival|文化祭} with his band.',
+    'His friends said, "Your band was better than any other band!"',
+    'Riku was very happy.']},
+  {type:'choice', id:'r1', tag:'solve', q:'最初のころ、リクはどうだった？',
+    opts:['毎日、指が痛かった','5曲ひけた','文化祭でひいた'], ans:0,
+    hint:'At first … の文をさがそう。',
+    naru:'At first, his fingers hurt every day.（最初は、毎日指が痛かった）'},
+  {type:'choice', id:'r2', tag:'think', q:'[e:as often as possible] の意味に近いのは？',
+    opts:['できるだけ何回も','1日に10分だけ','ときどき'], ans:0,
+    hint:'as 〜 as possible ＝「できるだけ〜」。often ＝「よく・何回も」。',
+    naru:'as often as possible ＝「できるだけ何回も」。10分しかなくても練習した、ということです。'},
+  {type:'choice', id:'r3', tag:'think', q:'友だちはリクのバンドについて何と言った？',
+    opts:['ほかのどのバンドよりも上手だった','ほかのバンドと同じくらいだった','いちばん下手だった'], ans:0,
+    hint:'better than any other band の意味を考えよう。',
+    naru:'better than any other band ＝「ほかのどのバンドよりも上手」＝ いちばん上手だった、ということです。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'The more you read, the more you learn.',
+    opts:['読めば読むほど、多くを学べる','もっと読んで、もっと学ぼう','たくさん読む人は、もう学んだ'], ans:0,
+    hint:'The more … , the more … が聞こえた？',
+    naru:'The more you read, the more you learn. 「〜すればするほど、ますます…」の形です。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Call me as soon as possible.',
+    opts:['できるだけ早く電話して','なるべくおそく電話して','すぐには電話しないで'], ans:0,
+    hint:'soon は「すぐに・早く」。as … as possible は？',
+    naru:'as soon as possible ＝「できるだけ早く」。メールでもよく使います。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:The more I ____, the ____er I ____.]<br>「〜すればするほど…」を自分のことで書こう。',
+    example:'例：The more I sleep, the happier I feel. / The more I practice, the better I get.', placeholder:'The more I ..., the ...er I ...', ok_example:'The more I sleep, the happier I feel.',
+    pattern:'^\\s*the\\s+(more|\\w+er)\\b.*\\bthe\\s+(more|\\w+er)\\b', need:'The more … , the 〜er … のように、the を2回使おう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで any other のあとは 1つの形（student）なの？',
+    a:'any other student は「ほかの生徒を、どのひとりでもいいから選んでみて」という意味です。<br>ひとりずつ選んで、ケンとくらべる。だれを選んでもケンのほうが高い → だからケンがいちばん。<br>「ひとりずつ」なので、student は 1人の形です。'},
+  {type:'why', q:'The more …, the better … の the は「その」なの？',
+    a:'「その」ではありません。ここの the は「<b>その分だけ</b>」という意味です。<br>前半で「練習がふえた分だけ」、後半で「その分だけ上手になる」。2つの the が、ふえる量を結んでいるイメージです。<br>なので the は2つとも必要で、片方を落とすとまちがいになります。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'「いちばん」は3通りで言える', rows:[
+    {en:'Ken is the tallest in his class.', label:'ふつうの「いちばん」'},
+    {en:'Ken is taller than any other student in his class.', label:'ほかのどの生徒よりも高い', today:1},
+    {en:'No other student in his class is as tall as Ken.', label:'ほかのどの生徒も、ケンほど高くない'}],
+    note:'3つとも意味は「ケンがクラスでいちばん背が高い」。'}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 4, title: 'it の用法（1）形式主語', sub: '〜するのは…だ',
+  goal: '<b>今日のゴール</b><br>① 英語は、長い「何が」を文の頭に置きたがらない<br>② [w:It is … to 〜] / [w:It is … that 〜] の it は「仮の主語」。訳さない<br>③ It is fun to 〜 で、自分の好きなことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'「何が」は1語とはかぎらない', html:`
+    「この本は おもしろい」は、[s:This book] [v:is] [c:interesting]。<br>
+    「英語を話すことは 楽しい」も、同じ形で言えます。
+    <div class="morph">[s:Speaking English] [v:is] [c:fun].</div>
+    <div class="legend">[s:青] の「何が」が2語になっても、[s:何が] → [v:is] → [c:どんな] の順は同じです。</div>
+    <button class="say" data-say="Speaking English is fun.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「この本は おもしろい」を英語に。', words:['This','book','is','interesting'], colors:['s','s','v','c'],
+    hint:'まず「何が」＝ This book。次に is。',
+    naru:'[s:This book] [v:is] [c:interesting]. 「どんな」は is のうしろ。'},
+  {type:'order', id:'o2', tag:'do', q:'「英語を 話すことは 楽しい」を英語に。', words:['Speaking','English','is','fun'], colors:['s','s','v','c'],
+    hint:'「英語を話すこと」＝ Speaking English。これが「何が」。',
+    naru:'[s:Speaking English] [v:is] [c:fun]. 2語のかたまりが「何が」になっています。'},
+
+  {sec:'2. なぞ：この it は「それ」じゃない（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: To swim in this river is dangerous.　<button class="say" data-say="To swim in this river is dangerous.">🔊</button></p>
+    <p class="en">B: It is dangerous to swim in this river.　<button class="say" data-say="It is dangerous to swim in this river.">🔊</button></p>
+    どちらも「この川で泳ぐのは 危ない」。<br>
+    A は「何が」が長くて、なかなか結論（危ない）が出てきません。<br>
+    そこで英語は、とりあえず <b>It</b> を頭に置いて結論を先に言い、本当の「何が」は<b>うしろ</b>に回します。B のほうがふつうの言い方です。
+    <div class="naru"><b>ポイント</b>　B の [w:It] は「仮の主語（場所とり）」。本当の主語は [s:to swim in this river] です。</div>`},
+  {type:'morph', tag:'see', q:'長い「何が」をうしろへ回す', lead:'ボタンを押すと、長い「何が」がうしろへ移り、頭に It が入ります。',
+    parts:[{t:'To swim here',c:'s',out:1},{t:'It',c:'w',in:1},{t:'is',c:'v'},{t:'dangerous',c:'c'},{t:'to swim here',c:'s',in:1}],
+    btn:['うしろへ回す ▶','◀ もどす'], say:'It is dangerous to swim here.',
+    note:'空いた頭の席に [w:It] を置くだけ。It には意味がないので、訳しません。'},
+  {type:'choice', id:'c1', tag:'think', q:'つまずきポイント：[e:It is fun to play soccer.]<br>の正しい訳は？', say:'It is fun to play soccer.',
+    opts:['それは、サッカーをするのが楽しい','サッカーをするのは楽しい','それは楽しい、サッカーをするために'], ans:1,
+    hint:'この It は場所とり。本当の「何が」は、うしろのどこ？',
+    naru:'本当の主語は [s:to play soccer]（サッカーをすること）。It は訳さずに「サッカーをするのは楽しい」。'},
+  {type:'choice', id:'c2', tag:'think', q:'(　) に入るのは？<br>[e:(　) is important to eat breakfast.]',
+    opts:['It','This','That'], ans:0,
+    hint:'本当の主語 to eat breakfast はうしろにある。頭に置く「場所とり」の語は？',
+    naru:'場所とりに使えるのは [w:It] だけ。This や That は「これ・あれ」と何かを指してしまいます。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「朝早く 起きるのは 難しい」を英語に。', words:['It','is','hard','to','get','up','early'], colors:['','v','c','s','s','s','s'],
+    hint:'まず It is hard（難しい）と結論。そのあと「何が」＝ to get up early。',
+    naru:'[w:It] [v:is] [c:hard] [s:to get up early]. 「早起きするのは難しい」。It は訳しません。'},
+  {type:'order', id:'o4', tag:'do', q:'「彼女が 犬を 飼っているのは 本当だ」を英語に。', words:['It','is','true','that','she','has','a','dog'], colors:['','v','c','s','s','s','s','s'],
+    hint:'It is true（本当だ）が先。「彼女が犬を飼っている」は that のうしろ。',
+    naru:'[w:It] [v:is] [c:true] [s:that she has a dog]. 文のかたまりを後ろに回すときは [w:that] を使います。'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:It is surprising (　) he passed the test.]',
+    opts:['that','to','what'], ans:0,
+    hint:'うしろは he passed …（だれが → する）の文。文のかたまりをつなぐ語は？',
+    naru:'うしろが文なら [w:that]。「彼がテストに受かったのは おどろきだ」。'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br>[e:It is easy (　) this game.]',
+    opts:['to play','play','that play'], ans:0,
+    hint:'うしろに「だれが」はない。「〜すること」を表す形は？',
+    naru:'「〜すること」は [w:to ＋ 動詞]。[e:It is easy to play this game.]（このゲームをするのは簡単だ）'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['weekday','平日'],['cut','切る'],['vegetable','野菜'],['fried rice','チャーハン'],['recipe','レシピ・作り方']]},
+  {type:'read', title:'Cooking for My Family', find:'仮の主語の It は3つあります。見つけられるかな？', paras:[
+    'Aya\'s parents work late on {weekdays|平日}.',
+    'So Aya started cooking dinner for her family.',
+    'At first, it was hard for her to {cut|切る} {vegetables|野菜}.',
+    'Now she can make curry and {fried rice|チャーハン}.',
+    '"It is fun to try new {recipes|レシピ}," she says.',
+    'Her little sister always eats everything.',
+    '"It is nice that my sister likes my food," Aya says.']},
+  {type:'choice', id:'r1', tag:'solve', q:'アヤが料理を始めた理由は？',
+    opts:['両親が平日おそくまで働いているから','料理教室に通い始めたから','妹にたのまれたから'], ans:0,
+    hint:'最初の2文を読もう。So（だから）の前に理由があります。',
+    naru:'Aya\'s parents work late on weekdays. So …（だから）料理を始めました。'},
+  {type:'choice', id:'r2', tag:'solve', q:'最初、アヤにとって難しかったことは？',
+    opts:['野菜を切ること','カレーを作ること','新しいレシピをさがすこと'], ans:0,
+    hint:'it was hard for her to … の文。本当の主語は to のうしろ。',
+    naru:'it was hard for her [s:to cut vegetables]（野菜を切ることが難しかった）。'},
+  {type:'choice', id:'r3', tag:'think', q:'[e:"It is nice that my sister likes my food."] の意味は？',
+    opts:['妹が私の料理を好きなのは、うれしい','それはいい、妹は料理が好きだ','妹は料理を作るのが好きだ'], ans:0,
+    hint:'It は場所とり。本当の主語は that のうしろ。',
+    naru:'本当の主語は [s:that my sister likes my food]。「妹が私の料理を好きなこと」が nice（うれしい）。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'It is important to drink water.',
+    opts:['水を飲むことは大切だ','それは大切な水だ','水は飲まなくてもいい'], ans:0,
+    hint:'It is important のあとに、何が聞こえた？',
+    naru:'It is important [s:to drink water]. 本当の主語は「水を飲むこと」です。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'It is fun to play games with friends.',
+    opts:['友だちとゲームをするのは楽しい','それは、友だちと遊ぶゲームだ','友だちはゲームが好きだ'], ans:0,
+    hint:'It is fun（楽しい）。何が楽しい？ to のうしろを聞こう。',
+    naru:'It is fun [s:to play games with friends]. It は訳さず「〜するのは楽しい」。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:It is fun to ________.]<br>自分が楽しいと思うこと（大変なことでもOK）を書こう。',
+    example:'例：It is fun to sing karaoke. / It is fun to play with my cat. / It is hard to get up early.', placeholder:'It is fun to ...', ok_example:'It is fun to sing karaoke.',
+    pattern:'^\\s*it(\\s+is|\'s)\\s+\\w+.*\\b(to|that)\\s+\\S+', need:'It is 〜 のあとに、to ＋ すること を書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんでわざわざ it を置くの？ To swim … is dangerous でもいいのでは？',
+    a:'まちがいではありません。でも英語は「結論を先に言いたい」ことばです。<br>「何が」が長いと、聞く人は最後まで「で、どうなの？」と待たされます。<br>It is dangerous（危ないよ）と先に言って、くわしいこと（to swim here）はあとから。これが英語らしい順番です。'},
+  {type:'why', q:'「私にとって」はどこに入れるの？',
+    a:'to の前に [e:for me] を入れます。<br>[e:It is hard for me to get up early.]（私にとって、早起きは難しい）<br>本文の [e:it was hard for her to cut vegetables] も同じ形です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'it にはいろいろな使い方がある', rows:[
+    {en:'It is my bag.', label:'「それ」の it（前に出たものを指す）'},
+    {en:'It is sunny today.', label:'天気の it（訳さない）'},
+    {en:'It is fun to dance.', label:'仮の主語の it（本当の主語は to dance）', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 5, title: 'it の用法（2）強調構文', sub: '〜したのは…だ',
+  goal: '<b>今日のゴール</b><br>① [w:It is X that 〜] で、X を強く言える（「〜なのは X だ」）<br>② It is と that を消して文にもどれば強調構文。もどらなければ前回の「仮の主語」<br>③ It is … that I 〜 で、自分のいちばんを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'ふつうの文を確かめよう', html:`
+    今日は、ふつうの文の中の「どこか1つ」を強く言う形を学びます。まずは、もとになるふつうの文です。
+    <div class="morph">[s:Ken] [v:broke] [o:the window] yesterday.</div>
+    <div class="legend">[s:だれが] → [v:した] → [o:なにを] → いつ。この文の「だれが」だけを強く言いたいときは？</div>
+    <button class="say" data-say="Ken broke the window yesterday.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「ケンが 昨日 窓を 割った」を英語に。', words:['Ken','broke','the','window','yesterday'], colors:['s','v','o','o',''],
+    hint:'だれが → した → なにを。「昨日」は最後。',
+    naru:'[s:Ken] [v:broke] [o:the window] yesterday. 「いつ」は最後に足します。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は 駅で ミキに 会った」を英語に。', words:['I','met','Miki','at','the','station'], colors:['s','v','o','','',''],
+    hint:'「どこで」は、だれが・した・だれに のあと。',
+    naru:'[s:I] [v:met] [o:Miki] at the station. 「どこで」も最後に足します。'},
+
+  {sec:'2. なぞ：It と that ではさむ（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: Ken broke the window.　<button class="say" data-say="Ken broke the window.">🔊</button></p>
+    <p class="en">B: It was Ken that broke the window.　<button class="say" data-say="It was Ken that broke the window.">🔊</button></p>
+    A は「ケンが窓を割った」。<br>
+    B は「窓を割ったのは<b>ケン</b>だ（ほかの人じゃない）」。<br>
+    B は、強く言いたい [s:Ken] を <b>It was</b> と <b>that</b> ではさんで、前に出しています。
+    <div class="naru"><b>ポイント</b>　[w:It is / It was] X [w:that] 〜 ＝「〜なのは X だ」。はさまれた X が強調されます。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'つまずきポイント：[e:It was Ken that broke the window.]<br>の正しい訳は？', say:'It was Ken that broke the window.',
+    opts:['それはケンで、窓を割った','窓を割ったのはケンだった','ケンは窓を割らなかった'], ans:1,
+    hint:'It を「それ」と訳さない。It was と that にはさまれた語を、文の最後に言おう。',
+    naru:'It は訳さず、はさまれた Ken を最後に言う：「窓を割ったのは [s:ケン] だった」。'},
+  {type:'morph', tag:'see', q:'見分け方：It is と that を消してみる', lead:'ボタンを押すと、It was と that が消えます。',
+    parts:[{t:'It was',c:'w',out:1},{t:'Ken',c:'s'},{t:'that',c:'w',out:1},{t:'broke',c:'v'},{t:'the window.',c:'o'}],
+    btn:['消してみる ▶','◀ もどす'], say:'It was Ken that broke the window.',
+    note:'消すと [e:Ken broke the window.] ＝ ちゃんと文になる → <b>強調構文</b>。<br>前回の [e:It is true that Ken is late.] は、消すと「true Ken is late」→ 文にならない → <b>仮の主語</b>。'},
+  {type:'choice', id:'c2', tag:'think', q:'強調構文はどっち？',
+    opts:['It is strange that Ken is late.','It was Ken that ate my pudding.'], ans:1,
+    hint:'It is / It was と that を消してみよう。文になるのはどっち？',
+    naru:'消すと [e:Ken ate my pudding.] ＝ 文になる → 強調構文。<br>もう一方は「strange Ken is late」で文にならない → 仮の主語。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「いちばん早く 起きるのは 母だ」を英語に。', words:['It','is','my','mother','that','gets','up','earliest'], colors:['','','s','s','','v','v',''],
+    hint:'強く言いたいのは「母」。It is と that ではさもう。',
+    naru:'It is [s:my mother] that [v:gets up] earliest. 消すと [e:My mother gets up earliest.]（文になる）。'},
+  {type:'order', id:'o4', tag:'do', q:'「にげたのは うちの犬だった」を英語に。', words:['It','was','my','dog','that','ran','away'], colors:['','','s','s','','v','v'],
+    hint:'強く言いたいのは「うちの犬」＝ my dog。過去のことなので It was。',
+    naru:'It was [s:my dog] that [v:ran away]. 消すと [e:My dog ran away.]（文になる）。'},
+  {type:'choice', id:'c3', tag:'solve', q:'[e:It is my sister that cooks dinner.]<br>で強調されているのは？', say:'It is my sister that cooks dinner.',
+    opts:['my sister','dinner','cooks'], ans:0,
+    hint:'It is と that にはさまれているのは、どの語？',
+    naru:'はさまれているのは [s:my sister]。「夕食を作るのは<b>姉（妹）</b>だ」。'},
+  {type:'choice', id:'c4', tag:'solve', q:'[e:It is important that you sleep well.]<br>この文は？',
+    opts:['強調構文','仮の主語（前回の形）'], ans:1,
+    hint:'It is と that を消すと「important you sleep well」。文になる？',
+    naru:'消しても文にならない → 仮の主語。本当の主語は [s:that you sleep well]（よく眠ること）。「よく眠ることは大切だ」。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['behind','（点数で）負けて'],['score','点を入れる'],['hero','ヒーロー'],['captain','キャプテン'],['pass','パスする']]},
+  {type:'read', title:'The Big Game', find:'強調構文は2つあります。見つけられるかな？', paras:[
+    'Last Saturday, our soccer team had a big game.',
+    'We were {behind|負けて} by one goal until the last five minutes.',
+    'Then Sora, our youngest player, {scored|点を入れた} a goal.',
+    'A minute later, he scored again, and we won!',
+    'Everyone says Sora is the {hero|ヒーロー}.',
+    'But it was our {captain|キャプテン}, Ren, that {passed|パスした} him the ball both times.',
+    'And it was Ren\'s hard work that made our team strong.',
+    'Ren just smiled.']},
+  {type:'choice', id:'r1', tag:'solve', q:'ソラが点を入れる前、チームはどうだった？',
+    opts:['1点負けていた','1点勝っていた','同点だった'], ans:0,
+    hint:'We were behind by one goal … の文を読もう。',
+    naru:'behind by one goal ＝「1点差で負けて」。残り5分まで負けていました。'},
+  {type:'choice', id:'r2', tag:'think', q:'[e:But it was our captain, Ren, that passed him the ball both times.]<br>で言いたいことは？',
+    opts:['ソラにボールをパスしたのは、キャプテンのレンだ','レンがゴールを決めた','ソラがレンにパスした'], ans:0,
+    hint:'it was と that にはさまれているのはだれ？',
+    naru:'はさまれているのは our captain, Ren。「2回ともソラにパスしたのは<b>レン</b>だ」と強く言っています。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['チームを強くしたのは、レンの努力だ','ソラはキャプテンだ','チームは試合に負けた'], ans:0,
+    hint:'最後から2番目の文。it was と that にはさまれているのは？',
+    naru:'it was [w:Ren\'s hard work] that made our team strong.「チームを強くしたのは レンの努力 だ」。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'It was my brother that ate the cake.',
+    opts:['ケーキを食べたのは、兄だった','兄はケーキを食べなかった','兄にケーキをあげた'], ans:0,
+    hint:'It was と that の間に、だれが聞こえた？',
+    naru:'It was [s:my brother] that ate the cake.「ケーキを食べたのは兄だ（私じゃない）」。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'It is Mika that I want to see.',
+    opts:['私が会いたいのは、ミカだ','ミカが私に会いたがっている','ミカには会いたくない'], ans:0,
+    hint:'It is と that の間はだれ？ that のうしろの「だれが」はだれ？',
+    naru:'It is [o:Mika] that [s:I] [v:want to see]. 消して並べなおすと I want to see Mika.'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:It is ________ that I like the best.]<br>自分がいちばん好きなものを、強調構文で書こう。',
+    example:'例：It is ramen that I like the best. / It is my dog that I love the most.', placeholder:'It is ... that I ...', ok_example:'It is ramen that I like the best.',
+    pattern:'^\\s*it(\\s+is|\\s+was|\'s)\\s+.+\\s+that\\s+\\S+', need:'It is と that で、好きなものをはさもう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'ふつうの文を強く読めばいいのでは？ なんでこんな形があるの？',
+    a:'話すときは、[e:<b>KEN</b> broke the window.] のように声を強くすれば伝わります。<br>でも書いた文では声が出せません。そこで It is と that ではさんで、「ここが大事」と形で見せるのです。<br>日本語の「〜したのは X だ」と同じ工夫です。'},
+  {type:'why', q:'人を強調するとき、that のかわりに who でもいいの？',
+    a:'いいです。[e:It was Ken who broke the window.] も正しい英語です。<br>人なら who、ものや時・場所なら that。迷ったら that を使えば、どれでも OK です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'同じ「It is … that」でも2種類ある', rows:[
+    {en:'It is true that Ken is late.', label:'仮の主語（It is と that を消すと文にならない）'},
+    {en:'It is Ken that is late.', label:'強調構文（消すと Ken is late. で文になる）', today:1}],
+    note:'迷ったら、It is と that を消してみよう。'}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 6, title: '間接疑問文', sub: '〜か（を知っている）',
+  goal: '<b>今日のゴール</b><br>① ふつうの文と疑問文では、語順がちがう<br>② 疑問文が文の中に入ると、語順は「だれが → する」に戻る<br>③ I don\'t know where … で自分のことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'ふつうの文と疑問文は、並び方がちがう', html:`
+    ふつうの文は「だれが → する」の順です。
+    <div class="morph">[s:He] [v:lives] in Osaka.</div>
+    疑問文になると、does が前に出て、順番が入れかわります。
+    <div class="morph">Where does [s:he] [v:live]?</div>
+    <div class="legend">[s:だれが] → [v:する]　今日はこの2つの順番に注目します。</div>
+    <button class="say" data-say="He lives in Osaka. Where does he live?">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「彼は 大阪に 住んでいる」を英語に。', words:['He','lives','in','Osaka'], colors:['s','v','',''],
+    hint:'まず「だれが」。次に「する（住んでいる）」。最後に「どこに」。',
+    naru:'[s:He] [v:lives] in Osaka。ふつうの文は「だれが → する」の順です。'},
+  {type:'order', id:'o2', tag:'do', q:'「彼は どこに 住んでいますか」を英語に。', words:['Where','does','he','live'], colors:['','','s','v'], end:'?',
+    hint:'聞く文は「どこ」が先頭。そのあとに does。',
+    naru:'Where does [s:he] [v:live]? 疑問文では does が [s:he] より前に出ます。live に s はつきません。'},
+
+  {sec:'2. なぞ：文の中に入ると、語順がもとに戻る（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: Where does he live?　<button class="say" data-say="Where does he live?">🔊</button></p>
+    <p class="en">B: I know where he lives.　<button class="say" data-say="I know where he lives.">🔊</button></p>
+    A は「彼はどこに住んでいるの？」と<b>聞いて</b>います。<br>
+    B は聞いていません。「私は <b>彼がどこに住んでいるか</b> 知っている」。<br>
+    B では does が消えて、[s:he] [v:lives] とふつうの順番に戻っています。
+    <div class="naru"><b>ポイント</b>　疑問文が文の中に入ると、[w:where he lives] のように「だれが → する」の順になる。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「質問していない文」はどっち？',
+    opts:['Where is the station?','I know where the station is.'], ans:1,
+    hint:'文の終わりが「?」か「.」か、を見よう。',
+    naru:'I know where the station is.＝「駅がどこにあるか知っている」。[s:the station] [v:is] とふつうの順番です。'},
+  {type:'morph', tag:'see', q:'文の中に入ると、does が消える', lead:'ボタンを押すと、疑問文が文の中に入ります。',
+    parts:[{t:'Where',c:'w',out:1},{t:'I know',in:1},{t:'where',c:'w',in:1},{t:'does',out:1},{t:'he',c:'s'},{t:'live?',c:'v',out:1},{t:'lives.',c:'v',in:1}],
+    note:'does は「質問だよ」の合図。文の中では質問していないので、does は消えます。<br>そのかわり、live に s が戻って [v:lives] になります。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：(　) に入るのは？<br>[e:I know where (　).]',
+    opts:['does he live','he lives','he live'], ans:1,
+    hint:'さっきのボタンを思い出そう。文の中に入ったら、does はどうなった？',
+    naru:'正しくは [e:I know where] [s:he] [v:lives]。疑問文の語順 does he live のまま入れないように。<br>does が消えたら、lives の s も忘れずに。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:Do you know what time (　)?]',
+    opts:['is it','it is','it'], ans:1,
+    hint:'文全体は Do you know …? で聞いている。what time のあとは、文の中の部分。',
+    naru:'[e:Do you know what time] [s:it] [v:is]? 聞いているのは Do you know の部分だけ。中は「だれが → する」の順です。'},
+  {type:'order', id:'o3', tag:'do', q:'「私は 彼が だれなのか 知らない」を英語に。', words:['I','don\'t','know','who','he','is'], colors:['s','v','v','o','o','o'],
+    hint:'I don\'t know のあとに「彼がだれか」。who のあとは「だれが → する」の順。',
+    naru:'[s:I] [v:don\'t know] [o:who he is]. who is he（疑問文の順）にしないのがポイント。'},
+  {type:'order', id:'o4', tag:'do', q:'「駅が どこか 知っていますか」を英語に。', words:['Do','you','know','where','the','station','is'], colors:['','s','v','o','o','o','o'], end:'?',
+    hint:'まず Do you know で聞く。そのあとに「駅がどこにあるか」。',
+    naru:'[s:you] [v:know] [o:where the station is]? 道をたずねるときに、とても使える言い方です。'},
+  {type:'choice', id:'c4', tag:'solve', q:'「あなたが何がほしいか教えて」<br>[e:Please tell me (　).]',
+    opts:['what you want','what do you want','what want you'], ans:0,
+    hint:'tell me のあとは文の中の部分。what のあとは「だれが → する」の順。',
+    naru:'[e:Please tell me what] [s:you] [v:want]. 中に入ると do が消えます。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['smartphone','スマートフォン'],['quiet','静かな'],['volume','音量'],['show','見せる・教える'],['ask','たずねる'],['next','次に']]},
+  {type:'read', title:'Grandma\'s New Phone', find:'「疑問詞＋だれが＋する」のかたまりは3つあります。見つけられるかな？', paras:[
+    'My grandma got a {smartphone|スマートフォン} last month.',
+    'She calls me almost every day with questions.',
+    'Yesterday she asked, "Do you know why my phone is so {quiet|静かな}?"',
+    'I checked it.',
+    'The {volume|音量} was at zero.',
+    'Today I showed her how the camera works.',
+    'Now she sends me pictures of her flowers every morning.',
+    'I don\'t know what she will ask next.',
+    'But I enjoy our phone calls.']},
+  {type:'choice', id:'r1', tag:'solve', q:'おばあちゃんのスマホが静かだった理由は？',
+    opts:['こわれていた','音量がゼロだった','電池が切れていた'], ans:1,
+    hint:'I checked it. のすぐあとの文を読もう。',
+    naru:'The volume was at zero.（音量がゼロだった）。why my phone is so quiet（なぜスマホがこんなに静かなのか）の答えです。'},
+  {type:'choice', id:'r2', tag:'think', q:'今日「私」がしたことは？',
+    opts:['カメラの使い方を教えた','花の写真をとった','新しいスマホを買った'], ans:0,
+    hint:'Today … の文をさがそう。',
+    naru:'how the camera works＝「カメラがどう動くか」→「カメラの使い方」。[s:the camera] [v:works] とふつうの順番です。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['おばあちゃんは次に何を聞くか、もう決めている','「私」は、おばあちゃんが次に何を聞くかわからない','「私」は電話がいやだと思っている'], ans:1,
+    hint:'最後の2文を読もう。',
+    naru:'I don\'t know what she will ask next.（次に何を聞いてくるかわからない）→ But I enjoy our phone calls.（でも電話を楽しんでいる）。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Do you know where my bag is?',
+    opts:['私のかばんがどこにあるか知ってる？','あなたのかばんはどこにあるの？','私のかばんを持ってる？'], ans:0,
+    hint:'「おそく」で聞きなおそう。my か your か、know のあとに何が続くか。',
+    naru:'Do you know [o:where my bag is]? 「どこにあるか」を知っているかを聞いています。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'I don\'t know where she is.',
+    opts:['I don\'t know where she is.','I don\'t know who she is.','I don\'t know where she was.'], ans:0,
+    hint:'know のすぐあとの語は「ウェア」か「フー」か。最後の語は is か was か。',
+    naru:'I don\'t know where she is.＝「彼女がどこにいるか知らない」。[s:she] [v:is] とふつうの順番です。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I don\'t know ________.]<br>自分が「知らないこと」を英語で書こう。where / what / who などのあとは「だれが → する」の順で。',
+    example:'例：I don\'t know where my key is. / I don\'t know what my cat wants.', placeholder:'I don\'t know where ...', ok_example:'I don\'t know where my key is.',
+    pattern:'^\\s*i\\s+(don[\'’]?t|do\\s+not)\\s+know\\s+(what|where|when|who|why|how|which)\\s+\\S+', need:'I don\'t know のあとに、where や what などを置いて続けよう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで文の中に入ると、語順がもとに戻るの？',
+    a:'語順を入れかえるのは「質問しているよ」という合図です。<br>I know where he lives. は、もう質問していません。where he lives は「彼がどこに住んでいるか」という<b>ひとつのかたまり</b>になって、know の「なにを」の場所に入っています。だから合図はいらず、ふつうの順番に戻ります。'},
+  {type:'why', q:'Do you know where the station is? は、なんで最後が「?」なの？ 中はふつうの順番なのに。',
+    a:'質問しているのは、文の頭の [e:Do you know] の部分だからです。<br>中の where the station is は「駅がどこにあるか」というかたまり。聞いているのは「それを知っていますか？」です。<br>なので答えは [e:Yes, it\'s over there.] のように Yes / No から始められます。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'疑問文が「文の中」に入ると', rows:[
+    {en:'Where does he live?', label:'疑問文（聞いている）。does が前に出る'},
+    {en:'I know where he lives.', label:'文の中に入った形（〜か）。だれが → する の順', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 7, title: 'to 不定詞（1）名詞・形容詞のはたらき', sub: '〜すること・〜するための',
+  goal: '<b>今日のゴール</b><br>① 英語は、名詞の説明を<b>後ろ</b>に置くことがある<br>② [w:to ＋ 動詞] で「〜すること」「〜するための・〜すべき」を表せる<br>③ I want to … で自分のことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'「なにを」の場所には、ものが入る', html:`
+    英語の基本は「だれが → する → なにを」でした。
+    <div class="morph">[s:I] [v:want] [o:a new phone].</div>
+    もうひとつ、日本語とちがうところがあります。<br>
+    「何か冷たいもの」は、英語では [o:something] [c:cold]。説明（冷たい）が<b>後ろ</b>に来ます。
+    <div class="legend">[s:だれが] → [v:する] → [o:なにを]　＋ 後ろから [c:説明]</div>
+    <button class="say" data-say="I want a new phone. I want something cold.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は 新しいスマホが ほしい」を英語に。', words:['I','want','a','new','phone'], colors:['s','v','o','o','o'],
+    hint:'まず「だれが」。次に「する（ほしい）」。最後に「なにを」。',
+    naru:'[s:I] [v:want] [o:a new phone]。「ほしい」が真ん中に来ます。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は 何か冷たいものが ほしい」を英語に。', words:['I','want','something','cold'], colors:['s','v','o','c'],
+    hint:'something（何か）が先。「冷たい」はその後ろ。',
+    naru:'[s:I] [v:want] [o:something] [c:cold]。something の説明は後ろに置きます。今日の大事な形です。'},
+
+  {sec:'2. なぞ：同じ to なのに、意味がちがう（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: I want to drink.　<button class="say" data-say="I want to drink.">🔊</button></p>
+    <p class="en">B: I want something to drink.　<button class="say" data-say="I want something to drink.">🔊</button></p>
+    A の to drink は want の「なにを」の場所にあります。「<b>飲むこと</b>がしたい」→「飲みたい」。<br>
+    B の to drink は something の<b>後ろ</b>にあります。something を説明して「<b>飲むための</b>何か」→「何か飲むもの」。
+    <div class="naru"><b>ポイント</b>　[w:to ＋ 動詞] は、置く場所で役わりが変わる。名詞の後ろなら「〜するための・〜すべき」。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「〜すること」の to はどっち？',
+    opts:['I want to sleep.','I have homework to do.'], ans:0,
+    hint:'to のすぐ前を見よう。want か、名詞（homework）か。',
+    naru:'I want to sleep.＝「寝ることがしたい」→「寝たい」。<br>I have homework to do. は homework の後ろなので「やるべき宿題」。'},
+  {type:'morph', tag:'see', q:'something を後ろから説明する', lead:'ボタンを押すと、説明が入れかわります。',
+    parts:[{t:'I want'},{t:'something',c:'o'},{t:'cold.',c:'c',out:1},{t:'to drink.',c:'c',in:1}],
+    note:'cold（冷たい）も to drink（飲むための）も、[o:something] の説明。<br>どちらも something の<b>後ろ</b>に置きます。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：意味は？<br>[e:I want something to drink.]',
+    opts:['飲むために、何かがほしい','何か飲むものがほしい','飲むことが、何かほしい'], ans:1,
+    hint:'to drink は、すぐ前の something を説明している。「飲むための何か」をすっきり言うと？',
+    naru:'[o:something] [c:to drink] ＝「飲むための何か」＝「何か飲むもの」。<br>「飲むために」と訳すと、意味が通らなくなります。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「私は 先生に なりたい」を英語に。', words:['I','want','to','be','a','teacher'], colors:['s','v','o','o','o','o'],
+    hint:'I want のあとに「先生になること」＝ to be a teacher。',
+    naru:'[s:I] [v:want] [o:to be a teacher]. to のかたまりが「なにを」の場所に入っています。'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:I need something (　).]',
+    opts:['to eat','eat','eating'], ans:0,
+    hint:'「何か食べるもの」。something の後ろに「食べるための」をつけたい。',
+    naru:'[o:something] [c:to eat]＝「何か食べるもの」。説明のときは to ＋ 動詞 です。'},
+  {type:'order', id:'o4', tag:'do', q:'「京都には 訪れる場所が たくさんある」を英語に。', words:['Kyoto','has','many','places','to','visit'], colors:['s','v','o','o','c','c'],
+    hint:'「京都は たくさんの場所を 持っている」と考える。「訪れるための」は places の後ろ。',
+    naru:'[s:Kyoto] [v:has] [o:many places] [c:to visit]. to visit が places を後ろから説明しています。'},
+  {type:'choice', id:'c4', tag:'solve', q:'[e:I have no time to watch TV.]<br>の意味は？', say:'I have no time to watch TV.',
+    opts:['テレビを見る時間がない','テレビを見ているから、時間がない','テレビを見ない時間がある'], ans:0,
+    hint:'to watch TV は、すぐ前の time を説明している。',
+    naru:'[o:no time] [c:to watch TV]＝「テレビを見るための時間がない」→「テレビを見る時間がない」。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['camping','キャンプ'],['lake','湖'],['bring','持ってくる'],['snack','おかし'],['share','分け合う']]},
+  {type:'read', title:'Our First Camp', find:'to のかたまりは3つあります。見つけられるかな？', paras:[
+    'Last weekend, I went {camping|キャンプ} with my friends.',
+    'We had a barbecue by the {lake|湖}.',
+    'But we didn\'t {bring|持ってくる} any water!',
+    'There was nothing to drink.',
+    'Then Riku found a small shop near the lake.',
+    'He came back with water and some {snacks|おかし} to {share|分け合う}.',
+    'At night, we sat by the fire and talked for hours.',
+    'I want to go camping again soon.']},
+  {type:'choice', id:'r1', tag:'solve', q:'キャンプで困ったことは？',
+    opts:['飲むものがなかった','雨がふった','バーベキューができなかった'], ans:0,
+    hint:'There was nothing … の文をさがそう。',
+    naru:'nothing to drink＝「飲むものが何もない」。to drink が nothing を後ろから説明しています。'},
+  {type:'choice', id:'r2', tag:'think', q:'リクが持って帰ってきたものは？',
+    opts:['水だけ','水と、みんなで分けるおかし','たき火の道具'], ans:1,
+    hint:'He came back with … の文を読もう。',
+    naru:'snacks to share＝「分け合うためのおかし」。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['夜はすぐに寝た','「私」はまたキャンプに行きたい','リクは店を見つけられなかった'], ans:1,
+    hint:'最後の文を読もう。',
+    naru:'I want to go camping again soon.＝「またすぐキャンプに行きたい」。want to は「〜すること」のはたらきです。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'I have a lot of homework to do.',
+    opts:['やるべき宿題がたくさんある','宿題をするために、たくさん持っている','宿題をたくさんやった'], ans:0,
+    hint:'「おそく」で聞きなおそう。homework のすぐあとに to do が続いていた？',
+    naru:'[o:homework] [c:to do]＝「やるべき宿題」。名詞の後ろの to は「〜すべき」とも訳せます。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'Do you want something to eat?',
+    opts:['Do you want something to eat?','Do you want something to drink?','Do you want to eat something?'], ans:0,
+    hint:'something は to の前？ 後ろ？ 最後の語は「イート」か「ドリンク」か。',
+    naru:'Do you want something to eat?＝「何か食べるものほしい？」。人にすすめるときによく使います。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I want to ________.]<br>自分のやりたいことを英語で書こう。',
+    example:'例：I want to sleep. / I want to go to Okinawa. / I want to get a dog.', placeholder:'I want to ...', ok_example:'I want to go to Okinawa.',
+    pattern:'^\\s*i\\s+want\\s+to\\s+\\S+', need:'I want to のあとに、やりたいこと（動詞）を書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで to drink は something の後ろなの？ 日本語は「飲む もの」で前なのに。',
+    a:'英語では、to drink のような「to ＋ 動詞」の説明は、名詞の<b>後ろ</b>に置きます。<br>また something は、1語の cold でも後ろに置きます（[e:something cold]）。<br>「名詞の後ろに to が来たら、その名詞の説明」と覚えておくと読めます。'},
+  {type:'why', q:'同じ to なのに、なんで「〜すること」になったり「〜するための」になったりするの？',
+    a:'[w:to ＋ 動詞] には「これから〜する」という感じがあります。それを<b>どこに置くか</b>で役わりが変わります。<br>want のすぐ後ろ → 「〜すること」（なにを）。<br>名詞のすぐ後ろ → 「〜するための」（名詞の説明）。<br>文の頭に置いて [e:To swim is fun.]（泳ぐことは楽しい）とも言えます。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'to ＋ 動詞 は「置く場所」で見分ける', rows:[
+    {en:'I want to drink.', label:'〜すること（want のあと）', today:1},
+    {en:'I want something to drink.', label:'〜するための（名詞のあと）', today:1},
+    {en:'I went to the shop to buy water.', label:'〜するために（次回）'}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 8, title: 'to 不定詞（2）副詞のはたらき', sub: '〜するために・〜して',
+  goal: '<b>今日のゴール</b><br>① 文が完成したあとに、説明を<b>後ろ</b>に足せる<br>② [w:to ＋ 動詞] で「〜するために」「〜して（うれしい など）」を表せる<br>③ to の前を見て、前回の to と見分けられる',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'文は「だれが → する」で完成する', html:`
+    英語は「だれが → する」がそろえば、文として完成します。
+    <div class="morph">[s:I] [v:went] to the station.</div>
+    <div class="morph">[s:I] [v:am] [c:happy].</div>
+    今日は、完成した文の<b>後ろ</b>に「何のために」「なぜ」を足します。
+    <div class="legend">[s:だれが] → [v:する] → … ＋ 後ろに説明</div>
+    <button class="say" data-say="I went to the station. I am happy.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は 駅に 行った」を英語に。', words:['I','went','to','the','station'], colors:['s','v','','',''],
+    hint:'まず「だれが」。次に「する（行った）」。最後に「どこに」。',
+    naru:'[s:I] [v:went] to the station。ここで文は完成しています。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は とても うれしい」を英語に。', words:['I','am','very','happy'], colors:['s','v','c','c'],
+    hint:'「だれが」→ am →「とても うれしい」。',
+    naru:'[s:I] [v:am] [c:very happy]。気持ちを表す文です。この後ろに「なぜうれしいか」を足せます。'},
+
+  {sec:'2. なぞ：to の前に、何がある？（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: I went to the shop to buy milk.　<button class="say" data-say="I went to the shop to buy milk.">🔊</button></p>
+    <p class="en">B: I\'m happy to see you.　<button class="say" data-say="I'm happy to see you.">🔊</button></p>
+    A は I went to the shop で文が完成。そのあとの to buy milk は「<b>牛乳を買うために</b>」（目的）。<br>
+    B は happy（気持ち）のあとに to see you。「<b>あなたに会えて</b>うれしい」（気持ちの理由）。
+    <div class="naru"><b>ポイント</b>　to の前を見る。完成した文のあと →「〜するために」。気持ちの語のあと →「〜して」。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「〜するために」の to はどっち？',
+    opts:['I got up early to study.','I want to study.'], ans:0,
+    hint:'to の前で、文が完成しているのはどっち？',
+    naru:'I got up early（早起きした）で文が完成。to study は「勉強するために」。<br>I want to study. は want の「なにを」なので「勉強すること」。'},
+  {type:'morph', tag:'see', q:'完成した文に「何のために」を足す', lead:'ボタンを押すと、後ろに説明がつきます。',
+    parts:[{t:'I',c:'s'},{t:'went',c:'v'},{t:'to the shop.',out:1},{t:'to the shop',in:1},{t:'to buy milk.',c:'c',in:1}],
+    note:'I went to the shop だけで文はできあがっています。<br>to buy milk は「なぜ行ったか」をあとから足した説明です。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：意味は？<br>[e:I\'m glad to see you.]',
+    opts:['あなたに会うために、うれしい','あなたに会えて、うれしい','うれしいので、あなたに会う'], ans:1,
+    hint:'glad は「うれしい」。to の前が気持ちの語のときは？',
+    naru:'気持ちの語（glad, happy, sad, surprised）のあとの to は「〜して」。<br>「会うためにうれしい」では意味が通りません。会えた → だからうれしい、です。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「私は 新しい自転車を 買うために 働いている」を英語に。', words:['I','work','to','buy','a','new','bike'], colors:['s','v','c','c','c','c','c'],
+    hint:'まず「私は働いている」＝ I work。そのあとに「新しい自転車を買うために」。',
+    naru:'[s:I] [v:work] [c:to buy a new bike]. 日本語は「買うために」が先、英語は後ろです。'},
+  {type:'choice', id:'c3', tag:'solve', q:'「〜するために」の to はどれ？',
+    opts:['I want something to eat.','We went out to eat.','I like to eat.'], ans:1,
+    hint:'to の前を見よう。名詞？ want や like？ それとも完成した文？',
+    naru:'We went out（出かけた）で文が完成 → to eat は「食べるために」。<br>something to eat は「食べるもの」、like to eat は「食べること」（前回の形）。'},
+  {type:'order', id:'o4', tag:'do', q:'「彼女は その知らせを聞いて 驚いた」を英語に。', words:['She','was','surprised','to','hear','the','news'], colors:['s','v','c','c','c','c','c'],
+    hint:'まず「彼女は驚いた」＝ She was surprised。そのあとに「その知らせを聞いて」。',
+    naru:'[s:She] [v:was] [c:surprised] to hear the news. 気持ち（surprised）のあとの to は「〜して」。'},
+  {type:'choice', id:'c4', tag:'solve', q:'[e:She went to Osaka to see her grandma.]<br>の意味は？', say:'She went to Osaka to see her grandma.',
+    opts:['おばあちゃんに会うために大阪へ行った','おばあちゃんと大阪へ行った','おばあちゃんに会えて、大阪へ行った'], ans:0,
+    hint:'She went to Osaka で文は完成。to see her grandma は何を足している？',
+    naru:'[s:She] [v:went] to Osaka [c:to see her grandma]。「何のために行ったか」を後ろから足しています。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['band','バンド'],['part-time job','アルバイト'],['save','（お金を）ためる'],['concert','コンサート'],['ticket','チケット'],['excited','わくわくした']]},
+  {type:'read', title:'Saving for a Concert', find:'「〜するために」「〜して」の to は3つあります。見つけられるかな？', paras:[
+    'Mao loves a {band|バンド} from Korea.',
+    'Next spring, the band will come to Japan.',
+    'She started a {part-time job|アルバイト} at a ramen shop to {save|ためる} money for the {concert|コンサート}.',
+    'The work is hard, but the people there are kind.',
+    'Last month, she finally bought a {ticket|チケット}.',
+    'She was so {excited|わくわくした} to get it.',
+    'She called her best friend to tell her the news.',
+    '"Let\'s go together!" Mao said.']},
+  {type:'choice', id:'r1', tag:'solve', q:'マオがアルバイトを始めたのは、何のため？',
+    opts:['ラーメンが好きだから','コンサートのお金をためるため','友だちに会うため'], ans:1,
+    hint:'She started a part-time job … の文の、後ろのほうを読もう。',
+    naru:'to save money for the concert＝「コンサートのお金をためるために」。目的の to です。'},
+  {type:'choice', id:'r2', tag:'think', q:'チケットを手に入れたとき、マオはどんな気持ちだった？',
+    opts:['とてもわくわくした','少しがっかりした','つかれていた'], ans:0,
+    hint:'She was so … to get it. の文を読もう。',
+    naru:'excited to get it＝「それを手に入れて、わくわくした」。気持ちの語のあとの to です。'},
+  {type:'choice', id:'r3', tag:'think', q:'マオが親友に電話したのは、なぜ？',
+    opts:['チケットを買ってもらうため','知らせを伝えるため','アルバイトを休むため'], ans:1,
+    hint:'She called her best friend … の文の、後ろのほうを読もう。',
+    naru:'to tell her the news＝「その知らせを伝えるために」。She called her best friend で文が完成し、目的を後ろに足しています。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'I came here to see you.',
+    opts:['あなたに会うために、ここに来た','あなたに会えて、うれしい','あなたはここに来た'], ans:0,
+    hint:'「おそく」で聞きなおそう。最初は I came here（ここに来た）だった？',
+    naru:'[s:I] [v:came] here [c:to see you]。完成した文のあとの to は「〜するために」。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'I\'m glad to hear that.',
+    opts:['I\'m glad to hear that.','I\'m sad to hear that.','I\'m glad you\'re here.'], ans:0,
+    hint:'気持ちの語は「グラッド」か「サッド」か。そのあとに to が聞こえた？',
+    naru:'I\'m glad to hear that.＝「それを聞いてうれしい」。相手のいい知らせに返すひとことです。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I ______ to ______.]<br>自分がしていることと、その目的（〜するために）を英語で書こう。',
+    example:'例：I work to buy clothes. / I get up early to walk my dog. / I study English to travel.', placeholder:'I work to ...', ok_example:'I work to buy a new phone.',
+    pattern:'^\\s*i\\s+\\S+.*\\bto\\s+\\S+', need:'I ○○ のあとに、to ＋ 動詞（〜するために）を足そう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで I\'m glad to see you. は「会うために」じゃないの？',
+    a:'「会うために、うれしい」では意味が通らないからです。<br>happy, glad, sad, surprised など<b>気持ちの語</b>のあとの to は、「なぜその気持ちになったか」を表します。<br>[e:I\'m sad to hear that.]＝「それを聞いて悲しい」。聞いた → だから悲しい、の順です。'},
+  {type:'why', q:'「〜するために」なのに、なんで for じゃなくて to なの？',
+    a:'for のあとには<b>もの（名詞）</b>、to のあとには<b>動詞</b>を置きます。<br>[e:I went to the shop for milk.]（牛乳のために）<br>[e:I went to the shop to buy milk.]（牛乳を買うために）<br>どちらも言えますが、「〜する」と動作を言いたいときは to ＋ 動詞です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'to の前を見れば、意味がわかる', rows:[
+    {en:'I want something to drink.', label:'名詞のあと → 〜するための（前回）'},
+    {en:'I went out to buy a drink.', label:'完成した文のあと → 〜するために', today:1},
+    {en:'I\'m glad to see you.', label:'気持ちの語のあと → 〜して', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 9, title: 'if節「〜かどうか」', sub: '〜かどうか（もし〜なら との見分け）',
+  goal: '<b>今日のゴール</b><br>① know のあとに「だれが → する」の文をまるごと入れられる<br>② [w:if] には「もし〜なら」と「〜かどうか」の2つがある<br>③ I don\'t know if … で自分のことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'know の「なにを」に、文がまるごと入る', html:`
+    「だれが → する」の文は、そのまま know の後ろに入れられます。
+    <div class="morph">[s:He] [v:is] busy.</div>
+    <div class="morph">[s:I] [v:know] [o:he is busy].</div>
+    中の文も「だれが → する」の順のままです。
+    <div class="legend">[s:だれが] → [v:する] → [o:なにを（ここに文が入る）]</div>
+    <button class="say" data-say="He is busy. I know he is busy.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「彼は パーティーに 来るだろう」を英語に。', words:['He','will','come','to','the','party'], colors:['s','v','v','','',''],
+    hint:'まず「だれが」。次に will come（来るだろう）。最後に「どこに」。',
+    naru:'[s:He] [v:will come] to the party。未来のことなので will を使います。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は 彼が 忙しいことを 知っている」を英語に。', words:['I','know','he','is','busy'], colors:['s','v','o','o','o'],
+    hint:'I know のあとに「彼は忙しい」の文をそのまま入れる。',
+    naru:'[s:I] [v:know] [o:he is busy]. 中の文も「だれが → する」の順です。'},
+
+  {sec:'2. なぞ：この if は「もし」じゃない（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: If it rains, I will stay home.　<button class="say" data-say="If it rains, I will stay home.">🔊</button></p>
+    <p class="en">B: I don\'t know if it will rain.　<button class="say" data-say="I don't know if it will rain.">🔊</button></p>
+    A の if は「<b>もし</b>雨がふったら、家にいる」。<br>
+    B の if は know の「なにを」の場所にあります。「雨がふる<b>かどうか</b>わからない」。<br>
+    B の if は [e:whether] にかえても、同じ意味です。
+    <div class="naru"><b>ポイント</b>　know / ask などの後ろの if は「〜かどうか」。[w:if it will rain] 全体で、ひとつのかたまり。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「〜かどうか」の if はどっち？',
+    opts:['If you are free, call me.','Ask him if he is free.'], ans:1,
+    hint:'if が文の頭にあるか、ask（たずねる）の後ろにあるか、を見よう。',
+    naru:'Ask him if he is free.＝「彼に<b>ひまかどうか</b>聞いて」。<br>If you are free, call me. は「もしひまなら電話して」。'},
+  {type:'morph', tag:'see', q:'疑問文が「〜かどうか」のかたまりになる', lead:'ボタンを押すと、Will he come? が文の中に入ります。',
+    parts:[{t:'I don\'t know',in:1},{t:'if',c:'w',in:1},{t:'Will',c:'v',out:1},{t:'he',c:'s'},{t:'will',c:'v',in:1},{t:'come?',out:1},{t:'come.',in:1}],
+    note:'Yes / No で答える疑問文は、[w:if] をつけて文の中に入れます。<br>語順は [s:he] [v:will come] とふつうに戻ります。will は消えません。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：(　) に入るのは？<br>[e:I don\'t know if it (　) tomorrow.]',
+    opts:['rains','will rain','rain'], ans:1,
+    hint:'この if は「もし」？「かどうか」？ tomorrow（明日）のことだよ。',
+    naru:'「明日雨がふるかどうか」なので [e:if it] [v:will rain]。<br>「もし」の if につられて will を落とさないように。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:If it (　) tomorrow, I will stay home.]',
+    opts:['rains','will rain','rain'], ans:0,
+    hint:'この if は文の頭にある。「もし」の if のときは？',
+    naru:'「もし明日雨がふったら」の if の中は、未来でも [v:rains]（今の形）。<br>「かどうか」の if とはここがちがいます。'},
+  {type:'order', id:'o3', tag:'do', q:'「彼が 来るかどうか わからない」を英語に。', words:['I','don\'t','know','if','he','will','come'], colors:['s','v','v','o','o','o','o'],
+    hint:'I don\'t know のあとに「彼が来るかどうか」。if のあとは「だれが → する」。',
+    naru:'[s:I] [v:don\'t know] [o:if he will come]. 未来のことなので will を入れます。'},
+  {type:'order', id:'o4', tag:'do', q:'「彼女に ひまかどうか 聞いてみて」を英語に。', words:['Ask','her','if','she','is','free'], colors:['v','o','o','o','o','o'],
+    hint:'まず「彼女に聞いて」＝ Ask her。そのあとに「ひまかどうか」。',
+    naru:'[v:Ask] [o:her] [o:if she is free]. ask（たずねる）のあとの if は「〜かどうか」。'},
+  {type:'choice', id:'c4', tag:'solve', q:'[e:I don\'t know if he likes me.]<br>の意味は？', say:'I don\'t know if he likes me.',
+    opts:['彼が私のことを好きかどうか、わからない','もし彼が私を好きなら、わからない','彼は私のことを好きじゃないと思う'], ans:0,
+    hint:'if は know の後ろにある。「もし」と「かどうか」のどっち？',
+    naru:'[s:I] [v:don\'t know] [o:if he likes me]。know のあとの if は「〜かどうか」です。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['fireworks','花火'],['festival','お祭り'],['free','ひまな'],['message','メッセージ'],['boss','店長・上司'],['wonder','〜かなと思う']]},
+  {type:'read', title:'The Fireworks Festival', find:'「〜かどうか」の if は3つ、「もし」の if は1つあります。見つけられるかな？', paras:[
+    'There is a {fireworks|花火} {festival|お祭り} in my town this Saturday.',
+    'I want to go with my friend Sora.',
+    'But I don\'t know if she will be {free|ひまな}.',
+    'She often works at a café on weekends.',
+    'So I sent her a {message|メッセージ} and asked her if she could come.',
+    'She wrote back, "If my {boss|店長} says OK, I\'ll go!"',
+    'Now I\'m waiting for her answer.',
+    'I also {wonder|〜かなと思う} if it will rain on Saturday.']},
+  {type:'choice', id:'r1', tag:'solve', q:'「私」がはじめに心配していることは？',
+    opts:['ソラがひまかどうか','お祭りの場所','花火のチケット'], ans:0,
+    hint:'But I don\'t know if … の文をさがそう。',
+    naru:'I don\'t know if she will be free.＝「彼女がひまかどうかわからない」。'},
+  {type:'choice', id:'r2', tag:'think', q:'ソラの返事は？',
+    opts:['行けない','店長がいいと言えば行く','雨なら行く'], ans:1,
+    hint:'She wrote back, "If …" の文を読もう。この if は「もし」。',
+    naru:'If my boss says OK, I\'ll go!＝「もし店長がいいと言ったら行く！」。「もし」の if なので says（今の形）です。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['「私」は土曜日に雨がふるかどうかも気にしている','ソラはもう返事をくれた','お祭りは日曜日だ'], ans:0,
+    hint:'最後の文を読もう。',
+    naru:'I also wonder if it will rain on Saturday.＝「土曜日に雨がふるかなとも思っている」。この if も「〜かどうか」です。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'I don\'t know if she will come.',
+    opts:['彼女が来るかどうか、わからない','もし彼女が来たら、わからない','彼女は来ないと思う'], ans:0,
+    hint:'「おそく」で聞きなおそう。if は I don\'t know の後ろにあった？',
+    naru:'[s:I] [v:don\'t know] [o:if she will come]。know のあとの if は「〜かどうか」。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。この if の意味は？', listen:'Can you check if the store is open?',
+    opts:['〜かどうか','もし〜なら'], ans:0,
+    hint:'if のすぐ前の語は何だった？ check（確かめる）のあとの if は？',
+    naru:'check if the store is open＝「店が開いているかどうか確かめる」。check / ask / know のあとの if は「〜かどうか」です。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I don\'t know if ________.]<br>自分が「〜かどうかわからない」ことを英語で書こう。未来のことなら will を忘れずに。',
+    example:'例：I don\'t know if I will pass the test. / I don\'t know if my dog likes me.', placeholder:'I don\'t know if ...', ok_example:'I don\'t know if I will pass the test.',
+    pattern:'^\\s*i\\s+(don[\'’]?t|do\\s+not)\\s+know\\s+(if|whether)\\s+\\S+', need:'I don\'t know if のあとに、「だれが → する」を続けよう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで「かどうか」の if は will を使うのに、「もし」の if は使わないの？',
+    a:'「もし」の if は「〜したら、…する」の<b>条件</b>です。条件の部分は、未来のことでも今の形で言うきまりがあります（[e:If it rains, …]）。<br>「かどうか」の if は、know の「なにを」に入る<b>ふつうの文</b>です。ふつうの文で未来を言うなら will を使うので、[e:if it will rain] になります。'},
+  {type:'why', q:'if と whether は、どうちがうの？',
+    a:'「〜かどうか」の意味なら、ほぼ同じです。[e:I don\'t know whether he will come.]<br>whether のほうが少しかための言い方で、「もし」の意味にはなりません。<br>会話では if がよく使われます。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'if には2つの使い方がある', rows:[
+    {en:'If it rains, I will stay home.', label:'もし〜なら（if の中は今の形）'},
+    {en:'I don\'t know if it will rain.', label:'〜かどうか（未来なら will を使う）', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 10, title: '関係代名詞の復習 which・who・that', sub: '名詞のあとに説明の文をつなぐ',
+  goal: '<b>今日のゴール</b><br>① 英語は、説明を名詞の「後ろ」につける<br>② 人なら [w:who]、ものなら [w:which]、どちらにも [w:that] が使える<br>③ I have a friend who … で自分のことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'説明は、名詞の「後ろ」につく', html:`
+    日本語は、説明を名詞の<b>前</b>に置きます。「<b>駅の近くの</b> 店」。<br>
+    英語は、説明を名詞の<b>後ろ</b>に置きます。
+    <div class="morph">[s:This] [v:is] [o:a shop] near the station.</div>
+    <div class="legend">「店」→「駅の近くの」の順。英語は先に名詞を言って、あとから説明を足します。</div>
+    <button class="say" data-say="This is a shop near the station.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私には 友だちが いる」を英語に。', words:['I','have','a','friend'], colors:['s','v','o','o'],
+    hint:'「いる」は have（持っている）で言えます。だれが → する → なにを。',
+    naru:'[s:I] [v:have] [o:a friend]. 今日はこの a friend の後ろに説明を足していきます。'},
+  {type:'order', id:'o2', tag:'do', q:'「これは 駅の近くの 店だ」を英語に。', words:['This','is','a','shop','near','the','station'], colors:['s','v','o','o','','',''],
+    hint:'まず「これは店だ」を作る。「駅の近くの」は店の後ろ。',
+    naru:'[s:This] [v:is] [o:a shop] near the station. 説明（駅の近くの）が後ろにつきました。'},
+
+  {sec:'2. なぞ：2つの文を1つにする（5分）'},
+  {type:'morph', tag:'see', q:'He が who に変わる', lead:'「私には友だちがいる。彼は大阪に住んでいる」。ボタンを押すと、2つの文が1つになります。',
+    parts:[{t:'I have'},{t:'a friend.',c:'o',out:1},{t:'He',c:'s',out:1},{t:'a friend',c:'o',in:1},{t:'who',c:'w',in:1},{t:'lives in Osaka.'}],
+    btn:['1つにする ▶','◀ もどす'], say:'I have a friend who lives in Osaka.',
+    note:'「私には <b>大阪に住んでいる</b> 友だちがいる」。[w:who] は「その人は」の役で、前の名詞に説明をつなぐ「のり」です。<br>前が<b>人</b>なら [w:who]、<b>もの・動物</b>なら [w:which]。[w:that] はどちらにも使えます。'},
+  {type:'choice', id:'c1', tag:'think', q:'(　) に入るのは？<br>[e:I have a friend (　) plays the guitar.]',
+    opts:['who','which','what'], ans:0,
+    hint:'(　) の前の a friend は、人？ もの？',
+    naru:'a friend は人なので [w:who]。which は「もの・動物」のとき。what は前に名詞がないときに使います（第1回）。'},
+  {type:'morph', tag:'see', q:'「それを」も消える', lead:'which が「それを」の役をすることもあります。',
+    parts:[{t:'This is'},{t:'the book.',c:'o',out:1},{t:'the book',c:'o',in:1},{t:'which',c:'w',in:1},{t:'I read'},{t:'it',c:'o',out:1},{t:'yesterday.'}],
+    btn:['1つにする ▶','◀ もどす'], say:'This is the book which I read yesterday.',
+    note:'which が「それを（it）」の役をするので、<b>it は消えます</b>。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:This is the book which I read it yesterday.]',
+    opts:['which が変','it が余分','yesterday の場所が変'], ans:1,
+    hint:'さっきのボタンを思い出そう。「それを」の役は、だれがしていた？',
+    naru:'which がもう「それを」の役をしています。it も残すと「それを」が二重になります。<br>正しくは [e:This is the book which I read yesterday.]'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「私には 大阪に住んでいる おじがいる」を英語に。', words:['I','have','an','uncle','who','lives','in','Osaka'], colors:['s','v','o','o','o','o','o','o'],
+    hint:'まず I have an uncle。そのあとに who で説明をつなぐ。',
+    naru:'[s:I] [v:have] [o:an uncle who lives in Osaka]. おじ（人）なので who です。'},
+  {type:'order', id:'o4', tag:'do', q:'「これは 母が作った ケーキだ」を英語に。', words:['This','is','the','cake','my','mother','made'], colors:['s','v','o','o','o','o','o'],
+    hint:'This is the cake のあとに「母が作った」＝ my mother made。',
+    naru:'[s:This] [v:is] [o:the cake my mother made]. 本当は the cake (which) my mother made。この which は消してもいいのです。'},
+  {type:'choice', id:'c3', tag:'solve', q:'which を消しても文がこわれないのはどっち？',
+    opts:['The bag which I bought is blue.','The bag which is on the desk is mine.'], ans:0,
+    hint:'which のすぐ後ろを見よう。「だれが」（I など）が来ている？',
+    naru:'The bag (which) [s:I] [v:bought] は、後ろに「だれが」がいるので消せます。<br>The bag which [v:is] … の which は「それが」の役。消すと文がこわれます。'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br>[e:Show me (　) you bought.]',
+    opts:['what','which','the thing what'], ans:0,
+    hint:'(　) の前に、「もの」を表す名詞はある？',
+    naru:'「あなたが買ったもの」＝ what you bought。前に名詞がないので what（第1回）。<br>which は前に名詞があるときに使います。the thing what は「もの」が二重です。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['owner','店主（お店の主人）'],['bowl','どんぶり・おわん'],['mistake','まちがい'],['soup','スープ'],['famous','有名な'],['far away','遠く']]},
+  {type:'read', title:'The Ramen Shop', find:'who・which・that が1つずつあります。見つけられるかな？', paras:[
+    'Yui works at a ramen shop near her house.',
+    'The {owner|店主} is an old man who started the shop 30 years ago.',
+    'He does not talk much, but he is very kind.',
+    'On her first day, Yui broke a {bowl|どんぶり}.',
+    'He just smiled and said, "Everyone makes {mistakes|まちがい}."',
+    'The soup which he makes every morning is {famous|有名な} in the town.',
+    'Many people come from {far away|遠く} to eat it.',
+    'Someday, Yui wants to make soup that everyone loves.']},
+  {type:'choice', id:'r1', tag:'solve', q:'店主はどんな人？',
+    opts:['30年前に店を始めた、年配の男の人','遠くから来たお客さん','ユイのお父さん'], ans:0,
+    hint:'an old man who … の文をさがそう。',
+    naru:'an old man [w:who] started the shop 30 years ago ＝「30年前に店を始めた年配の男の人」。'},
+  {type:'choice', id:'r2', tag:'think', q:'町で有名なのは何？',
+    opts:['ユイが作るスープ','店主が毎朝作るスープ','店のどんぶり'], ans:1,
+    hint:'The soup which he makes every morning … の文。he はだれ？',
+    naru:'[s:The soup which he makes every morning] [v:is] famous. 長いかたまり全体が「何が」です。'},
+  {type:'choice', id:'r3', tag:'think', q:'ユイがどんぶりを割ったとき、店主は？',
+    opts:['おこった','笑って「だれでもまちがえる」と言った','何も言わずに帰った'], ans:1,
+    hint:'He just smiled and said … の文を読もう。',
+    naru:'smiled（ほほえんだ）、"Everyone makes mistakes."（だれでもまちがいはする）。やさしい店主です。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'I have a friend who lives in Tokyo.',
+    opts:['私には東京に住んでいる友だちがいる','私は友だちと東京に住んでいる','東京に住んでいる友だちはだれ？'], ans:0,
+    hint:'a friend のあとの who から、友だちの説明が始まります。',
+    naru:'I have [o:a friend] [w:who] lives in Tokyo. who 以下は a friend の説明です。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'The man who lives next door is a cook.',
+    opts:['男の人は、コックの家のとなりに住んでいる','となりに住んでいる男の人は、コックだ','コックの男の人は、となりに住んでいますか？'], ans:1,
+    hint:'is の前までが「だれが」のかたまり。',
+    naru:'[s:The man who lives next door] [v:is] a cook. 「となりに住んでいる男の人」がひとかたまりです。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I have a friend who ________.]<br>あなたの友だち（家族でもOK）を説明しよう。',
+    example:'例：I have a friend who plays soccer. / I have a friend who likes anime.', placeholder:'I have a friend who ...', ok_example:'I have a friend who plays soccer.',
+    pattern:'\\b(who|that)\\s+\\S+', need:'who のあとに「どんな人か」（plays … / likes … など）を書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで which を消せるときと、消せないときがあるの？',
+    a:'which のすぐ後ろに「だれが」（I・my mother など）が来ているときは、消しても意味がわかります。[e:the cake (which) my mother made]<br>which のすぐ後ろが「する」のときは、which が「それが」の役をしているので消せません。[e:the bag which is on the desk]<br>who・that も同じです。'},
+  {type:'why', q:'who と that、どっちを使えばいいの？',
+    a:'どちらも正しいです。人のときは who がよく使われます。ものや動物のときは which でも that でもOK。<br>迷ったら「人は who、ものは which」と覚えておけば大丈夫です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'前に名詞があるか、ないか', rows:[
+    {en:'This is what I wanted.', label:'前に名詞なし → what（第1回）'},
+    {en:'This is the bag which I wanted.', label:'もの ＋ which（that でもOK）', today:1},
+    {en:'This is the boy who helped me.', label:'人 ＋ who（that でもOK）', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 11, title: '関係副詞（1）where・when', sub: '〜する場所・〜する時',
+  goal: '<b>今日のゴール</b><br>① 「場所」や「時」は、文の最後に足すのが基本<br>② 場所の名詞のあとは [w:where]、時の名詞のあとは [w:when] で説明をつなぐ<br>③ … is the place where I … で自分のことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'「どこで」「いつ」は最後に来る', html:`
+    「だれが → する」のあとに、「どこで」「いつ」を足します。
+    <div class="morph">[s:I] [v:live] in this town.</div>
+    <div class="legend">[s:だれが] → [v:する] → どこで・いつ　この順番は、今日もずっと大事です。</div>
+    <button class="say" data-say="I live in this town.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は この町に 住んでいる」を英語に。', words:['I','live','in','this','town'], colors:['s','v','','',''],
+    hint:'まず「だれが」「する（住む）」。「この町に」は最後。',
+    naru:'[s:I] [v:live] in this town. live のあとに「何を」は来ません。in で場所をつなぎます。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は 7月に 生まれた」を英語に。', words:['I','was','born','in','July'], colors:['s','v','v','',''],
+    hint:'「生まれた」は was born の2語。「7月に」は最後。',
+    naru:'[s:I] [v:was born] in July. 「いつ」も最後に足します。'},
+
+  {sec:'2. なぞ：場所なのに which じゃない？（5分）'},
+  {type:'info', tag:'see', q:'2つの文を1つにする', html:`
+    <p class="en">This is the town. I live there.　<button class="say" data-say="This is the town. I live there.">🔊</button></p>
+    <p class="en">This is the town where I live.　<button class="say" data-say="This is the town where I live.">🔊</button></p>
+    下の文は「ここが <b>私が住んでいる</b> 町だ」。<br>
+    there（そこに）のかわりに <b>where</b> を置いて、2つの文をつないでいます。
+    <div class="naru"><b>ポイント</b>　[w:where] は「そこで・そこに」の役。場所の名詞に説明をつなぎます。</div>`},
+  {type:'morph', tag:'see', q:'there が where になって前へ', lead:'ボタンを押すと、2つの文が1つになります。',
+    parts:[{t:'This is'},{t:'the town.',c:'o',out:1},{t:'the town',c:'o',in:1},{t:'where',c:'w',in:1},{t:'I live'},{t:'there.',out:1}],
+    btn:['1つにする ▶','◀ もどす'], say:'This is the town where I live.',
+    note:'where が「そこに（there）」の役をするので、there は消えます。<br>時のときは同じように [w:when]（そのときに）を使います。'},
+  {type:'choice', id:'c1', tag:'think', q:'(　) に入るのは？<br>[e:This is the park (　) I play soccer every Sunday.]',
+    opts:['where','when','what'], ans:0,
+    hint:'(　) の前の the park は、場所？ 時？',
+    naru:'the park（場所）＋ [w:where]。「私が毎週日曜にサッカーをする公園」。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：(　) に入るのは？<br>[e:This is the town (　) I visited last year.]',
+    opts:['where','which','when'], ans:1,
+    hint:'visit は「〜を訪れる」。I visited のあとに「何を」はある？',
+    naru:'I visited のあとに「何を」がぬけています。その「何を」の役をするのが [w:which]。<br>I live（住む）は「何を」がいらないので where。場所の名詞でも、いつも where とはかぎりません。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「ここは 私が 生まれた 病院だ」を英語に。', words:['This','is','the','hospital','where','I','was','born'], colors:['s','v','o','o','o','o','o','o'],
+    hint:'まず This is the hospital。病院は場所なので、次に where。',
+    naru:'[s:This] [v:is] [o:the hospital where I was born]. 「生まれた」は was born。'},
+  {type:'order', id:'o4', tag:'do', q:'「私は 私たちが出会った 日を 覚えている」を英語に。', words:['I','remember','the','day','when','we','met'], colors:['s','v','o','o','o','o','o'],
+    hint:'まず I remember the day。日は時なので、次に when。',
+    naru:'[s:I] [v:remember] [o:the day when we met]. the day（時）＋ when。'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:Summer is the season (　) I can swim in the sea.]',
+    opts:['when','where','which'], ans:0,
+    hint:'the season（季節）は、場所？ 時？ そして I can swim in the sea に、ぬけている語はある？',
+    naru:'the season（時）＋ [w:when]。I can swim in the sea は、それだけで文がそろっています。'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br>[e:I like the cafe (　) is near the station.]',
+    opts:['which','where','when'], ans:0,
+    hint:'(　) のすぐ後ろは is。「何が」is なの？',
+    naru:'(　) is near the station の「何が」がぬけています。その役をするのが [w:which]。<br>cafe は場所でも、ここは where になりません。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['beach','浜辺'],['learn to swim','泳げるようになる'],['month','（1年の）月'],['warm','あたたかい'],['watermelon','すいか'],['both','2人とも']]},
+  {type:'read', title:'A Special Beach', find:'where・when・which が1つずつあります。見つけられるかな？', paras:[
+    'There is a small {beach|浜辺} near my grandmother\'s house.',
+    'It is the place where I {learned to swim|泳げるようになった}.',
+    'Every August, my family visits her.',
+    'August is the {month|月} when the sea is the {warmest|いちばんあたたかい}.',
+    'We swim in the morning and eat {watermelon|すいか} on the beach.',
+    'Last year, I took my best friend there.',
+    'She loved the beach, too.',
+    'Now it is a place which we {both|2人とも} love.']},
+  {type:'choice', id:'r1', tag:'solve', q:'この浜辺は、筆者にとってどんな場所？',
+    opts:['泳げるようになった場所','すいかを育てた場所','祖母が生まれた場所'], ans:0,
+    hint:'the place where … の文をさがそう。',
+    naru:'the place [w:where] I learned to swim ＝「私が泳げるようになった場所」。'},
+  {type:'choice', id:'r2', tag:'think', q:'8月はどんな月？',
+    opts:['祖母が来る月','海がいちばんあたたかい月','すいかが安い月'], ans:1,
+    hint:'the month when … の文をさがそう。',
+    naru:'the month [w:when] the sea is the warmest ＝「海がいちばんあたたかい月」。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['筆者は去年、親友をその浜辺に連れて行った','親友はその浜辺が好きではなかった','筆者の家族は毎年冬に祖母をたずねる'], ans:0,
+    hint:'Last year, … の文と、そのあとを読もう。',
+    naru:'Last year, I took my best friend there.（去年、親友をそこへ連れて行った）。最後の文は a place [w:which] we both love（2人とも大好きな場所）。love のあとに「何を」がないので which です。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'This is the room where I sleep.',
+    opts:['ここは私が寝る部屋だ','私はどこで寝ればいい？','この部屋で寝てもいいですか？'], ans:0,
+    hint:'最後は上がる調子（質問）だった？ where の前に the room があった？',
+    naru:'This is [o:the room] [w:where] I sleep. 質問ではなく、部屋の説明です。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'I remember the day when I got my first phone.',
+    opts:['初めてのスマホをいつもらったか、忘れた','初めてスマホをもらった日を覚えている','初めてのスマホは、いつもらえる？'], ans:1,
+    hint:'remember は「覚えている」。the day のあとの when から説明が始まります。',
+    naru:'I remember [o:the day] [w:when] I got my first phone.「初めてスマホをもらった日」。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:________ is the place where I ________.]<br>あなたのお気に入りの場所を書こう。',
+    example:'例：My room is the place where I can relax. / The gym is the place where I play basketball.', placeholder:'My room is the place where I ...', ok_example:'My room is the place where I can relax.',
+    pattern:'\\bplace\\s+where\\s+\\S+\\s+\\S+', need:'the place where I のあとに、そこで何をするかを書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'場所の名詞なのに which になるのは、なんで？',
+    a:'where か which かは、前の名詞ではなく<b>後ろの文</b>で決まります。<br>後ろの文に「何を」「何が」がぬけていたら which。[e:the town which I visited]（visited の「何を」がない）<br>ぬけていなければ where。[e:the town where I live]（I live だけで文がそろっている）'},
+  {type:'why', q:'when は消してもいいの？',
+    a:'はい。[e:the day when we met] は [e:the day we met] と言っても OK。会話ではよく消します。<br>where は注意。[e:the town where I live] から where を消すなら、[e:the town I live in] のように最後に in が必要になります（in が「そこに」の役をするため）。最初は where をつけて書くのが安心です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'後ろの文に、ぬけている語はある？', rows:[
+    {en:'This is the town which I visited.', label:'「何を」がぬけている → which'},
+    {en:'This is the town where I live.', label:'場所 ＋ where（ぬけている語なし）', today:1},
+    {en:'I remember the day when we met.', label:'時 ＋ when（ぬけている語なし）', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 12, title: '関係副詞（2）why・how', sub: '〜する理由・〜するやり方',
+  goal: '<b>今日のゴール</b><br>① 質問の why と、説明をつなぐ why をくらべる<br>② [w:the reason why] …「〜する理由」、[w:how] …「〜するやり方」<br>③ the way と how は、どちらか片方だけ使う',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'質問の文は、順番が入れかわる', html:`
+    ふつうの文は「だれが → する」の順です。
+    <div class="morph">[s:You] [v:were] late.</div>
+    質問にすると、順番が入れかわります。
+    <div class="morph">Why [v:were] [s:you] late?</div>
+    <button class="say" data-say="You were late. Why were you late?">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「なぜ あなたは 遅れたの？」を英語に。', words:['Why','were','you','late'], colors:['','v','s','c'], end:'?',
+    hint:'Why が先頭。質問なので「する（were）」が「だれが（you）」の前。',
+    naru:'Why [v:were] [s:you] late? 質問のときは were と you が入れかわります。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は その理由を 知りたい」を英語に。', words:['I','want','to','know','the','reason'], colors:['s','v','v','v','o','o'],
+    hint:'「知りたい」＝ want to know。「その理由」は最後。',
+    naru:'[s:I] [v:want to know] [o:the reason]. 今日はこの the reason の後ろに説明をつなぎます。'},
+
+  {sec:'2. なぞ：質問していない why と how（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: Why are you sad?　<button class="say" data-say="Why are you sad?">🔊</button></p>
+    <p class="en">B: Tell me the reason why you are sad.　<button class="say" data-say="Tell me the reason why you are sad.">🔊</button></p>
+    A は「なぜ悲しいの？」と<b>聞いて</b>います。<br>
+    B は「あなたが悲しい<b>理由</b>を教えて」。you are は「だれが → する」のふつうの順番です。
+    <div class="naru"><b>ポイント</b>　[w:the reason why] ＋ ふつうの文 ＝「〜する理由」。the reason（理由）に説明をつないでいます。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「質問していない why」はどっち？',
+    opts:['Why is he angry?','I know the reason why he is angry.'], ans:1,
+    hint:'文の終わりが「?」か「.」か。he is の順番も見よう。',
+    naru:'I know the reason why [s:he] [v:is] angry.＝「私は彼が怒っている<b>理由</b>を知っている」。聞いていません。'},
+  {type:'morph', tag:'see', q:'「やり方」は the way か how', lead:'ボタンを押すと、the way が how に変わります。',
+    parts:[{t:'This is'},{t:'the way',c:'o',out:1},{t:'how',c:'w',in:1},{t:'I study English.'}],
+    btn:['how にする ▶','◀ もどす'], say:'This is how I study English.',
+    note:'どちらも「これが私の英語の勉強のやり方だ」。<br>[o:the way] か [w:how] の<b>どちらか片方</b>。2つ並べることはしません。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:This is the way how I make curry.]',
+    opts:['This is が変','the way と how が「やり方」を二重に言っている','curry の前に a が必要'], ans:1,
+    hint:'さっきのボタンを思い出そう。the way と how は、いっしょにいた？',
+    naru:'the way も how も「やり方」。二重になります。<br>正しくは [e:This is how I make curry.] か [e:This is the way I make curry.] のどちらか。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「私は 彼女が 怒っている 理由を 知っている」を英語に。', words:['I','know','the','reason','why','she','is','angry'], colors:['s','v','o','o','o','o','o','o'],
+    hint:'まず I know the reason。そのあと why ＋ ふつうの順番（she is）。',
+    naru:'[s:I] [v:know] [o:the reason why she is angry]. why のあとは she is の順。質問の順にはしません。'},
+  {type:'order', id:'o4', tag:'do', q:'「これが 私の 新しい単語の 覚え方だ」を英語に。', words:['This','is','how','I','learn','new','words'], colors:['s','v','o','o','o','o','o'],
+    hint:'「私が新しい単語を覚えるやり方」＝ how I learn new words。',
+    naru:'[s:This] [v:is] [o:how I learn new words]. how のあとも「だれが → する → なにを」の順です。'},
+  {type:'choice', id:'c3', tag:'solve', q:'「このケーキの作り方を見せて」<br>[e:Please show me (　) you made this cake.]',
+    opts:['how','the way how','what'], ans:0,
+    hint:'「やり方」を表すのはどれ？ 二重になっていないかも見よう。',
+    naru:'how you made this cake ＝「あなたがこのケーキを作ったやり方」。the way how は二重なのでだめ。'},
+  {type:'choice', id:'c4', tag:'solve', q:'「彼が来なかった理由を知っている？」<br>[e:Do you know the reason (　) he didn\'t come?]',
+    opts:['why','how','which'], ans:0,
+    hint:'the reason（理由）のあとに来るのは？ he didn\'t come に、ぬけている語はある？',
+    naru:'the reason ＋ [w:why]。he didn\'t come はそれだけで文がそろっているので、which は入りません。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['be good at','〜が得意だ'],['reason','理由'],['miso soup','みそ汁'],['instant','インスタントの'],['taste','〜な味がする'],['same','同じ']]},
+  {type:'read', title:'Grandma\'s Miso Soup', find:'why と how をさがしてみよう。', paras:[
+    'Taku {is good at|〜が得意だ} cooking.',
+    'His friends often ask him why he likes it.',
+    '"My grandmother is the {reason|理由} why I love cooking," he says.',
+    'When he was a child, she showed him how she made {miso soup|みそ汁}.',
+    'She never used {instant|インスタントの} dashi.',
+    'That is why her soup {tasted|〜な味がした} so good.',
+    'Now Taku makes soup in the {same|同じ} way.',
+    'His friends love it.']},
+  {type:'choice', id:'r1', tag:'solve', q:'友だちがよくタクにたずねるのは？',
+    opts:['料理が好きな理由','みそ汁の値段','おばあさんの家の場所'], ans:0,
+    hint:'ask him why … の文をさがそう。it は何のこと？',
+    naru:'ask him [w:why] he likes it ＝「なぜそれ（料理）が好きなのか」をたずねる。答えは次の文の the reason [w:why] I love cooking（料理が大好きな理由）＝おばあさん。'},
+  {type:'choice', id:'r2', tag:'think', q:'おばあさんのみそ汁がとてもおいしかったのは、なぜ？',
+    opts:['タクが手伝ったから','インスタントのだしを使わなかったから','高いみそを使ったから'], ans:1,
+    hint:'That is why … の1つ前の文を読もう。',
+    naru:'She never used instant dashi.（インスタントのだしは使わなかった）→ That is why …（だから、おいしかった）。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['タクはインスタントのみそ汁が好きだ','タクは今、おばあさんと同じやり方でスープを作る','タクの友だちはタクのスープが好きではない'], ans:1,
+    hint:'最後の2文を読もう。',
+    naru:'Now Taku makes soup in the same way.（同じやり方で作る）。the way は「やり方」です。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'This is how I go to school.',
+    opts:['これが、私の学校への行き方だ','どうやって学校へ行くの？','これは私の学校です'], ans:0,
+    hint:'最後は上がる調子（質問）だった？ how のあとは I go の順？',
+    naru:'This is [w:how] I go to school. 質問ではなく「行き方」の説明です。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'Tell me why you like it.',
+    opts:['Tell me why you like it.','Tell me what you like.','Tell me how you like it.'], ans:0,
+    hint:'why は「ワイ」、how は「ハウ」、what は「ワット」。',
+    naru:'Tell me why you like it.＝「それが好きな理由を教えて」。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I want to know the reason why ________.]<br>あなたがふしぎに思っていることを書こう。',
+    example:'例：I want to know the reason why cats like boxes. / I want to know the reason why I am always sleepy.', placeholder:'I want to know the reason why ...', ok_example:'I want to know the reason why cats like boxes.',
+    pattern:'\\bwhy\\s+\\S+\\s+\\S+', need:'why のあとに「だれが → する」の順で書こう（cats like … など）。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで the way how はだめなの？',
+    a:'how の中に、もう「やり方（the way）」が入っているからです。「やり方のやり方」と二重になります。<br>[e:the way I study] か [e:how I study]、どちらか一方。第1回の「the thing what はだめ」と同じしくみです。'},
+  {type:'why', q:'That is why … ってどういう意味？',
+    a:'「それが〜の理由だ」→「だから〜」という意味です。前の文に理由が書いてあります。<br>[e:I was sick. That is why I was absent.]（体調が悪かった。だから休んだ）<br>the reason を消して、why だけで「〜する理由」を表しています。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'why・how には2つの使い方がある', rows:[
+    {en:'Why are you late?', label:'質問の why（なぜ？）'},
+    {en:'Tell me the reason why you are late.', label:'the reason why ＋ ふつうの文（〜する理由）', today:1},
+    {en:'This is how I study.', label:'how ＋ ふつうの文（〜するやり方）', today:1}],
+    note:'the way と how は、どちらか片方だけ。'}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 13, title: '知覚動詞', sub: '〜が…するのを見る・聞く',
+  goal: '<b>今日のゴール</b><br>① see・hear のあとに「だれが」「どうする」を並べられる<br>② [w:see] ＋ 人 ＋ [c:原形]（全部見た）／ [c:‑ing]（途中を見た）<br>③ I saw … ／ I heard … で自分が見たこと・聞いたことを言える',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'今日は「どうする」が1つ増える', html:`
+    いつもの形です。
+    <div class="morph">[s:I] [v:saw] [o:a cat].</div>
+    今日は、そのあとに「そのネコがどうした」を足します。この「どうする」の部分は [c:むらさき] で表します。
+    <div class="legend">[s:だれが] → [v:する] → [o:だれを] → [c:どうする]</div>
+    <button class="say" data-say="I saw a cat.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は 彼を 見た」を英語に。', words:['I','saw','him'], colors:['s','v','o'],
+    hint:'だれが → する → だれを。',
+    naru:'[s:I] [v:saw] [o:him]. 「彼を」は he ではなく him です。'},
+  {type:'order', id:'o2', tag:'do', q:'「ネコが 道を 渡った」を英語に。', words:['A','cat','crossed','the','road'], colors:['s','s','v','o','o'],
+    hint:'「渡った」は crossed。「道を」は最後。',
+    naru:'[s:A cat] [v:crossed] [o:the road]. 次はこの2つの文を1つにします。'},
+
+  {sec:'2. なぞ：to がない！（5分）'},
+  {type:'morph', tag:'see', q:'2つの文が1つになる', lead:'ボタンを押すと、2つの文が1つになります。cross の形に注目。',
+    parts:[{t:'I saw'},{t:'a cat.',c:'o',out:1},{t:'The cat',c:'s',out:1},{t:'crossed',c:'v',out:1},{t:'a cat',c:'o',in:1},{t:'cross',c:'c',in:1},{t:'the road.'}],
+    btn:['1つにする ▶','◀ もどす'], say:'I saw a cat cross the road.',
+    note:'「私は <b>ネコが道を渡る</b> のを見た」。cross は crossed にも to cross にもならず、<b>もとの形</b>のまま。<br>see・hear・feel・watch のあとは、この形になります。'},
+  {type:'info', tag:'see', q:'もとの形と ‑ing のちがい', html:`
+    <p class="en">I saw him cross the road.　<button class="say" data-say="I saw him cross the road.">🔊</button></p>
+    → 渡り始めから渡り終わりまで、<b>全部</b>見た。
+    <p class="en">I saw him crossing the road.　<button class="say" data-say="I saw him crossing the road.">🔊</button></p>
+    → 渡っている<b>途中</b>を見た。
+    <div class="naru"><b>ポイント</b>　[c:もとの形] は「全部」、[c:‑ing] は「〜しているところ」。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「渡っている途中を見た」はどっち？',
+    opts:['I saw him cross the road.','I saw him crossing the road.'], ans:1,
+    hint:'「〜しているところ」を表すのは、もとの形？ ‑ing？',
+    naru:'[c:crossing] は「渡っているところ」。cross なら「渡るのを（全部）見た」です。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:I saw him to cross the road.]',
+    opts:['saw が変','to がいらない','him は he にする'], ans:1,
+    hint:'さっきの文に to はあった？',
+    naru:'see・hear のあとは to をつけません。<br>正しくは [e:I saw him cross the road.]（または crossing）。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'order', id:'o3', tag:'do', q:'「私は 弟が 泣いているのを 聞いた」を英語に。', words:['I','heard','my','brother','crying'], colors:['s','v','o','o','c'],
+    hint:'I heard（聞いた）→ my brother（弟が）→ crying（泣いているの）。',
+    naru:'[s:I] [v:heard] [o:my brother] [c:crying]. 泣いている途中が聞こえたので ‑ing。'},
+  {type:'order', id:'o4', tag:'do', q:'「私は だれかが ドアを たたくのを 聞いた」を英語に。', words:['I','heard','someone','knock','on','the','door'], colors:['s','v','o','c','','',''],
+    hint:'I heard someone（だれかが）のあとに、もとの形の knock。',
+    naru:'[s:I] [v:heard] [o:someone] [c:knock] on the door. to はつけません。'},
+  {type:'choice', id:'c3', tag:'solve', q:'「地面がゆれるのを感じた」<br>[e:I felt the ground (　).]',
+    opts:['shake','to shake','shook'], ans:0,
+    hint:'feel のあとも see・hear と同じ形。to はいる？ 「いつ」はもう felt が言っている？',
+    naru:'[v:felt] [o:the ground] [c:shake]. feel も to なし、もとの形です。'},
+  {type:'choice', id:'c4', tag:'solve', q:'「妹がケーキを作っているところを見ていた」<br>[e:I watched my sister (　) a cake.]',
+    opts:['making','to make','made'], ans:0,
+    hint:'「作っているところ」は、どの形？',
+    naru:'[v:watched] [o:my sister] [c:making] a cake. 途中を見ていたので ‑ing。made（過去の形）にはしません。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['river','川'],['grass','草・しばふ'],['fall off','〜から落ちる'],['follow','あとについて行く'],['lick','なめる'],['smile','ほほえむ']]},
+  {type:'read', title:'A Day by the River', find:'heard ＋ だれが ＋ どうする、saw ＋ だれが ＋ どうする をさがそう。', paras:[
+    'Last Sunday, I went to the {river|川} with my dog, Pochi.',
+    'We sat on the {grass|しばふ}.',
+    'Soon I heard some birds singing in the trees.',
+    'Then I saw a little boy {fall off|〜から落ちる} his bike.',
+    'Pochi ran to him, and I {followed|あとについて行った}.',
+    'The boy was OK, but he was crying.',
+    'Pochi {licked|なめた} his face, and I saw him {smile|ほほえむ}.',
+    'It was a small but happy day.']},
+  {type:'choice', id:'r1', tag:'solve', q:'しばふにすわったあと、何が聞こえた？',
+    opts:['男の子が泣く声','木の中で鳥が鳴いている声','ポチがほえる声'], ans:1,
+    hint:'I heard … の文をさがそう。',
+    naru:'I heard [o:some birds] [c:singing] in the trees.（鳥が鳴いているのが聞こえた）。'},
+  {type:'choice', id:'r2', tag:'think', q:'男の子に何が起きた？',
+    opts:['自転車から落ちた','川に落ちた','犬にかまれた'], ans:0,
+    hint:'I saw a little boy … の文を読もう。',
+    naru:'I saw [o:a little boy] [c:fall off] his bike.（男の子が自転車から落ちるのを見た）。'},
+  {type:'choice', id:'r3', tag:'think', q:'ポチが顔をなめたあと、男の子は？',
+    opts:['もっと泣いた','にっこりした','走って帰った'], ans:1,
+    hint:'… and I saw him … の文を読もう。',
+    naru:'I saw [o:him] [c:smile].（彼がほほえむのを見た）。だから「小さいけど幸せな日」です。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'I saw her dancing.',
+    opts:['彼女が踊っているのを見た','彼女は私が踊るのを見た','私は彼女と踊った'], ans:0,
+    hint:'見たのはだれ？ 踊っていたのはだれ？',
+    naru:'[s:I] [v:saw] [o:her] [c:dancing]. 見たのは私、踊っていたのは彼女です。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Did you hear the phone ringing?',
+    opts:['電話が鳴っているのが聞こえた？','電話をかけた？','電話の音は好き？'], ans:0,
+    hint:'hear（聞こえる）のあとに the phone（電話が）、ringing（鳴っている）。',
+    naru:'hear [o:the phone] [c:ringing] ＝「電話が鳴っているのが聞こえる」。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I saw ____ ____.] か [e:I heard ____ ____.]<br>最近、見たこと・聞こえたことを書こう。',
+    example:'例：I saw my cat sleeping on my bed. / I heard my mother singing.', placeholder:'I heard ...', ok_example:'I heard my mother singing.',
+    pattern:'\\b(saw|heard|watched|felt|see|hear|watch|feel)\\s+\\S+(\\s+\\S+)?\\s+\\S+', need:'saw か heard のあとに「だれが」「どうする」を並べよう（to はつけない）。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'want him to go は to があるのに、なんで see には to がないの？',
+    a:'want（してほしい）は、まだ起きていないことを言います。to は「これから〜へ向かう」感じです。<br>see・hear は、目の前で<b>実際に起きている</b>ことをそのまま見る・聞くので、to はいりません。'},
+  {type:'why', q:'saw（過去）なのに、なんで cross は crossed にしないの？',
+    a:'「いつのことか」は、もう saw が言っているからです。2回言う必要はありません。<br>[e:I saw him cross the road.] でも [e:I often see him cross the road.] でも、cross の形は変わりません。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'to があるか、ないか', rows:[
+    {en:'I want him to cross the road.', label:'want ＋ 人 ＋ to ～（〜してほしい）'},
+    {en:'I saw him cross the road.', label:'see ＋ 人 ＋ もとの形（全部見た）', today:1},
+    {en:'I saw him crossing the road.', label:'see ＋ 人 ＋ ‑ing（途中を見た）', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 14, title: '使役動詞', sub: 'make・let・have＋人＋原形',
+  goal: '<b>今日のゴール</b><br>① 「だれが → する → 人 → どうする」の並びは、前回の see と同じ<br>② [w:make]（むりやり〜させる）・[w:let]（〜させてあげる）・[w:have]（〜してもらう）を使い分ける<br>③ 人のあとは to をつけず、動詞のもとの形（原形）を置く',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'前回の形をもう一度', html:`
+    前回は「人が〜するのを見る」を習いました。
+    <div class="morph">[s:I] [v:saw] [o:Ken] [c:run].</div>
+    「私は ケンが 走るのを 見た」。人（Ken）のすぐあとに、動詞のもとの形（run）を置きました。
+    <div class="legend">[s:だれが] → [v:する] → [o:人] → [c:どうする]　今日は紫の [c:どうする] も使います。</div>
+    <button class="say" data-say="I saw Ken run.">🔊 聞く</button>
+    <div class="naru"><b>ポイント</b>　今日の「させる」の文も、<b>まったく同じ並び</b>です。動詞が saw から made などに変わるだけ。</div>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は ケンが 公園で 走るのを 見た」を英語に。', words:['I','saw','Ken','run','in','the','park'], colors:['s','v','o','c','','',''],
+    hint:'だれが → 見た → 人 → どうする。「公園で」は最後。',
+    naru:'[s:I] [v:saw] [o:Ken] [c:run] in the park. 人のあとに run（もとの形）が来ます。'},
+  {type:'order', id:'o2', tag:'do', q:'「コーチは 私たちを 走らせた」を英語に。', words:['Our','coach','made','us','run'], colors:['s','s','v','o','c'],
+    hint:'さっきの saw を made（させた）に変えるだけ。人のあとに「どうする」。',
+    naru:'[s:Our coach] [v:made] [o:us] [c:run]. I saw Ken run. と同じ並びです。'},
+
+  {sec:'2. なぞ：「させる」には3つある（5分）'},
+  {type:'info', tag:'see', q:'3つの文をくらべよう', html:`
+    <p class="en">A: My mother made me clean my room.　<button class="say" data-say="My mother made me clean my room.">🔊</button></p>
+    <p class="en">B: My mother let me play games.　<button class="say" data-say="My mother let me play games.">🔊</button></p>
+    <p class="en">C: I had the shop fix my bike.　<button class="say" data-say="I had the shop fix my bike.">🔊</button></p>
+    A は「母は私に部屋をそうじ<b>させた</b>」。私はやりたくなかったけど、むりやり。<br>
+    B は「母は私にゲームを<b>させてくれた</b>」。私がやりたいことを許してくれた。<br>
+    C は「私は店に自転車を直して<b>もらった</b>」。お金を払って、やってもらった。
+    <div class="naru"><b>ポイント</b>　どれも [o:人] のあとは [c:clean] [c:play] [c:fix] ともとの形。<b>to はつきません</b>。</div>`},
+  {type:'choice', id:'c1', tag:'think', q:'「父は 私に 車を運転させてくれた」に合うのは？',
+    opts:['My father let me drive his car.','My father made me drive his car.'], ans:0,
+    hint:'「させてくれた」は、むりやり？ それとも許してくれた？',
+    naru:'許してくれた → [w:let]。made だと「いやなのに運転させられた」になります。'},
+  {type:'morph', tag:'see', q:'tell と make をくらべよう', lead:'ボタンを押すと、tell が make に変わります。', btn:['make に変える ▶','◀ もどす'],
+    parts:[{t:'My mother',c:'s'},{t:'told',c:'v',out:1},{t:'made',c:'v',in:1},{t:'me',c:'o'},{t:'to',out:1},{t:'clean my room.',c:'c'}],
+    note:'tell（言う）のときは [e:to clean]。make にすると to が消えて [c:clean] だけになります。<br>make・let・have は、人のあとに<b>そのまま</b>もとの形を置きます。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:My mother made me to clean my room.]',
+    opts:['made が変','to がいらない','my room が変'], ans:1,
+    hint:'さっきのボタンを思い出そう。make にしたら、何が消えた？',
+    naru:'make のあとは to なし。正しくは [e:My mother made me clean my room.]<br>tell なら [e:My mother told me to clean my room.] です。'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:I had the shop (　) my bike.]',
+    opts:['fix','to fix','fixed'], ans:0,
+    hint:'have ＋ 人 のあとは、make と同じ形。',
+    naru:'[s:I] [v:had] [o:the shop] [c:fix] my bike.「店に自転車を直してもらった」。to はつけません。'},
+  {type:'order', id:'o3', tag:'do', q:'「先生は 私たちを 早く 帰らせてくれた」を英語に。', words:['Our','teacher','let','us','go','home','early'], colors:['s','s','v','o','c','c',''],
+    hint:'「させてくれた」は let。人（us）のあとに「家に帰る」＝ go home。「早く」は最後。',
+    naru:'[s:Our teacher] [v:let] [o:us] [c:go home] early. let は過去でも let のままです。'},
+  {type:'order', id:'o4', tag:'do', q:'「その映画は 私を 泣かせた」を英語に。', words:['The','movie','made','me','cry'], colors:['s','s','v','o','c'],
+    hint:'「だれが」は人でなくてもOK。その映画 → させた → 私 → 泣く。',
+    naru:'[s:The movie] [v:made] [o:me] [c:cry]. 「思わず〜させる」も make で言えます。'},
+  {type:'choice', id:'c4', tag:'solve', q:'「手伝わせて」と言いたい。(　) に入るのは？<br>[e:Let me (　) you.]', say:'Let me help you.',
+    opts:['help','to help','helping'], ans:0,
+    hint:'Let ＋ 人（me）のあとは、どんな形だった？',
+    naru:'[e:Let me help you.]「（私に）手伝わせて」。Let me 〜. は「〜させて」とお願いするときの決まった言い方です。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['convenience store','コンビニ'],['manager','店長'],['floor','ゆか'],['cash register','レジ'],['nervous','きんちょうした'],['alone','ひとりで']]},
+  {type:'read', title:'My First Part-Time Job', find:'make・let・have ＋ 人 ＋ 動詞 の形は3つあります。見つけられるかな？', paras:[
+    'Yui started working at a {convenience store|コンビニ} last month.',
+    'On her first day, the {manager|店長} made her clean the {floor|ゆか} for two hours.',
+    'She was tired, but she did her best.',
+    'Last week, the manager let her use the {cash register|レジ} for the first time.',
+    'She was {nervous|きんちょうした}, so he had an older worker help her.',
+    'Now she can work {alone|ひとりで}.',
+    'She is a little proud of herself.']},
+  {type:'choice', id:'r1', tag:'solve', q:'初日に、店長はユイに何をさせた？',
+    opts:['ゆかを2時間そうじさせた','レジを使わせた','ひとりで働かせた'], ans:0,
+    hint:'On her first day, … の文をさがそう。',
+    naru:'the manager made her clean the floor ＝「店長は彼女にゆかをそうじさせた」。'},
+  {type:'choice', id:'r2', tag:'think', q:'"the manager let her use the cash register" の意味は？',
+    opts:['店長はレジを使わせてくれた','店長はレジを使うのを禁止した','店長はむりやりレジを使わせた'], ans:0,
+    hint:'let は、むりやり？ 許してくれた？',
+    naru:'[w:let] her use ＝「使わせてくれた」。むりやりなら made her use になります。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['ユイは今、ひとりで働ける','ユイはまだレジを使ったことがない','先輩はユイを手伝わなかった'], ans:0,
+    hint:'最後のほうの文を読もう。',
+    naru:'Now she can work alone. 先輩に手伝ってもらって（had an older worker help her）、できるようになりました。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Let me try.',
+    opts:['私にやらせて。','やってみて。','やってくれた？'], ans:0,
+    hint:'最初の2語 Let me が聞こえたかな。',
+    naru:'[e:Let me try.]「（私に）やらせて」。Let me のあとにもとの形 try。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'My dad made me wash the car.',
+    opts:['My dad made me wash the car.','My dad let me wash the car.','My dad had me wash the car.'], ans:0,
+    hint:'dad のすぐあとの動詞に注意。「メイド」「レット」「ハド」のどれ？',
+    naru:'made me wash ＝「（むりやり）洗わせた」。お父さんに洗車させられたんですね。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:My parents let me ________.]<br>家の人が許してくれることを英語で書こう。',
+    example:'例：My parents let me sleep late on Sundays. / My mother lets me use her car. / My grandma lets me have a dog.', placeholder:'My parents let me ...', ok_example:'My parents let me sleep late on Sundays.',
+    pattern:'\\b(let|lets|make|makes|made|have|has|had)\\s+(me|us)\\s+(?!to\\b)[a-z]+', need:'let me のあとに、動詞のもとの形を書こう（to はつけない）。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで make や let のあとは to がいらないの？ tell me to 〜 にはつくのに。',
+    a:'tell や want は「〜してね」と<b>ことばで伝えるだけ</b>。相手が本当にやるかは、まだわかりません。to は「これから〜へ向かう」感じを表します。<br>make・let・have は「人が〜する」ことが<b>実際に起きる</b>ようにする言い方。前回の see（人が〜するのを見る）と同じで、人のすぐあとに動きをそのまま置きます。'},
+  {type:'why', q:'make と have、どっちも「させる」でしょ？ 何がちがうの？',
+    a:'[w:make] は、相手がいやでも「むりやり」。<br>[w:have] は、頼んだり、お金を払ったりして「やってもらう」。たとえば [e:I had the shop fix my bike.]（店に直してもらった）。<br>[w:let] は、相手がやりたいことを「許す」。<br>相手の気持ちを考えると選びやすくなります。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'人のあとに「to あり」と「to なし」', rows:[
+    {en:'I saw Ken run.', label:'見る・聞く（前回）：to なし'},
+    {en:'My mother made me clean my room.', label:'make・let・have（させる）：to なし', today:1},
+    {en:'My mother told me to clean my room.', label:'tell・ask・want：to あり'}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 15, title: '分詞（1）名詞を説明する -ing・-ed', sub: '〜している・〜された（もの・人）',
+  goal: '<b>今日のゴール</b><br>① -ing は「〜している」、-ed は「〜された」<br>② この形で、名詞（もの・人）に説明をくっつけられる<br>③ 説明が1語なら名詞の前、2語以上なら名詞のうしろ',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'-ing と -ed は、もう知っている', html:`
+    中学で、こんな文を習いました。
+    <div class="morph">[s:The boy] [v:is playing] [o:soccer].</div>
+    「その少年はサッカーを<b>している</b>」。is ＋ -ing で「〜している」。
+    <div class="morph">[s:The window] [v:was broken].</div>
+    「その窓は<b>割られた</b>」。was ＋ -ed（過去分詞）で「〜された」。
+    <div class="legend">今日は、この [c:playing] や [c:broken] を、[s:名詞] の説明として使います。紫の色で表します。</div>
+    <button class="say" data-say="The boy is playing soccer. The window was broken.">🔊 聞く</button>`},
+  {type:'order', id:'o1', tag:'do', q:'「その少年は サッカーを している」を英語に。', words:['The','boy','is','playing','soccer'], colors:['s','s','v','v','o'],
+    hint:'だれが → is playing（している）→ なにを。',
+    naru:'[s:The boy] [v:is playing] [o:soccer]. is ＋ -ing で「〜している」。'},
+  {type:'order', id:'o2', tag:'do', q:'「その窓は ケンに 割られた」を英語に。', words:['The','window','was','broken','by','Ken'], colors:['s','s','v','v','',''],
+    hint:'何が → was broken（割られた）→ by（〜によって）だれ。',
+    naru:'[s:The window] [v:was broken] by Ken. was ＋ broken で「割られた」。'},
+
+  {sec:'2. なぞ：is がないのに -ing？（5分）'},
+  {type:'info', tag:'see', q:'2つをくらべよう', html:`
+    <p class="en">A: The baby is crying.　<button class="say" data-say="The baby is crying.">🔊</button></p>
+    <p class="en">B: a crying baby　<button class="say" data-say="a crying baby">🔊</button></p>
+    A は「赤ちゃんが泣いている」という<b>文</b>。<br>
+    B は is がありません。「<b>泣いている赤ちゃん</b>」という、ひとつの<b>かたまり</b>（名詞）です。<br>
+    -ed も同じ。[e:a broken window] ＝「<b>割られた（割れた）窓</b>」。
+    <div class="naru"><b>ポイント</b>　[c:-ing] は名詞が「自分で〜している」。[c:-ed] は名詞が「〜された」。</div>`},
+  {type:'morph', tag:'see', q:'説明が長いときは、うしろに置く', lead:'ボタンを押すと、文がかたまりに変わります。',
+    parts:[{t:'The boy',c:'s'},{t:'is',c:'v',out:1},{t:'playing soccer',c:'c'},{t:'is my brother.',in:1}],
+    note:'is を取ると [s:The boy] [c:playing soccer]＝「サッカーをしている少年」というかたまりになります。<br>説明が2語以上（playing soccer）なら、名詞の<b>うしろ</b>に置きます。'},
+  {type:'choice', id:'c1', tag:'think', q:'「泣いている赤ちゃん」はどれ？',
+    opts:['a crying baby','a cried baby','a baby cry'], ans:0,
+    hint:'赤ちゃんは自分で泣いている？ 泣かされている？ 説明は1語？',
+    naru:'自分で泣いている → [c:crying]。1語なので名詞の前に置いて [e:a crying baby]。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:Portuguese is the language speaking in Brazil.]',
+    opts:['Portuguese is が変','speaking ではなく spoken（話される）にする','in Brazil が変'], ans:1,
+    hint:'ことば（the language）は、自分で話す？ それとも人に話される？',
+    naru:'ことばは「話される」側 → [c:spoken]。正しくは [e:Portuguese is the language spoken in Brazil.]（ブラジルで話されていることば＝ポルトガル語）'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'choice', id:'c3', tag:'solve', q:'(　) に入るのは？<br>[e:I bought a car (　) in Japan.]',
+    opts:['made','making','make'], ans:0,
+    hint:'車は自分で作る？ 作られる？',
+    naru:'車は「作られた」→ [c:made]。[e:a car made in Japan]＝「日本で作られた車（日本製の車）」。'},
+  {type:'order', id:'o3', tag:'do', q:'「本を読んでいる女の子は ユイだ」を英語に。', words:['The','girl','reading','a','book','is','Yui'], colors:['s','s','c','c','c','v','o'],
+    hint:'まず「女の子」。そのうしろに「本を読んでいる」。最後に is Yui。',
+    naru:'[s:The girl] [c:reading a book] [v:is] [o:Yui]. 2語以上の説明なので、名詞のうしろです。'},
+  {type:'order', id:'o4', tag:'do', q:'「これは 父が撮った写真だ」を英語に。', words:['This','is','a','photo','taken','by','my','father'], colors:['s','v','o','o','c','c','c','c'],
+    hint:'写真は「撮られた」もの → taken。a photo のうしろに「父によって撮られた」。',
+    naru:'[s:This] [v:is] [o:a photo] [c:taken by my father]. 「父に撮られた写真」＝「父が撮った写真」。'},
+  {type:'choice', id:'c4', tag:'solve', q:'(　) に入るのは？<br>[e:Look! There is a (　) window.]',
+    opts:['broken','breaking','break'], ans:0,
+    hint:'窓は自分で割る？ だれかに割られた？',
+    naru:'窓は「割られた」→ [c:broken]。1語なので名詞の前に置いて [e:a broken window]。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['pond','池'],['lost','迷子の'],['tag','名札'],['owner','飼い主'],['wear','身につけている']]},
+  {type:'read', title:'Saturday at the Park', find:'名詞を説明する -ing・-ed は3つあります。見つけられるかな？', paras:[
+    'Last Saturday, I went to the park with my little brother.',
+    'There were many people there.',
+    'A man playing the guitar was singing under a tree.',
+    'Some children were listening to him.',
+    'Then my brother found a {lost|迷子の} dog near the {pond|池}.',
+    'We called the phone number on its {tag|名札}.',
+    'Soon, a girl {wearing|身につけている} a red cap came to us.',
+    'She was the dog\'s {owner|飼い主}, and she said, "Thank you!" many times.']},
+  {type:'choice', id:'r1', tag:'solve', q:'木の下で歌っていたのは？',
+    opts:['ギターをひいている男の人','赤いぼうしの女の子','ぼくの弟'], ans:0,
+    hint:'under a tree がある文をさがそう。',
+    naru:'[e:A man playing the guitar]＝「ギターをひいている男の人」。このかたまりが文の「だれが」です。'},
+  {type:'choice', id:'r2', tag:'think', q:'"a lost dog" の意味は？',
+    opts:['迷子の犬','犬をなくした人','走っている犬'], ans:0,
+    hint:'lost は lose（なくす）の -ed の形。犬は「なくされた（いなくなった）」側。',
+    naru:'1語の説明 [c:lost] が dog の前について「迷子の犬」。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['犬の飼い主は、赤いぼうしをかぶった女の子だった','弟は池で自分の犬をなくした','ギターの男の人が犬を見つけた'], ans:0,
+    hint:'最後の2文を読もう。',
+    naru:'[e:a girl wearing a red cap]（赤いぼうしをかぶった女の子）が、犬の飼い主でした。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Who is the girl dancing on the stage?',
+    opts:['ステージでおどっている女の子はだれ？','その女の子はステージでおどっている？','だれがステージでおどるの？'], ans:0,
+    hint:'the girl のすぐあとに dancing … が続いていたかな。',
+    naru:'[e:the girl dancing on the stage]＝「ステージでおどっている女の子」。それが「だれ？」と聞いています。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'I like fried chicken.',
+    opts:['I like fried chicken.','I like frying chicken.','I like free chicken.'], ans:0,
+    hint:'chicken の前の語の終わりは「ド」か「イング」か。',
+    naru:'[e:fried chicken]＝「揚げられたチキン」→ フライドチキン。身近なところにも -ed の説明があります。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:I have a ________ named / made in ________.]<br>自分の持ち物やペットを、-ing か -ed の説明をつけて書こう。',
+    example:'例：I have a dog named Hana. / I have a watch made in Japan. / I have a friend living in Osaka.', placeholder:'I have a ...', ok_example:'I have a dog named Hana.',
+    pattern:'^\\s*i\\s+have\\s+.+\\b(\\w+ed|\\w+ing|made|bought|given|taken|written|built)\\b', need:'I have a … のあとに、named・made・-ing などの説明をつけよう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'なんで1語だと前、2語以上だとうしろなの？',
+    a:'日本語は「サッカーをしている少年」と、説明がぜんぶ前に来ます。英語は、長い説明を前に置くと名詞がなかなか出てきません。<br>そこで英語は、まず名詞（the boy）を言ってから「どんな？ → サッカーをしている」とあとから足します。短い1語なら前でも邪魔にならないので、[e:a crying baby] のように前に置きます。'},
+  {type:'why', q:'-ing と -ed、どっちを使うか迷ったら？',
+    a:'名詞を「だれが」にして、文を作ってみましょう。<br>[e:The baby is crying.]（赤ちゃんが泣いている）→ 自然なので [c:crying]。<br>[e:The language is spoken.]（ことばが話される）→ 「される」なので [c:spoken]。<br>名詞が自分でしているなら -ing、されているなら -ed です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'is・was があるか、ないか', rows:[
+    {en:'The baby is crying. / The window was broken.', label:'is・was がある：文になっている'},
+    {en:'a crying baby / a broken window', label:'説明が1語：名詞の前', today:1},
+    {en:'the boy playing soccer / a car made in Japan', label:'説明が2語以上：名詞のうしろ', today:1}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 16, title: '分詞構文', sub: '-ing で始めて「〜して・〜しながら」',
+  goal: '<b>今日のゴール</b><br>① When I was walking … を [w:Walking] … と短くできる<br>② 意味は「〜して・〜しながら・〜なので」と、前後の流れで決まる<br>③ 省けるのは、うしろの文と「だれが」が同じときだけ',
+  steps: [
+  {sec:'1. 語順をとりもどす（5分）'},
+  {type:'info', tag:'see', q:'前回の -ing は、名詞の説明だった', html:`
+    前回は、-ing のかたまりで名詞を説明しました。
+    <div class="morph">[s:The boy] [c:playing soccer] [v:is] [o:my brother].</div>
+    [c:playing soccer] は、すぐ前の [s:The boy] だけを説明していました。<br>
+    今日は、-ing のかたまりが<b>文全体</b>に「そのときの様子」を足します。まず、もとになる2つの文を作りましょう。
+    <div class="legend">[s:だれが] → [v:する] → [o:なにを]　-ing のかたまりは紫 [c:〜して] で表します。</div>`},
+  {type:'order', id:'o1', tag:'do', q:'「私は 通りを 歩いていた」を英語に。', words:['I','was','walking','along','the','street'], colors:['s','v','v','','',''],
+    hint:'だれが → was walking（歩いていた）→ along the street（通りを）。',
+    naru:'[s:I] [v:was walking] along the street. was ＋ -ing で「〜していた」。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は 友だちのケンに 会った」を英語に。', words:['I','met','my','friend','Ken'], colors:['s','v','o','o','o'],
+    hint:'だれが → 会った（met）→ だれに。',
+    naru:'[s:I] [v:met] [o:my friend Ken]. この2つの文を、次でひとつにします。'},
+
+  {sec:'2. なぞ：When も I もないのに通じる（5分）'},
+  {type:'info', tag:'see', q:'2つの文をくらべよう', html:`
+    <p class="en">A: When I was walking along the street, I met Ken.　<button class="say" data-say="When I was walking along the street, I met Ken.">🔊</button></p>
+    <p class="en">B: Walking along the street, I met Ken.　<button class="say" data-say="Walking along the street, I met Ken.">🔊</button></p>
+    A も B も「通りを歩いていたとき、私はケンに会った」。<br>
+    B には When も I was もありません。でも、歩いていたのは<b>うしろの I</b> だとわかるので、通じます。
+    <div class="naru"><b>ポイント</b>　-ing で始まるかたまりが、文に「〜して・〜しながら・〜なので」を足します。どれになるかは<b>前後の流れ</b>で決まります。</div>`},
+  {type:'morph', tag:'see', q:'When I was walking が短くなる', lead:'ボタンを押すと、長い言い方が短くなります。',
+    parts:[{t:'When',c:'w',out:1},{t:'I was',out:1},{t:'walking',c:'c',out:1},{t:'Walking',c:'c',in:1},{t:'along the street,',c:'c'},{t:'I',c:'s'},{t:'met',c:'v'},{t:'Ken.',c:'o'}],
+    note:'① When（〜とき）を消す　② うしろと同じ「だれが」（I was）を消す　③ -ing で始まる。<br>-ing のかたまりは、文の<b>最後</b>に置くこともあります（とくに「〜しながら」）。'},
+  {type:'choice', id:'c1', tag:'think', q:'[e:Feeling tired, I went to bed early.]<br>の意味は？', say:'Feeling tired, I went to bed early.',
+    opts:['疲れていたので、早く寝た','疲れていたけど、早く寝なかった','早く寝たので、疲れなかった'], ans:0,
+    hint:'Feeling tired ＝「疲れを感じて」。うしろの文とどうつながると自然？',
+    naru:'[c:Feeling tired], [s:I] [v:went] to bed early.「疲れていたので」。理由になっています。'},
+  {type:'choice', id:'c2', tag:'think', q:'つまずきポイント：どこが変？<br>[e:Walking along the street, a dog barked at me.]',
+    opts:['Walking を Walked にする','歩いていたのは「私」なのに、うしろの「だれが」が a dog になっている','barked at me が変'], ans:1,
+    hint:'-ing のかたまりで「歩いていた」のは、うしろの文の「だれが」と同じはず。',
+    naru:'これだと「<b>犬が</b>通りを歩いていて、私にほえた」になってしまいます。<br>「だれが」がちがうときは省かずに [e:When I was walking along the street, a dog barked at me.]'},
+
+  {sec:'3. 使ってみる（8分）'},
+  {type:'choice', id:'c3', tag:'solve', q:'「テレビを見ながら、弟は夕飯を食べた」<br>(　) に入るのは？<br>[e:(　) TV, my brother ate dinner.]',
+    opts:['Watching','Watched','Watch'], ans:0,
+    hint:'弟は自分で見ている？ 見られている？',
+    naru:'弟が自分で見ている → [c:Watching TV]。「テレビを見ながら」。'},
+  {type:'order', id:'o3', tag:'do', q:'「私は 音楽を聞きながら 宿題をした」を英語に。', words:['I','did','my','homework','listening','to','music'], colors:['s','v','o','o','c','c','c'],
+    hint:'まず「私は 宿題をした」。「〜しながら」の -ing のかたまりを最後に足す。',
+    naru:'[s:I] [v:did] [o:my homework] [c:listening to music]. 「〜しながら」は文の最後に置くことも多いです。'},
+  {type:'order', id:'o4', tag:'do', q:'「ケンは 歌を歌いながら 家に帰ってきた」を英語に。', words:['Ken','came','home','singing','a','song'], colors:['s','v','','c','c','c'],
+    hint:'「ケンは 家に帰ってきた」＝ Ken came home。そのあとに「歌を歌いながら」。',
+    naru:'[s:Ken] [v:came] home [c:singing a song]. 帰ってくる「様子」を -ing で足しています。'},
+  {type:'choice', id:'c4', tag:'solve', q:'[e:Turning left, you will see the station.]<br>の意味は？', say:'Turning left, you will see the station.',
+    opts:['左に曲がると、駅が見えます','左に曲がったので、駅が見えた','駅が見えたら、左に曲がって'], ans:0,
+    hint:'will see は「これから見える」。Turning left は「左に曲がって」。',
+    naru:'[c:Turning left], [s:you] [v:will see] [o:the station].「左に曲がると」。道案内でよく使います。'},
+
+  {sec:'4. 短い英文を読む（7分）'},
+  {type:'words', items:[['bus stop','バス停'],['umbrella','かさ'],['hold','手に持つ'],['be gone','行ってしまった'],['drive','車で送る']]},
+  {type:'read', title:'A Rainy Morning', find:'-ing で始まる「〜して・〜しながら」のかたまりは3つあります。見つけられるかな？', paras:[
+    'It was raining hard this morning.',
+    'Getting up late, I didn\'t have time for breakfast.',
+    'I ran to the {bus stop|バス停} {holding|手に持って} my {umbrella|かさ}.',
+    'But the bus {was gone|行ってしまっていた}.',
+    'Feeling sad, I started walking to school.',
+    'Then a car stopped next to me.',
+    'It was my friend Saki\'s mother!',
+    'She {drove|車で送った} me to school, and I wasn\'t late.']},
+  {type:'choice', id:'r1', tag:'solve', q:'朝ごはんを食べる時間がなかったのは、なぜ？',
+    opts:['おそく起きたから','雨がはげしかったから','バスに乗りおくれたから'], ans:0,
+    hint:'breakfast がある文の、前半を見よう。',
+    naru:'[c:Getting up late] ＝「おそく起きたので」。理由を表しています。'},
+  {type:'choice', id:'r2', tag:'think', q:'"Feeling sad, I started walking to school." の意味は？',
+    opts:['悲しい気持ちで、学校へ歩きはじめた','悲しくなったので、学校を休んだ','歩いていると、悲しくなった'], ans:0,
+    hint:'Feeling sad ＝「悲しく感じて」。うしろの文は「学校へ歩きはじめた」。',
+    naru:'[c:Feeling sad], [s:I] [v:started] walking to school. バスに乗れなくて、がっかりしたんですね。'},
+  {type:'choice', id:'r3', tag:'think', q:'本文と合うのはどれ？',
+    opts:['友だちのお母さんが、車で学校まで送ってくれた','バスに間に合った','かさを家に忘れた'], ans:0,
+    hint:'最後の3文を読もう。',
+    naru:'She drove me to school. サキのお母さんのおかげで、遅刻しませんでした。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Hearing the news, she started to cry.',
+    opts:['その知らせを聞いて、彼女は泣きだした','彼女は泣きながら、その知らせを聞いた','知らせを聞くと、彼女は泣きやんだ'], ans:0,
+    hint:'最初の Hearing the news（知らせを聞いて）のあと、何をはじめた？',
+    naru:'[c:Hearing the news], [s:she] [v:started] to cry.「知らせを聞いて、泣きだした」。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。聞こえた文は？', listen:'Walking to school, I saw a rainbow.',
+    opts:['Walking to school, I saw a rainbow.','I walked to school and saw a rainbow.','When I walk to school, I see a rainbow.'], ans:0,
+    hint:'最初の音は「ウォーキング」か「アイ」か「ウェン」か。',
+    naru:'[c:Walking to school], [s:I] [v:saw] [o:a rainbow].「学校へ歩いていて、にじを見た」。'},
+
+  {sec:'6. ボス問題：自分のことを言う（2分）'},
+  {type:'write', id:'w1', tag:'boss', q:'「〜しながら」を -ing で言ってみよう。<br>[e:I ________ (-ing ……).]',
+    example:'例：I do my homework listening to music. / I eat breakfast watching TV. / Walking to school, I listen to music.', placeholder:'I eat breakfast ...ing ...', ok_example:'I eat breakfast watching TV.',
+    pattern:'(^\\s*\\w+ing\\b.*,\\s*i\\s+\\w+)|(^\\s*i\\s+\\w+.*\\s\\w+ing\\b)', need:'自分のすることのあとに、-ing のかたまり（〜しながら）をつけよう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'When や I を省いて、意味がわからなくならないの？',
+    a:'「だれが」はうしろの文と同じなので、言わなくてもわかります。「〜とき・〜ので」も、前後の流れでだいたいわかります。<br>この言い方は、物語や説明文など<b>書きことば</b>でよく使います。会話では When … や because … を使うほうがふつう。自分で言うときは、まよったら When を使えばOKです。'},
+  {type:'why', q:'前回の -ing（名詞の説明）と、どう見分けるの？',
+    a:'前回：[e:The boy playing soccer is my brother.] → [c:playing soccer] は、すぐ前の名詞 the boy だけを説明。<br>今日：[e:Walking along the street, I met Ken.] → 文の頭にあって「,」で区切られ、文全体に「そのときの様子」を足しています。<br>迷ったら「すぐ前の名詞が〜しているの？」と考えましょう。[e:I did my homework listening to music.] では、宿題が音楽を聞くわけではないので今日の形です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'同じ -ing でも、はたらきがちがう', rows:[
+    {en:'When I was walking along the street, I met Ken.', label:'When を使う（会話ではこちらがふつう）'},
+    {en:'Walking along the street, I met Ken.', label:'分詞構文：文全体に「〜して」を足す', today:1},
+    {en:'The boy walking along the street is Ken.', label:'前回の分詞：名詞（the boy）を説明'}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 17, title: '読解のまとめ（1）前期の文法', sub: 'ラーメン屋のアルバイト',
+  goal: '<b>今日のゴール</b><br>① 長い英文も、1文ずつ「だれが → する」を見つけて読める<br>② 前期（第1〜8回）の文法を、文章の中で見つけられる<br>③ 話の流れ（何があって、どう思ったか）をつかめる',
+  steps: [
+  {sec:'1. 読む前に（3分）'},
+  {type:'info', tag:'see', q:'長い英文は「1文ずつ」読む', html:`
+    長い文章を見ると、それだけでいやになりますね。でも、文章は短い文が集まっただけです。<br>
+    1文ごとに、まず [s:だれが] と [v:する] を見つけましょう。そこがわかれば、残りは「つけ足し」です。
+    <div class="morph">[s:Her uncle] [v:gets up] at five every morning.</div>
+    <div class="legend">「おじさんが → 起きる」。at five（5時に）、every morning（毎朝）はつけ足し。</div>
+    <button class="say" data-say="Her uncle gets up at five every morning.">🔊 聞く</button>
+    <div class="naru"><b>ポイント</b>　全部の単語がわからなくても大丈夫。[s:だれが]→[v:する] が見えれば、話はつかめます。</div>`},
+  {type:'words', items:[['part-time job','アルバイト'],['uncle','おじ'],['bowl','どんぶり・おわん'],['order','注文'],['expect','予想する・思う'],['customer','お客さん'],['taste','味'],['miss','（なくて）さびしく思う']]},
+
+  {sec:'2. 読む（1）はじめての日（5分）'},
+  {type:'read', title:'Summer at the Ramen Shop (1)', find:'it と to のある文を見つけてみよう。', paras:[
+    'Last summer, Yui started a {part-time job|アルバイト} at her {uncle|おじ}\'s ramen shop.',
+    'She wanted to save money to buy a new phone.',
+    'On her first day, there were a lot of things to learn.',
+    'She didn\'t know where the {bowls|どんぶり} were.',
+    'It was hard for her to remember all the {orders|注文}.',
+    'The shop was much busier than she {expected|思っていた}.',
+    'She tried to work as fast as possible.',
+    '"Don\'t worry. Just do your best," her uncle said.']},
+  {type:'choice', id:'r1', tag:'solve', q:'ユイがアルバイトを始めたのは、何のため？',
+    opts:['新しいスマホを買うお金をためるため','ラーメンの作り方を習うため','おじさんにたのまれたため'], ans:0,
+    hint:'2文目の She wanted to save money to buy … を読もう。',
+    naru:'save money（お金をためる）[w:to buy] a new phone（新しいスマホを買うために）。to は「〜するために」（第8回）。'},
+  {type:'choice', id:'r2', tag:'think', q:'つまずきポイント：[e:It was hard for her to remember all the orders.]<br>この It は何？',
+    opts:['うしろの to remember all the orders（注文を全部覚えること）','ラーメン屋のお店','はじめての日'], ans:0,
+    hint:'It を「それは」と訳すと、何が大変なのかわからない。文のうしろに答えがある。',
+    naru:'[s:It] は「仮の主語」。中身はうしろの [w:to remember all the orders]。<br>「注文を全部覚えることは、彼女には大変だった」（第4回）。'},
+
+  {sec:'3. 読む（2）おじさんのスープ（5分）'},
+  {type:'read', title:'Summer at the Ramen Shop (2)', find:'比べる文（〜より・〜ほど）を見つけてみよう。', paras:[
+    'Her uncle gets up at five every morning to make the soup.',
+    'His soup is more popular than any other dish in the shop.',
+    'One day, Yui asked him why he worked so hard.',
+    'He smiled and said, "What I love is seeing my {customers|お客さん} smile.',
+    'The more they enjoy my soup, the happier I feel."',
+    'Yui thought about his words for a long time.']},
+  {type:'choice', id:'r3', tag:'solve', q:'おじさんが一生けんめい働くのは、なぜ？',
+    opts:['お客さんが笑顔になるのを見るのが好きだから','スープを早く売り切りたいから','ユイにほめられたいから'], ans:0,
+    hint:'What I love is … の文をさがそう。',
+    naru:'[s:What I love]（ぼくが大好きなこと）[v:is] seeing my customers smile（お客さんが笑うのを見ること）。what は第1回。'},
+  {type:'choice', id:'r4', tag:'think', q:'[e:The more they enjoy my soup, the happier I feel.]<br>の意味は？', say:'The more they enjoy my soup, the happier I feel.',
+    opts:['お客さんがスープを楽しむほど、ぼくはうれしくなる','お客さんは、ぼくよりスープを楽しんでいる','もっとスープを楽しんでくれたら、うれしかったのに'], ans:0,
+    hint:'The 〜er …, the 〜er … の形。第3回を思い出そう。',
+    naru:'[w:The more] A, [w:the happier] B ＝「A すればするほど、ますます B」（第3回）。'},
+  {type:'order', id:'o1', tag:'do', q:'「ユイは彼に、なぜそんなに一生けんめい働くのかたずねた」を英語に。', words:['Yui','asked','him','why','he','worked','so','hard'], colors:['s','v','o','o','o','o','o','o'],
+    hint:'Yui asked him のあとに「なぜ → 彼が → 働く」。? はつかない。',
+    naru:'[s:Yui] [v:asked] [o:him] [o:why he worked so hard]. why のあとは「だれが → する」のふつうの順（第6回）。'},
+
+  {sec:'4. 読む（3）なつかしい味（5分）'},
+  {type:'read', title:'Summer at the Ramen Shop (3)', find:'It is … that の文を見つけてみよう。', paras:[
+    'In August, an old man came to the shop alone.',
+    'He ate his ramen slowly and smiled.',
+    '"I came here with my parents when I was a boy," he said.',
+    '"It\'s this {taste|味} that I have {missed|なつかしく思ってきた} for fifty years."',
+    'Yui\'s uncle said, "My father made this soup, and I learned how to make it from him."',
+    'Yui was very glad to hear that.',
+    'Now her dream is to make soup as good as her uncle\'s.',
+    'The new phone can wait.']},
+  {type:'choice', id:'r5', tag:'solve', q:'おじいさんについて、本文と合うのは？',
+    opts:['子どものころ、親といっしょにこの店に来た','50年間、毎日この店に来ている','ユイのおじさんにスープの作り方を教えた'], ans:0,
+    hint:'"I came here with my parents when I was a boy" を読もう。',
+    naru:'when I was a boy（ぼくが少年だったころ）に、with my parents（両親と）来た。50年ぶりの味だったのです。'},
+  {type:'choice', id:'r6', tag:'think', q:'[e:It\'s this taste that I have missed for fifty years.]<br>この文の形は？',
+    opts:['強調の形 It is … that（この味こそ）第5回','仮の主語 it（〜することは）第4回','what のかたまり（〜もの）第1回'], ans:0,
+    hint:'It\'s と that を消してみよう。I have missed this taste … と、ふつうの文にもどる？',
+    naru:'It is と that をとると [e:I have missed this taste for fifty years.] にもどる。だから強調の形（第5回）。<br>「50年間なつかしく思ってきたのは、<b>この味</b>なんだ」。'},
+  {type:'order', id:'o2', tag:'do', q:'「ユイは、おじさんのようなスープを作りたい」を英語に。', words:['Yui','wants','to','make','soup','like','her','uncle\'s'], colors:['s','v','o','o','o','o','o','o'],
+    hint:'Yui wants のあとに「作ること」＝ to make。「おじさんのような」は soup のうしろ。',
+    naru:'[s:Yui] [v:wants] [o:to make soup like her uncle\'s]. to ＋動詞で「〜すること」。「作ることを望む」→「作りたい」（第7回）。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'The shop was much busier than she expected.',
+    opts:['店は、思っていたよりずっといそがしかった','店は、思っていたほどいそがしくなかった','店は、町でいちばんいそがしかった'], ans:0,
+    hint:'busier than（〜より いそがしい）が聞こえたかな。not は聞こえた？',
+    naru:'much busier than she expected＝「彼女が思っていたより、ずっといそがしい」（第2回）。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Now her dream is to make soup as good as her uncle\'s.',
+    opts:['ユイの夢は、おじさんと同じくらいおいしいスープを作ること','ユイの夢は、おじさんよりおいしいスープを作ること','ユイの夢は、おじさんといっしょにスープを作ること'], ans:0,
+    hint:'as good as と聞こえたか、better than と聞こえたか。',
+    naru:'as good as her uncle\'s＝「おじさんのと同じくらいよい」（第2回）。her uncle\'s は「おじさんのスープ」のこと。'},
+
+  {sec:'6. 一文で書く（3分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:My dream is to ________.]<br>自分の夢や目標を、to を使って書こう。',
+    example:'例：My dream is to be a nurse. / My goal is to get a driver\'s license. / My dream is to live by the sea.', placeholder:'My dream is to ...', ok_example:'My dream is to be a nurse.',
+    pattern:'\\bis\\s+to\\s+\\S+', need:'My dream is to のあとに、したいことを動詞から書こう。'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'知らない単語が出てきたら、どうすればいいの？',
+    a:'まず、とばして先を読んでみましょう。前後の文から意味が見えてくることがよくあります。<br>たとえば missed がわからなくても、「50年」「子どものころ来た」から「なつかしかった」くらいの意味は想像できます。<br>何回も出てくる語や、[s:だれが]・[v:する] にあたる語だけは、調べる価値があります。'},
+  {type:'why', q:'長い文は、どこで区切って読めばいいの？',
+    a:'目じるしの語の前で区切ると読みやすくなります。<br>[e:to]・[e:that]・[e:what]・[e:why]・[e:than] などです。<br>[e:She wanted / to save money / to buy a new phone.]<br>「彼女はしたかった / お金をためることを / 新しいスマホを買うために」と、前から順に意味をつなげます。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'本文に出てきた前期の文法', rows:[
+    {en:'It was hard for her to remember all the orders.', label:'仮の主語 it：注文を全部覚えることは大変だった（第4回）'},
+    {en:'The more they enjoy my soup, the happier I feel.', label:'the 比較級, the 比較級：楽しむほど、うれしくなる（第3回）'},
+    {en:'It\'s this taste that I have missed for fifty years.', label:'強調の形 It is … that：この味こそ（第5回）'}]}
+  ]
+});
+
+</script>
+<script>
+LESSONS.push({
+  no: 18, title: '読解のまとめ（2）後期の文法', sub: '家族になった犬',
+  goal: '<b>今日のゴール</b><br>① 長い英文も、「つけ足しの部分」をはずして読める<br>② 後期（第9〜16回）の文法を、文章の中で見つけられる<br>③ 話の流れ（何があって、どう変わったか）をつかめる',
+  steps: [
+  {sec:'1. 読む前に（3分）'},
+  {type:'info', tag:'see', q:'「つけ足し」をはずすと、文の骨が見える', html:`
+    後期の文法の多くは、名詞のうしろに<b>説明をつけ足す</b>形でした（who・which・where・分詞）。<br>
+    長い文は、まず [s:だれが]→[v:する] を見つけて、つけ足しを（　）に入れて読みましょう。
+    <div class="morph">[s:Momo] [v:is] a small dog (who lives with my family).</div>
+    <div class="legend">骨は「モモは → 小さな犬だ」。（　）の中は「どんな犬か」の説明。</div>
+    <button class="say" data-say="Momo is a small dog who lives with my family.">🔊 聞く</button>
+    <div class="naru"><b>ポイント</b>　骨がわかってから（　）の中を読むと、長い文でも迷いません。</div>`},
+  {type:'words', items:[['shelter','保護施設'],['corner','すみ'],['sure','たしかな'],['spot','場所'],['mailman','郵便屋さん'],['sick','病気の'],['medicine','薬'],['reason','理由']]},
+
+  {sec:'2. 読む（1）出会い（5分）'},
+  {type:'read', title:'Our Dog, Momo (1)', find:'who・if・when のある文を見つけてみよう。', paras:[
+    'Momo is a small brown dog who lives with my family.',
+    'We found her at an animal {shelter|保護施設} three years ago.',
+    'She was the only dog sitting quietly in the {corner|すみ}.',
+    'At first, I wasn\'t {sure|たしかな} if she liked people.',
+    'But when I held out my hand, she walked to me slowly.',
+    'That was the day when Momo became part of our family.']},
+  {type:'choice', id:'r1', tag:'solve', q:'保護施設で、モモはどんな様子だった？',
+    opts:['すみで静かに座っていた','ほかの犬と元気に遊んでいた','大きな声でほえていた'], ans:0,
+    hint:'the only dog sitting quietly in the corner を読もう。',
+    naru:'the only dog [c:sitting quietly in the corner]＝「すみで静かに座っている、ただ1匹の犬」。sitting が dog を説明しています（第15回）。'},
+  {type:'choice', id:'r2', tag:'think', q:'つまずきポイント：[e:I wasn\'t sure if she liked people.]<br>の意味は？', say:'I wasn\'t sure if she liked people.',
+    opts:['彼女が人を好きかどうか、わからなかった','もし彼女が人を好きなら、安心だった','彼女が人を好きだと、わかっていた'], ans:0,
+    hint:'if を「もし」と読むと、文がつながらない。wasn\'t sure（はっきりしなかった）の中身は？',
+    naru:'[w:if she liked people]＝「彼女が人を好き<b>かどうか</b>」（第9回）。「もし」ではありません。<br>wasn\'t sure（わからなかった）の中身になっています。'},
+
+  {sec:'3. 読む（2）モモのいる毎日（5分）'},
+  {type:'read', title:'Our Dog, Momo (2)', find:'lets・makes のあとの形に注目しよう。', paras:[
+    'Momo has a favorite {spot|場所} where she always sleeps.',
+    'It is a sunny place by the window.',
+    'Every morning, I hear her bark at the {mailman|郵便屋さん}.',
+    'My mother lets her sleep on the sofa, but my father doesn\'t like that.',
+    'Still, Momo makes everyone in my family smile.',
+    'Even my father, who says he doesn\'t like dogs, talks to her every night.']},
+  {type:'choice', id:'r3', tag:'solve', q:'本文と合うのはどれ？',
+    opts:['父は「犬は好きじゃない」と言うが、毎晩モモに話しかける','父はモモをソファで寝かせてあげる','モモは毎朝、郵便屋さんと遊ぶ'], ans:0,
+    hint:'最後の文の Even my father, who says … を読もう。',
+    naru:'my father, [w:who says he doesn\'t like dogs]（犬は好きじゃないと言う父）でも、talks to her every night。ソファで寝かせるのは母です。'},
+  {type:'choice', id:'r4', tag:'think', q:'[e:Momo makes everyone in my family smile.]<br>の意味は？', say:'Momo makes everyone in my family smile.',
+    opts:['モモは、家族のみんなを笑顔にする','家族のみんなが、モモを笑わせる','モモは、家族のみんなといっしょに笑う'], ans:0,
+    hint:'make ＋ 人 ＋ 動詞 の形。第14回を思い出そう。',
+    naru:'[s:Momo] [v:makes] [o:everyone in my family] [c:smile]＝「モモが、家族みんなを笑わせる」（第14回）。笑うのは家族のほうです。'},
+  {type:'order', id:'o1', tag:'do', q:'「母は、モモをソファで寝かせてあげる」を英語に。', words:['My','mother','lets','Momo','sleep','on','the','sofa'], colors:['s','s','v','o','c','','',''],
+    hint:'lets のあとに「だれに」、そのあと「何をさせるか」を動詞の形のまま。',
+    naru:'[s:My mother] [v:lets] [o:Momo] [c:sleep] on the sofa. let ＋人＋動詞＝「（したいように）させてあげる」（第14回）。'},
+
+  {sec:'4. 読む（3）病気のあとで（5分）'},
+  {type:'read', title:'Our Dog, Momo (3)', find:'文の頭が -ing で始まる文を見つけてみよう。', paras:[
+    'Last winter, Momo got {sick|病気の} and stopped eating.',
+    'We took her to an animal hospital and had the doctor check her.',
+    'Waiting there, I held her in my arms.',
+    'The doctor gave us some {medicine|薬} which helped her a lot.',
+    'A week later, I saw her run to the door again.',
+    'I still don\'t know the {reason|理由} why she walked to me at the shelter.',
+    'But this is how a small dog changed my family.']},
+  {type:'choice', id:'r5', tag:'solve', q:'薬をもらったあと、モモはどうなった？',
+    opts:['1週間後、またドアまで走るようになった','そのあとも、ずっと何も食べなかった','病院にしばらく入院した'], ans:0,
+    hint:'A week later, I saw her … を読もう。',
+    naru:'[s:I] [v:saw] [o:her] [c:run] to the door＝「彼女がドアまで走るのを見た」（第13回）。元気になったのです。'},
+  {type:'choice', id:'r6', tag:'think', q:'[e:Waiting there, I held her in my arms.]<br>この文の形は？',
+    opts:['分詞構文（〜しながら）第16回','分詞で名詞を説明（〜している…）第15回','見る・聞くの形（人が〜するのを見る）第13回'], ans:0,
+    hint:'Waiting の前に名詞はある？ 文の頭で、コンマのあとに I held … が続いている。',
+    naru:'文の頭の [w:Waiting there] ＝「そこで待ちながら」。説明する名詞はなく、文全体に「いつ・どんなときに」をつけ足しています（第16回）。'},
+  {type:'order', id:'o2', tag:'do', q:'「私は、モモがドアまで走るのを見た」を英語に。', words:['I','saw','Momo','run','to','the','door'], colors:['s','v','o','c','','',''],
+    hint:'I saw のあとに「だれが」、そのあと「何をするのを」を動詞の形のまま。',
+    naru:'[s:I] [v:saw] [o:Momo] [c:run] to the door. see ＋人＋動詞＝「人が〜するのを見る」（第13回）。'},
+
+  {sec:'5. 耳で聞く（3分）'},
+  {type:'choice', id:'l1', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'Momo has a favorite spot where she always sleeps.',
+    opts:['モモには、いつも眠るお気に入りの場所がある','モモは、どこで寝るのが好き？','モモは、いつもお気に入りの場所をさがしている'], ans:0,
+    hint:'最後は下がる調子？ where のあとに she always sleeps と続いたかな。',
+    naru:'a favorite spot [w:where she always sleeps]＝「彼女がいつも眠る、お気に入りの場所」（第11回）。質問ではありません。'},
+  {type:'choice', id:'l2', tag:'ear', q:'🔊 を押して聞こう。意味は？', listen:'This is how a small dog changed my family.',
+    opts:['こうして、小さな犬が私の家族を変えた','これが、小さな犬が家族を変えた理由だ','小さな犬は、どうやって家族を変えたの？'], ans:0,
+    hint:'how と聞こえたか、why と聞こえたか。最後の調子は上がった？',
+    naru:'[e:This is how …]＝「こうして…」「このようにして…」（第12回）。why なら「これが…の理由だ」になります。'},
+
+  {sec:'6. 一文で書く（3分）'},
+  {type:'write', id:'w1', tag:'boss', q:'[e:________ is a place where I ________.]<br>自分の好きな場所を、where を使って書こう。',
+    example:'例：My room is a place where I can relax. / The park is a place where I walk my dog. / This cafe is a place where I meet my friends.', placeholder:'My room is a place where I ...', ok_example:'My room is a place where I can relax.',
+    pattern:'\\bwhere\\s+\\S+\\s+\\S+', need:'where のあとに「だれが → する」を書こう。（例：where I can relax）'},
+
+  {sec:'もっと知りたい：よくある「なんで？」'},
+  {type:'why', q:'it・she・they は、だれ（何）のことか、どうやって見つけるの？',
+    a:'すぐ前の文から、合う名詞をさがします。[e:Momo has a favorite spot … It is a sunny place by the window.] の It は spot（お気に入りの場所）。<br>he・she は人や動物、it は1つのもの、they は2つ以上。この本文のように、家族の犬は it ではなく she・he で言うこともよくあります。<br>まよったら、その名詞を入れて読んでみて、意味が通れば正解です。'},
+  {type:'why', q:'which や -ing の説明のかたまりは、どこまで続くの？',
+    a:'かたまりは名詞のすぐうしろから始まり、文の終わりか、骨の文の続き（下の [v:talks] など）の前まで続きます。<br>[e:The doctor gave us some medicine (which helped her a lot).] → which から最後までが medicine の説明。<br>[e:Even my father, (who says he doesn\'t like dogs,) talks to her every night.] → コンマではさまれた部分が father の説明。はずすと [e:Even my father talks to her every night.] が骨です。'},
+
+  {sec:'まとめ'},
+  {type:'more', q:'本文に出てきた後期の文法', rows:[
+    {en:'I wasn\'t sure if she liked people.', label:'if ＝「〜かどうか」：人が好きかどうか（第9回）'},
+    {en:'Momo makes everyone in my family smile.', label:'使役動詞 make：家族みんなを笑顔にする（第14回）'},
+    {en:'Waiting there, I held her in my arms.', label:'分詞構文：そこで待ちながら（第16回）'}]}
+  ]
+});
+
+</script>
+
+<script>
+LESSONS.sort((a,b)=>a.no-b.no);
+
+// ===== 状態 =====
+const S=load();
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.v===1)return s}catch(e){}return {v:1,dev:rid(),nick:'',lessons:{}}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function rid(){const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let r='';for(let i=0;i<6;i++)r+=c[Math.floor(Math.random()*c.length)];return r}
+function LSof(n){const k='L'+n;if(!S.lessons[k])S.lessons[k]={u:{},w:{},t0:0,ms:0};return S.lessons[k]}
+let L=null, streak=0;
+const LS=()=>LSof(L.no);
+
+// ===== 読み上げ =====
+let voice=null,sayOK=false;
+function pickVoice(){if(!('speechSynthesis' in window))return;const vs=speechSynthesis.getVoices();voice=vs.find(v=>/en[-_]US/i.test(v.lang)&&/Samantha|Google|Aaron|Nicky/i.test(v.name))||vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null}
+if('speechSynthesis' in window){pickVoice();speechSynthesis.onvoiceschanged=pickVoice}
+function say(t,rate){
+  if(!('speechSynthesis' in window)){toast('この画面では読み上げが使えません。Safari か Chrome で開いてください');return}
+  const ss=window.speechSynthesis;
+  if(ss.speaking||ss.pending)ss.cancel();
+  if(!voice)pickVoice();
+  const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=rate||0.9;u.volume=1;if(voice)u.voice=voice;
+  u.onstart=()=>{sayOK=true};
+  u.onerror=e=>{if(e.error!=='interrupted'&&e.error!=='canceled')toast('音が出せませんでした（'+e.error+'）')};
+  ss.resume();ss.speak(u);
+  setTimeout(()=>{if(!sayOK&&!ss.speaking)toast('音が出ないときは、消音スイッチを切る／Safari で開く')},2500);
+}
+function soundTest(){
+  const el=document.getElementById('sndst'),has='speechSynthesis' in window,n=has?speechSynthesis.getVoices().length:0;
+  sayOK=false;say('Hello. Can you hear me?',0.9);
+  el.textContent=has?`読み上げ：あり／英語の声：${voice?voice.name:'未取得（初回は少し待って、もう一度）'}（声の数 ${n}）`:'読み上げ：なし（この画面では使えません）';
+  setTimeout(()=>{if(has)el.textContent+=sayOK?' → 再生できました':' → 再生が始まりませんでした'},2500);
+}
+
+// ===== 文字の整形 =====
+const app=document.getElementById('app');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// [s:..] [v:..] [o:..] [c:..] [w:..] は色の箱、[e:..] は英語の字体
+function fmt(s){if(!s)return '';return String(s).replace(/\[(s|v|o|c|w|e):([^\]]+)\]/g,(m,k,t)=>k==='e'?`<span class="en">${t}</span>`:`<span class="box b${k}">${t}</span>`)}
+const isEn=o=>/^[A-Za-z"'(]/.test(o);
+const TAG={see:['見る','t-see'],do:['手を動かす','t-do'],think:['考える','t-think'],solve:['解く','t-solve'],boss:['ボス','t-boss'],why:['なんで？','t-why'],ear:['聞く','t-ear']};
+function tag(t){const a=TAG[t];return a?`<span class="tag ${a[1]}">${a[0]}</span>`:''}
+const units=l=>l.steps.filter(s=>s.type==='order'||s.type==='choice');
+function hash(str){let h=7;for(const c of str)h=(h*31+c.charCodeAt(0))%233280;return h}
+function perm(n,seed){const r=[...Array(n).keys()];let x=seed;for(let i=n-1;i>0;i--){x=(x*9301+49297)%233280;const j=Math.floor(x/233280*(i+1));[r[i],r[j]]=[r[j],r[i]]}return r}
+function shuffled(n,seed){const r=perm(n,seed);if(n>1&&r.every((v,i)=>v===i))[r[0],r[1]]=[r[1],r[0]];return r}
+
+// ===== もくじ =====
+function lname(l){return l.no<=16?`第${l.no}回`:`付録${l.no-16}`}
+function stat(l){const ls=LSof(l.no),us=units(l);let solved=0,first=0,shown=0,tries=0;
+  us.forEach(s=>{const u=ls.u[s.id];if(!u)return;tries+=u.tries||0;if(u.ok||u.shown)solved++;if(u.ok&&u.first)first++;if(u.shown)shown++});
+  const all=us.length,ok=solved-shown,star=solved<all?0:(first/all>=0.8?3:ok/all>=0.6?2:1);
+  return {all,solved,first,shown,tries,star}}
+function menu(){
+  L=null;streak=0;
+  document.getElementById('htitle').textContent='なっとく英語Ⅱ';
+  document.getElementById('tomenu').hidden=true;
+  document.getElementById('hbar').style.visibility='hidden';
+  document.getElementById('cnt').textContent='';document.getElementById('streak').textContent='';
+  let h=`<div class="card"><div class="q" style="font-size:20px">なっとく英語Ⅱ</div>
+    <div class="small">英語コミュニケーションⅡの文法を、1回30分で「なっとく」する。<br>どの回からでも始められます。</div>
+    <div style="margin-top:10px"><button class="btn sub" id="sndtest">🔊 音のテスト</button><div class="small" id="sndst"></div></div>
+    <div class="small">音が出ないときは、①消音スイッチを切る ②音量を上げる ③Safari で開く。</div></div>`;
+  const row=l=>{const st=stat(l),done=st.solved===st.all;
+    return `<button class="lesson" data-go="${l.no}"><span class="no">${lname(l)}</span><span class="tt">${esc(l.title)}<small>${esc(l.sub||'')}</small></span>
+      <span class="st">${done?'★'.repeat(st.star)+'☆'.repeat(3-st.star):st.solved?`${st.solved}/${st.all}`:''}</span></button>`};
+  h+=`<div class="half">前期</div>`+LESSONS.filter(l=>l.no<=8).map(row).join('');
+  h+=`<div class="half">後期</div>`+LESSONS.filter(l=>l.no>8&&l.no<=16).map(row).join('');
+  const ap=LESSONS.filter(l=>l.no>16);
+  if(ap.length)h+=`<div class="half">付録：読解のまとめ</div>`+ap.map(row).join('');
+  app.innerHTML=h;window.scrollTo(0,0);
+}
+
+// ===== 1回分 =====
+function open(n){
+  L=LESSONS.find(l=>l.no===n);if(!L){menu();return}
+  streak=0;Object.keys(ORD).forEach(k=>delete ORD[k]);
+  const ls=LS();if(!ls.t0){ls.t0=Date.now();save()}
+  document.getElementById('htitle').textContent=`${lname(L)}　${L.title}`;
+  document.getElementById('tomenu').hidden=false;
+  document.getElementById('hbar').style.visibility='visible';
+  let h=`<div class="card"><div class="tag t-solve">${lname(L)}</div><div class="q" style="font-size:20px">${esc(L.title)}${L.sub?` ＝「${esc(L.sub)}」`:''}</div><div class="goal">${fmt(L.goal)}</div>
+    <p class="small">🔊 は英語を読み上げます。1回まちがえるとヒント、2回で「答えを見る」が出ます。</p></div>`;
+  L.steps.forEach((s,i)=>{h+=stepHTML(s,i,ls)});
+  h+=endHTML(ls);
+  app.innerHTML=h;
+  L.steps.filter(s=>s.type==='order').forEach(drawOrder);
+  progress();window.scrollTo(0,0);
+}
+
+function stepHTML(s,i,ls){
+  if(s.sec)return `<div class="sec">${esc(s.sec)}</div>`;
+  if(s.type==='info')return `<div class="card">${tag(s.tag)}${s.q?`<div class="q">${fmt(s.q)}</div>`:''}${fmt(s.html)}</div>`;
+  if(s.type==='morph'){
+    const p=s.parts.map(x=>{const t=x.c?`<span class="box b${x.c}">${esc(x.t)}</span>`:esc(x.t);return x.out?`<span class="out">${t}&nbsp;</span>`:x.in?`<span class="in">${t}&nbsp;</span>`:`<span>${t}&nbsp;</span>`}).join('');
+    const b=s.btn||['ちぢめる ▶','◀ もどす'];
+    return `<div class="card">${tag(s.tag||'see')}<div class="q">${fmt(s.q)}</div>${fmt(s.lead||'')}
+      <div class="morph" id="mo-${i}">${p}</div><button class="btn sub" data-morph="${i}" data-b0="${esc(b[0])}" data-b1="${esc(b[1])}">${esc(b[0])}</button>
+      ${s.say?`<button class="say" data-say="${esc(s.say)}">🔊</button>`:''}
+      ${s.note?`<div class="naru"><b>ポイント</b>　${fmt(s.note)}</div>`:''}</div>`}
+  if(s.type==='words')return `<div class="card">${tag(s.tag||'see')}<div class="q">先に、出てくる単語</div><div class="vocab">${s.items.map(w=>`<button class="say" data-say="${esc(w[0])}">🔊</button><div><span class="en">${esc(w[0])}</span>　<span class="small">${esc(w[1])}</span></div>`).join('')}</div></div>`;
+  if(s.type==='read'){
+    const plain=p=>p.replace(/\{([^|]+)\|[^}]+\}/g,'$1');
+    const ps=s.paras.map(p=>`<p class="en">${esc(p).replace(/\{([^|]+)\|([^}]+)\}/g,'<span class="g" data-g="$2">$1</span>')} <button class="say" data-say="${esc(plain(p))}">🔊</button></p>`).join('');
+    const all=s.paras.map(plain).join(' ');
+    return `<div class="card">${tag(s.tag||'see')}<div class="q">${esc(s.title)}</div>
+      <button class="say" data-say="${esc(all)}">🔊 ぜんぶ聞く</button><button class="say" data-say="${esc(all)}" data-rate="0.65">🐢 おそく</button>
+      <div class="passage">${ps}</div><div class="gloss" id="gloss-${i}">点線の語をタップすると意味が出ます。</div>
+      ${s.find?`<div class="small">${fmt(s.find)}</div>`:''}</div>`}
+  if(s.type==='write'){
+    const v=ls.w[s.id]||'';
+    return `<div class="card">${tag(s.tag||'boss')}<div class="q">${fmt(s.q)}</div><div class="small">${fmt(s.example)}</div>
+      <input type="text" id="in-${s.id}" value="${esc(v)}" autocomplete="off" autocapitalize="sentences" placeholder="${esc(s.placeholder||'')}">
+      <div style="margin-top:8px"><button class="btn" data-write="${s.id}">できた</button> <button class="say" data-sayin="${s.id}">🔊 自分の文を聞く</button></div>
+      <div id="fb-${s.id}">${v&&chk(s,v)?okWrite:''}</div></div>`}
+  if(s.type==='why')return `<div class="card">${tag('why')}<details><summary>${fmt(s.q)}</summary><div class="small" style="margin:6px 0">30秒考えてから、開こう。</div><div>${fmt(s.a)}</div></details></div>`;
+  if(s.type==='more')return `<div class="card two">${tag('see')}<div class="q">${fmt(s.q)}</div>${s.rows.map(r=>`<div class="row en">${esc(r.en)}</div><div class="lab">${fmt(r.label)}${r.today?' ← 今日はこっち':''}</div>`).join('')}${s.note?`<div class="small">${fmt(s.note)}</div>`:''}</div>`;
+  // 判定ユニット
+  const u=ls.u[s.id]||{},done=u.ok||u.shown;
+  let h=`<div class="card" id="card-${s.id}">${tag(s.tag)}<div class="q">${fmt(s.q)}</div>`;
+  if(s.listen)h+=`<button class="say" data-say="${esc(s.listen)}">🔊 聞く</button><button class="say" data-say="${esc(s.listen)}" data-rate="0.6">🐢 おそく</button>`;
+  if(s.say)h+=`<button class="say" data-say="${esc(s.say)}">🔊</button>`;
+  if(s.type==='choice'){
+    const ord=shuffled(s.opts.length,hash(L.no+s.id));
+    h+=ord.map(k=>`<button class="opt ${done&&k===s.ans?'sel-ok':''}" data-opt="${s.id}" data-k="${k}" ${done?'disabled':''}>${isEn(s.opts[k])?`<span class="en">${esc(s.opts[k])}</span>`:esc(s.opts[k])}</button>`).join('');
+  }else{
+    h+=`<div class="small">色の枠：<span class="box bs">だれが</span><span class="box bv">する</span><span class="box bo">なにを</span>${s.colors&&s.colors.includes('c')?'<span class="box bc">どんな・どうする</span>':''}</div>
+      <div class="chips line" id="line-${s.id}"></div><div class="chips pool" id="pool-${s.id}"></div>
+      <div style="margin-top:8px"><button class="btn" data-check="${s.id}" ${done?'disabled':''}>答え合わせ</button> <button class="btn sub" data-reset="${s.id}" ${done?'disabled':''}>やりなおす</button></div>`;
+  }
+  return h+`<div id="fb-${s.id}">${fbDone(s,u)}</div></div>`;
+}
+const okWrite='<div class="fb ok">いいね！ 自分のことを英語で言えました。🔊 で自分の文を聞いて、まねして言ってみよう。</div>';
+function chk(s,v){try{return new RegExp(s.pattern,'i').test(v)}catch(e){return v.length>3}}
+function sentence(s){return s.words.join(' ')+(s.end||'.')}
+function fbDone(s,u){
+  if(u.ok)return `<div class="fb ok">${u.first?'1回で正解！':'正解！'}</div><div class="naru"><b>なるほど</b>　${fmt(s.naru)}</div>`;
+  if(u.shown)return `<div class="fb hint">答え：${s.type==='order'?`<span class="en">${esc(sentence(s))}</span>`:esc(s.opts[s.ans])}</div><div class="naru"><b>なるほど</b>　${fmt(s.naru)}</div>`;
+  return '';
+}
+function endHTML(ls){
+  return `<div class="sec">おわりに</div><div class="card">
+    <div class="q">今日のふりかえり</div><div class="stars" id="stars"></div><div id="endtxt" class="small"></div>
+    <div style="margin-top:10px">今日わかったことを一言（日本語でOK）</div>
+    <textarea id="refl" rows="2">${esc(ls.refl||'')}</textarea>
+    <div style="margin-top:10px">ニックネーム</div><input type="text" id="nick" value="${esc(S.nick)}" placeholder="本名は書かないでね">
+    <div style="margin-top:10px"><button class="btn" id="send">記録を送る</button> <button class="btn sub" data-tomenu="1">もくじへ</button></div>
+    <div id="sendmsg" class="small" style="margin-top:6px"></div></div>`;
+}
+
+// ===== 並べかえ =====
+const ORD={};
+function drawOrder(s){
+  const u=LS().u[s.id]||{};
+  if(!ORD[s.id])ORD[s.id]={pool:shuffled(s.words.length,hash(L.no+s.id)),line:[]};
+  if(u.ok||u.shown)ORD[s.id]={pool:[],line:s.words.map((w,i)=>i)};
+  const o=ORD[s.id],dis=(u.ok||u.shown)?'disabled':'',col=s.colors||[];
+  const chip=(i,w)=>`<button class="chip ${col[i]?'c-'+col[i]:''}" data-chip="${s.id}" data-i="${i}" data-w="${w}" ${dis}>${esc(s.words[i])}</button>`;
+  document.getElementById('line-'+s.id).innerHTML=o.line.map(i=>chip(i,'line')).join('');
+  document.getElementById('pool-'+s.id).innerHTML=o.pool.map(i=>chip(i,'pool')).join('');
+}
+
+// ===== 判定 =====
+const byId=id=>L.steps.find(s=>s.id===id);
+function judge(s,ok){
+  const ls=LS(),u=ls.u[s.id]||(ls.u[s.id]={tries:0});
+  u.tries++;
+  const fb=document.getElementById('fb-'+s.id);
+  if(ok){u.ok=true;u.first=(u.tries===1);streak++;save();
+    fb.innerHTML=fbDone(s,u)+(streak>=3?`<div class="small">🔥 ${streak}問連続正解</div>`:'');lock(s);progress();return}
+  streak=0;save();
+  fb.innerHTML=`<div class="fb ng">もう一度。</div><div class="fb hint">ヒント：${fmt(s.hint)}</div>`+(u.tries>=2?`<button class="btn sub" style="margin-top:8px" data-show="${s.id}">答えを見る</button>`:'');
+  progress();
+}
+function lock(s){
+  if(s.type==='choice')document.querySelectorAll(`[data-opt="${s.id}"]`).forEach(b=>{b.disabled=true;if(+b.dataset.k===s.ans)b.classList.add('sel-ok')});
+  else{drawOrder(s);document.querySelectorAll(`[data-check="${s.id}"],[data-reset="${s.id}"]`).forEach(b=>b.disabled=true)}
+}
+
+app.addEventListener('click',e=>{
+  const t=e.target.closest('button,.g');if(!t)return;
+  if(t.dataset.go){location.hash='L'+t.dataset.go;return}
+  if(t.dataset.tomenu){location.hash='';return}
+  if(t.id==='sndtest'){soundTest();return}
+  if(t.dataset.say){say(t.dataset.say,+t.dataset.rate||0.9);return}
+  if(t.classList.contains('g')){const gl=t.closest('.card').querySelector('.gloss');if(gl)gl.textContent=t.textContent+'：'+t.dataset.g;say(t.textContent,0.8);return}
+  if(t.dataset.morph){const el=document.getElementById('mo-'+t.dataset.morph);el.classList.toggle('on');t.textContent=el.classList.contains('on')?t.dataset.b1:t.dataset.b0;return}
+  if(t.dataset.opt){const s=byId(t.dataset.opt),k=+t.dataset.k;
+    if(k!==s.ans){t.classList.add('sel-ng');setTimeout(()=>t.classList.remove('sel-ng'),900)}
+    judge(s,k===s.ans);return}
+  if(t.dataset.chip){const s=byId(t.dataset.chip),o=ORD[s.id],i=+t.dataset.i;
+    if(t.dataset.w==='pool'){o.pool=o.pool.filter(x=>x!==i);o.line.push(i);say(s.words[i],0.9)}else{o.line=o.line.filter(x=>x!==i);o.pool.push(i)}
+    drawOrder(s);return}
+  if(t.dataset.reset){const o=ORD[t.dataset.reset];o.pool=o.pool.concat(o.line);o.line=[];drawOrder(byId(t.dataset.reset));return}
+  if(t.dataset.check){const s=byId(t.dataset.check),o=ORD[s.id];
+    if(o.pool.length){document.getElementById('fb-'+s.id).innerHTML='<div class="fb hint">ぜんぶの語を使おう。</div>';return}
+    const ok=o.line.map(i=>s.words[i]).join(' ')===s.words.join(' ');
+    judge(s,ok);if(ok)say(sentence(s),0.9);return}
+  if(t.dataset.show){const s=byId(t.dataset.show),u=LS().u[s.id];u.shown=true;streak=0;save();
+    document.getElementById('fb-'+s.id).innerHTML=fbDone(s,u);lock(s);progress();if(s.type==='order')say(sentence(s),0.9);return}
+  if(t.dataset.write){const s=byId(t.dataset.write),v=document.getElementById('in-'+s.id).value.trim();
+    LS().w[s.id]=v;save();document.getElementById('fb-'+s.id).innerHTML=chk(s,v)?okWrite:`<div class="fb hint">${fmt(s.need)}</div>`;return}
+  if(t.dataset.sayin){const v=document.getElementById('in-'+t.dataset.sayin).value.trim();if(v)say(v,0.85);return}
+  if(t.id==='send'){send();return}
+});
+app.addEventListener('input',e=>{if(!L)return;if(e.target.id==='refl'){LS().refl=e.target.value;save()}if(e.target.id==='nick'){S.nick=e.target.value.trim();save()}});
+document.getElementById('tomenu').onclick=()=>{location.hash=''};
+
+// ===== 進み具合 =====
+function progress(){
+  const st=stat(L);
+  document.getElementById('bar').style.width=(st.solved/st.all*100)+'%';
+  document.getElementById('cnt').textContent=`${st.solved} / ${st.all} 問`;
+  document.getElementById('streak').textContent=streak>=2?`🔥 ${streak}連続`:'';
+  const se=document.getElementById('stars');
+  if(se){se.textContent=st.solved<st.all?'☆☆☆':'★'.repeat(st.star)+'☆'.repeat(3-st.star);
+    document.getElementById('endtxt').textContent=st.solved<st.all?`あと ${st.all-st.solved} 問で星がつきます。`:`クリア！ 1回で正解 ${st.first}問／答えを見た ${st.shown}問`}
+  const ls=LS();if(st.solved===st.all&&!ls.clearToast){ls.clearToast=1;ls.ms=Date.now()-ls.t0;save();toast('クリア！ 下の「記録を送る」を押そう')}
+}
+
+// ===== 送信 =====
+function send(){
+  const st=stat(L),ls=LS(),msg=document.getElementById('sendmsg');
+  if(!S.nick){msg.textContent='ニックネームを入れてね。';return}
+  const p={app:APP,ver:APP_VER,dev:S.dev,nick:S.nick,lesson:L.no,solved:st.solved,all:st.all,first:st.first,shown:st.shown,tries:st.tries,
+    min:Math.round((ls.ms||Date.now()-ls.t0)/60000),refl:ls.refl||'',write:Object.values(ls.w).join(' / ')};
+  const q=Object.entries(p).map(([k,v])=>k+'='+encodeURIComponent(v)).join('&');
+  if(!GAS_URL){msg.innerHTML='記録先はまだつないでいません。<br>送る内容：'+esc(decodeURIComponent(q.replace(/&/g,' ／ ')));return}
+  fetch(GAS_URL+'?'+q,{mode:'no-cors'}).then(()=>{msg.textContent='送りました。おつかれさま！'}).catch(()=>{msg.textContent='送れませんでした。電波のよいところで、もう一度押してね。'});
+}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('on');setTimeout(()=>el.classList.remove('on'),2200)}
+
+function route(){const m=location.hash.match(/^#L(\d+)$/);if(m)open(+m[1]);else menu()}
+window.addEventListener('hashchange',route);
+route();
+</script>
+</body>
+</html>
